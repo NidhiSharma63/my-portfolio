@@ -1,0 +1,67 @@
+.wrapper-1{
+  @include wrapper;
+}
+
+.left-shadow{
+  position: absolute;
+  height: 30rem;
+  left: 0;
+  top: 3rem;
+  box-shadow: 0px 0px 137px 39px #424858;
+}
+
+.hero-banner-wrapper{
+  width: 80%;
+  margin: auto;
+  @include flex($alignItems:center,$justifyContent:space-between,$flexDirection:row)
+}
+
+.left-section{
+  @include flex($alignItems:flex-start,$justifyContent:space-between,$flexDirection:column);
+  gap:2.6rem;
+  letter-spacing: .1rem;
+
+  & p:first-child{
+    font-weight: 600;
+    @include text-style($fontSize:var(--fs-lg),$fontFamily:var(--ff-primary),$color:#637471)
+  }
+
+  & p:nth-child(2){
+    font-weight: 600;
+    @include text-style($fontSize:var(--fs-xl),$fontFamily:var(--ff-primary),$color:var(--primary-cl))
+  }
+
+  & p:nth-child(3){
+    font-weight: 600;
+    width: 80%;
+    line-height: var(--lh-md);
+    @include text-style($fontSize:var(--fs-sm),$fontFamily:var(--ff-secondary),$color:var(--text-cl));
+  }
+
+  button{
+    @include button;
+    font-family: var(--ff-secondary);
+    margin-top: 2rem;
+  }
+
+}
+
+.right-section {
+
+  img{
+    width: 45rem;
+  }
+
+  .hero-icons{
+    margin-top: 2rem;
+    @include flex($alignItems:flex-start,$justifyContent:end,$flexDirection:row);
+    gap: 2rem;
+    a{
+      font-size: 3rem;
+      color: var(--primary-cl);
+      i{
+        box-shadow: 0px 0px 40px 0px #040508;
+      }
+    }
+  }
+}

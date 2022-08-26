@@ -69,14 +69,23 @@
 }
 
 .wrapper-1 {
-  width: 85%;
+  width: 100%;
   margin: auto;
   position: relative;
   margin-top: 8rem;
 }
 
+.left-shadow {
+  position: absolute;
+  height: 30rem;
+  left: 0;
+  top: 3rem;
+  box-shadow: 0px 0px 137px 39px #424858;
+}
+
 .hero-banner-wrapper {
-  width: 100%;
+  width: 80%;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
