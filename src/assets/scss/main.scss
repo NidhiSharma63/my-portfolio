@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --main-bg:#ECF0F3;
+  --primary-cl:#444D54;
+  --text-cl:#434343;
+}
+
+body{
+  background-color: var(--main-bg);
+}
