@@ -3,6 +3,7 @@
 @import './utils.scss';
 @import './header.scss';
 @import './herobanner';
+@import './about';
 
 *{
   margin: 0;
@@ -15,6 +16,8 @@
   
   --primary-cl:#242D49;
   --text-cl:#535353;
+
+  --shadow-cl:#7c859c;
 
   --fs-xl:7.5rem;
   --fs-lg:5.5rem;

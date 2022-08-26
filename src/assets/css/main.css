@@ -54,6 +54,7 @@
   cursor: pointer;
   background-color: var(--btn-bg);
   transition: 0.5s;
+  box-shadow: 0px 6px 17px 0px var(--shadow-cl);
 }
 .header .nav-wrapper ul li:last-child a {
   color: white;
@@ -80,7 +81,7 @@
   height: 30rem;
   left: 0;
   top: 3rem;
-  box-shadow: 0px 0px 137px 39px #424858;
+  box-shadow: 0px 0px 107px 39px var(--shadow-cl);
 }
 
 .hero-banner-wrapper {
@@ -129,6 +130,7 @@
   transition: 0.5s;
   font-family: var(--ff-secondary);
   margin-top: 2rem;
+  box-shadow: 0px 6px 17px 0px var(--shadow-cl);
 }
 .left-section button a {
   color: white;
@@ -172,6 +174,7 @@
   --btn-bg:#444D54;
   --primary-cl:#242D49;
   --text-cl:#535353;
+  --shadow-cl:#7c859c;
   --fs-xl:7.5rem;
   --fs-lg:5.5rem;
   --fs-md:4.5rem;
