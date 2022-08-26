@@ -8,7 +8,6 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  box-shadow: 0px 10px 6px 0px rgba(202, 202, 202, 0.219);
 }
 
 .header {
@@ -49,21 +48,109 @@
   color: var(--primary-cl);
 }
 .header .nav-wrapper ul li:last-child {
-  border: 1px solid var(--primary-cl);
+  border: 1px solid var(--btn-bg);
   border-radius: 0.5rem;
-  padding: 0.7rem 2rem;
+  padding: 1rem 2rem;
   cursor: pointer;
   background-color: var(--btn-bg);
   transition: 0.5s;
 }
 .header .nav-wrapper ul li:last-child a {
   color: white;
+  text-decoration: none;
+  letter-spacing: 0.075rem;
 }
 .header .nav-wrapper ul li:last-child:hover {
   background-color: transparent;
 }
 .header .nav-wrapper ul li:last-child:hover a {
+  color: var(--btn-bg);
+  font-weight: 800;
+}
+
+.wrapper-1 {
+  width: 85%;
+  margin: auto;
+  position: relative;
+  margin-top: 8rem;
+}
+
+.hero-banner-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.left-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 2.6rem;
+  letter-spacing: 0.1rem;
+}
+.left-section p:first-child {
+  font-weight: 600;
+  font-size: var(--fs-lg);
+  font-family: var(--ff-primary);
+  color: #637471;
+}
+.left-section p:nth-child(2) {
+  font-weight: 600;
+  font-size: var(--fs-xl);
+  font-family: var(--ff-primary);
   color: var(--primary-cl);
+}
+.left-section p:nth-child(3) {
+  font-weight: 600;
+  width: 80%;
+  line-height: var(--lh-md);
+  font-size: var(--fs-sm);
+  font-family: var(--ff-secondary);
+  color: var(--text-cl);
+}
+.left-section button {
+  border: 1px solid var(--btn-bg);
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  background-color: var(--btn-bg);
+  transition: 0.5s;
+  font-family: var(--ff-secondary);
+  margin-top: 2rem;
+}
+.left-section button a {
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0.075rem;
+}
+.left-section button:hover {
+  background-color: transparent;
+}
+.left-section button:hover a {
+  color: var(--btn-bg);
+  font-weight: 800;
+}
+
+.right-section img {
+  width: 45rem;
+}
+.right-section .hero-icons {
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: end;
+  flex-direction: row;
+  gap: 2rem;
+}
+.right-section .hero-icons a {
+  font-size: 3rem;
+  color: var(--primary-cl);
+}
+.right-section .hero-icons a i {
+  box-shadow: 0px 0px 40px 0px #040508;
 }
 
 * {
@@ -76,10 +163,11 @@
   --btn-bg:#444D54;
   --primary-cl:#242D49;
   --text-cl:#535353;
-  --fs-xl:3rem;
-  --fs-lg:2.8rem;
-  --fs-sm:1.8rem;
-  --lh-md:1rem;
+  --fs-xl:7.5rem;
+  --fs-lg:5.5rem;
+  --fs-md:4.5rem;
+  --fs-sm:1.6rem;
+  --lh-md:3rem;
   --lh-sm:.1rem;
   --lh-xs:.1rem;
   --ff-primary: "Merriweather", serif;

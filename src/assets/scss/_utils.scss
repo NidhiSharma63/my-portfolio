@@ -14,21 +14,38 @@
 }
 
 @mixin button {
-  border: 1px solid var(--primary-cl);
+  border: 1px solid var(--btn-bg);
   border-radius: .5rem;
-  padding: .7rem 2rem;
+  padding: 1rem 2rem;
   cursor: pointer;
   background-color: var(--btn-bg);
   transition: .5s;
 
   a{
     color: white;
+    text-decoration: none;
+    letter-spacing: .075rem;
   }
 
   &:hover{
     background-color: transparent;
     a{
-      color: var(--primary-cl);
+      color: var(--btn-bg);
+      font-weight: 800;
     }
   }
+}
+
+@mixin wrapper {
+  width: 85%;
+  margin: auto;
+  position: relative;
+  // border: 1px solid green;
+  margin-top: 8rem;
+}
+
+@mixin text-style($fontSize,$fontFamily,$color) {
+  font-size: $fontSize;
+  font-family: $fontFamily;
+  color: $color;
 }

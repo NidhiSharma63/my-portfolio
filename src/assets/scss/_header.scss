@@ -1,11 +1,10 @@
 .header-wrapper{
-  // border: 1px solid;
   width: 100%;
   position: relative;
   padding-top: 1rem;
   height: 7rem;
   @include flex($alignItems:center,$justifyContent:space-between,$flexDirection:row);
-  box-shadow: 0px 10px 6px 0px rgba(202, 202, 202, 0.219);
+  // box-shadow: 0px 10px 6px 0px rgba(202, 202, 202, 0.219);
 }
 .header{
   width: 80%;
