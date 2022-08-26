@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Work+Sans&display=swap');
+
+@import './utils.scss';
+@import './header.scss';
+
+
 *{
   margin: 0;
   padding: 0;
@@ -5,10 +11,34 @@
 
 :root{
   --main-bg:#ECF0F3;
-  --primary-cl:#444D54;
-  --text-cl:#434343;
+  --btn-bg:#444D54;
+  
+  --primary-cl:#242D49;
+  --text-cl:#535353;
+
+  --fs-xl:3rem;
+  --fs-lg:2.8rem;
+  --fs-sm:1.8rem;
+
+  --lh-md:1rem;
+  --lh-sm:.1rem;
+  --lh-xs:.1rem;
+
+  --ff-primary: 'Merriweather', serif;
+  --ff-secondary: 'Work Sans', sans-serif;
+}
+
+html{
+  font-size: 62.5%;
 }
 
 body{
   background-color: var(--main-bg);
+  overflow-x: hidden;
+}
+
+.main-wrapper{
+  max-width: 1440px;
+  margin: auto;
+  // border: 1px solid red;
 }

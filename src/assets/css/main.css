@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Work+Sans&display=swap");
+.header-wrapper {
+  width: 100%;
+  position: relative;
+  padding-top: 1rem;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  box-shadow: 0px 10px 6px 0px rgba(202, 202, 202, 0.219);
+}
+
+.header {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  position: fixed;
+  left: 10%;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  height: 5rem;
+  font-family: var(--ff-secondary);
+}
+
+.header .logo p {
+  font-size: 2.8rem;
+  color: var(--primary-cl);
+}
+
+.header .nav-wrapper ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 8rem;
+  list-style: none;
+}
+.header .nav-wrapper ul li a {
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  color: var(--text-cl);
+  transition: 0.2s;
+}
+.header .nav-wrapper ul li a:hover {
+  color: var(--primary-cl);
+}
+.header .nav-wrapper ul li:last-child {
+  border: 1px solid var(--primary-cl);
+  border-radius: 0.5rem;
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+  background-color: var(--btn-bg);
+  transition: 0.5s;
+}
+.header .nav-wrapper ul li:last-child a {
+  color: white;
+}
+.header .nav-wrapper ul li:last-child:hover {
+  background-color: transparent;
+}
+.header .nav-wrapper ul li:last-child:hover a {
+  color: var(--primary-cl);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-bg:#ECF0F3;
+  --btn-bg:#444D54;
+  --primary-cl:#242D49;
+  --text-cl:#535353;
+  --fs-xl:3rem;
+  --fs-lg:2.8rem;
+  --fs-sm:1.8rem;
+  --lh-md:1rem;
+  --lh-sm:.1rem;
+  --lh-xs:.1rem;
+  --ff-primary: "Merriweather", serif;
+  --ff-secondary: "Work Sans", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--main-bg);
+  overflow-x: hidden;
+}
+
+.main-wrapper {
+  max-width: 1440px;
+  margin: auto;
+}

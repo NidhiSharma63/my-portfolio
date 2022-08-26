@@ -1,0 +1,34 @@
+@mixin flex($alignItems,$justifyContent,$flexDirection) {
+  display: flex;
+  align-items:$alignItems;
+  justify-content: $justifyContent;
+  flex-direction: $flexDirection;
+}
+
+@mixin position($position,$top,$bottom,$left,$right) {
+  position:$position;
+  left: $left;
+  right: $right;
+  top: $top;
+  bottom: $bottom;
+}
+
+@mixin button {
+  border: 1px solid var(--primary-cl);
+  border-radius: .5rem;
+  padding: .7rem 2rem;
+  cursor: pointer;
+  background-color: var(--btn-bg);
+  transition: .5s;
+
+  a{
+    color: white;
+  }
+
+  &:hover{
+    background-color: transparent;
+    a{
+      color: var(--primary-cl);
+    }
+  }
+}
