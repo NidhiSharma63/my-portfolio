@@ -19,10 +19,10 @@ const herobanner = () => {
           <img src={mainImg} alt="image" />
           <div className='hero-icons'>
             <a href="https://github.com/NidhiSharma63">
-              <i class="fa-brands fa-square-github"></i>
+              <i className="fa-brands fa-square-github"></i>
             </a>
            <a href="https://www.linkedin.com/in/nidhi-sharma-55329823b/">
-            <i class="fa-brands fa-linkedin"></i>
+            <i className="fa-brands fa-linkedin"></i>
            </a>
           </div>
         </div>

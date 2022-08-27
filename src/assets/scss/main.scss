@@ -4,6 +4,7 @@
 @import './header.scss';
 @import './herobanner';
 @import './about';
+@import './skills.scss';
 
 *{
   margin: 0;
@@ -15,14 +16,14 @@
   --main-bg:#ECF0F3;
   --btn-bg:#444D54;
   
-  --primary-cl:#242D49;
+  --primary-cl:#3F3D56;
   --text-cl:#2e2d2d;
 
   --shadow-cl:#7c859c;
 
   --fs-xl:7.5rem;
   --fs-lg:5.5rem;
-  --fs-md:4.5rem;
+  --fs-md:5rem;
   --fs-sm:2rem;
 
   --lh-lg:3.5rem;
