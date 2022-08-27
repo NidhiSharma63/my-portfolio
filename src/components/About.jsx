@@ -3,7 +3,7 @@ import aboutImg from '../assets/images/about.svg'
 
 const About = () => {
   return (
-    <div className='container-2'>
+    <div className='container-2' id='About'>
       <div className="about-wrapper">
         <div className="left-section">
           <p>About me</p>

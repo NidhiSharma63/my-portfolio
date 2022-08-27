@@ -5,6 +5,7 @@
 @import './herobanner';
 @import './about';
 @import './skills.scss';
+@import './process';
 
 *{
   margin: 0;
@@ -16,7 +17,7 @@
   --main-bg:#ECF0F3;
   --btn-bg:#444D54;
   
-  --primary-cl:#3F3D56;
+  --primary-cl:#444D54;
   --text-cl:#2e2d2d;
 
   --shadow-cl:#7c859c;
@@ -36,6 +37,7 @@
 
 html{
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body{

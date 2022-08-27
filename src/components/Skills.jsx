@@ -36,7 +36,7 @@ const Skills = () => {
             Here are my<br/> skills
           </div>
           <div className="skills-info">
-            my core languages are JavaScript, HTML, CSS. I have learned frameworks like Bootstrap,React,Tailwind and git as version control system.
+            my core languages are JavaScript, HTML, CSS. I have learned frameworks like Bootstrap,React,Tailwind and also i have learned git.
           </div>
         </div>
       </div>

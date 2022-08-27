@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Herobanner from './components/Herobanner';
 import About from './components/About';
 import Skills from './components/Skills';
+import Process from './components/Process';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Herobanner/>
       <About/>
       <Skills/>
+      <Process/>
     </div>
   )
 }
