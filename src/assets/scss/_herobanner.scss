@@ -32,7 +32,6 @@
   }
 
   & p:nth-child(3){
-    font-weight: 600;
     width: 80%;
     line-height: var(--lh-md);
     @include text-style($fontSize:var(--fs-sm),$fontFamily:var(--ff-secondary),$color:var(--text-cl));

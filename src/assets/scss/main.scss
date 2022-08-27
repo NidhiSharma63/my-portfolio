@@ -8,6 +8,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 :root{
@@ -15,17 +16,17 @@
   --btn-bg:#444D54;
   
   --primary-cl:#242D49;
-  --text-cl:#535353;
+  --text-cl:#2e2d2d;
 
   --shadow-cl:#7c859c;
 
   --fs-xl:7.5rem;
   --fs-lg:5.5rem;
   --fs-md:4.5rem;
-  --fs-sm:1.6rem;
+  --fs-sm:2rem;
 
+  --lh-lg:3.5rem;
   --lh-md:3rem;
-  --lh-sm:.1rem;
   --lh-xs:.1rem;
 
   --ff-primary: 'Merriweather', serif;
@@ -39,6 +40,7 @@ html{
 body{
   background-color: var(--main-bg);
   overflow-x: hidden;
+  margin-bottom: 3rem;
 }
 
 .main-wrapper{

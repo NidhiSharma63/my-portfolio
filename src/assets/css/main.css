@@ -73,7 +73,7 @@
   width: 100%;
   margin: auto;
   position: relative;
-  margin-top: 8rem;
+  margin-top: 10rem;
 }
 
 .left-shadow {
@@ -114,7 +114,6 @@
   color: var(--primary-cl);
 }
 .left-section p:nth-child(3) {
-  font-weight: 600;
   width: 80%;
   line-height: var(--lh-md);
   font-size: var(--fs-sm);
@@ -164,23 +163,88 @@
   box-shadow: 0px 0px 40px 0px #040508;
 }
 
+.container-2 {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  margin-top: 10rem;
+}
+
+.about-wrapper {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  border-radius: 1rem;
+  padding: 4rem 5rem;
+  box-shadow: 0px 0px 10px 0px rgba(131, 131, 145, 0.288);
+  background-color: #F5F6F6;
+}
+.about-wrapper .left-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 3rem;
+}
+.about-wrapper .left-section p {
+  font-size: var(--fs-lg);
+  font-family: var(--ff-primary);
+  color: var(--primary-cl);
+  letter-spacing: 0.1rem;
+}
+.about-wrapper .left-section img {
+  width: 20rem;
+}
+.about-wrapper .right-section {
+  box-shadow: 0px 0px 15px 0px rgba(131, 131, 145, 0.288);
+  background-color: var(--main);
+  font-size: var(--fs-sm);
+  width: 50%;
+  font-size: var(--fs-sm);
+  font-family: var(--ff-secondary);
+  color: var(--text-cl);
+  letter-spacing: 0.1rem;
+  line-height: var(--lh-lg);
+  font-weight: 500;
+  padding: 3rem;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.about-wrapper .right-section .top-shadow,
+.about-wrapper .right-section .bottom-shadow {
+  position: absolute;
+  left: 0;
+  border: 1px solid;
+  box-shadow: 0px 0px 107px 39px var(--shadow-cl);
+}
+.about-wrapper .right-section .bottom-shadow {
+  right: 0;
+  left: auto;
+  bottom: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
   --main-bg:#ECF0F3;
   --btn-bg:#444D54;
   --primary-cl:#242D49;
-  --text-cl:#535353;
+  --text-cl:#2e2d2d;
   --shadow-cl:#7c859c;
   --fs-xl:7.5rem;
   --fs-lg:5.5rem;
   --fs-md:4.5rem;
-  --fs-sm:1.6rem;
+  --fs-sm:2rem;
+  --lh-lg:3.5rem;
   --lh-md:3rem;
-  --lh-sm:.1rem;
   --lh-xs:.1rem;
   --ff-primary: "Merriweather", serif;
   --ff-secondary: "Work Sans", sans-serif;
@@ -193,6 +257,7 @@ html {
 body {
   background-color: var(--main-bg);
   overflow-x: hidden;
+  margin-bottom: 3rem;
 }
 
 .main-wrapper {
