@@ -1,0 +1,114 @@
+.container-5{
+  @include wrapper;
+}
+
+.work-wrapper{
+  width: 90%;
+  margin: auto;
+  @include flex($alignItems:center, $justifyContent:center, $flexDirection:column);
+  gap: 8rem;
+
+  .top-section{
+    @include flex($alignItems:center, $justifyContent:center, $flexDirection:column);
+    gap: 2rem;
+    & p:first-child{
+      @include heading;
+    }
+
+    & p:last-child{
+      @include text-style;
+    }
+  }
+}
+
+.work-wrapper .bottom-section{
+  @include flex($alignItems:center, $justifyContent:center, $flexDirection:column);
+  gap: 8rem;
+  width: 100%;
+
+  .project{
+    @include flex($alignItems:center, $justifyContent:space-between, $flexDirection:row);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 0px rgba(170, 169, 169, 0.753);
+
+
+    .project-images{
+      width: inherit;
+      position: relative;
+      padding-bottom: 10rem;
+      margin: 1rem;
+      z-index: 2;
+
+      img{
+        width: 100%;
+        object-fit: cover;
+        width: 300px;
+      }
+      .project-img2{
+        position: absolute;
+        left: 22rem;
+        top: 9rem;
+      }
+    }
+    .project-info{
+      @include flex($alignItems:flex-start, $justifyContent:space-between, $flexDirection:column);
+      gap: 2rem;
+      & p:first-child{
+        @include heading;
+        font-size: 4rem;
+      }
+      & p:nth-child(2){
+        @include text-style;
+        line-height: var(--lh-md);
+      }
+
+      .project-buttons{
+        @include flex($alignItems:flex-start, $justifyContent:space-between, $flexDirection:row);
+        gap: 3rem;
+        margin-top: 2rem;
+      }
+      .button{
+        @include button;
+        font-size: var(--fs-xs);
+        font-family: var(--ff-secondary);
+
+        i{
+          margin:0rem 1rem;
+        }
+      }
+    }
+  }
+};
+
+.work-wrapper .bottom-section{
+  .project:first-child::after,
+  .project:first-child::before,
+  .project:nth-child(2)::before,
+  .project:nth-child(2)::after{
+    @include position($position:absolute,$top:-53px,$bottom:auto,$left:-4rem,$right:auto);
+    content: '';
+    width: 56rem;
+    height: 131%;
+    background-image: url('../images//pf1.png');
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+    opacity: .3;
+    transform: rotate(346deg);
+  }
+  .project:first-child::before,
+  .project:nth-child(2)::before{
+    background-image: url('../images//pf2.png');
+    right: -127px;
+    left: auto;
+    transform: rotate(9deg);
+  }
+  .project:nth-child(2)::before{
+    background-image: url('../images//gm1.png');
+  }
+  .project:nth-child(2)::after{
+    background-image: url('../images//gm2.png');
+  }
+}

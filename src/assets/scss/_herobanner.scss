@@ -19,20 +19,23 @@
   gap:2.6rem;
   letter-spacing: .1rem;
 
-  & p:first-child{
+  & p:first-child,
+  & p:nth-child(2){
     font-weight: 600;
-    @include text-style($fontSize:var(--fs-lg),$fontFamily:var(--ff-primary),$color:#637471)
+    font-family: var(--ff-primary);
+    color: #637471;
+    font-size: var(--fs-lg);
   }
 
   & p:nth-child(2){
-    font-weight: 600;
-    @include text-style($fontSize:var(--fs-xl),$fontFamily:var(--ff-primary),$color:var(--primary-cl))
+    color: var(--primary-cl);
+    font-size: var(--fs-xl);
   }
 
   & p:nth-child(3){
     width: 80%;
     line-height: var(--lh-md);
-    @include text-style($fontSize:var(--fs-sm),$fontFamily:var(--ff-secondary),$color:var(--text-cl));
+    @include text-style;
   }
 
   button{

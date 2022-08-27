@@ -41,11 +41,20 @@
   margin: auto;
   position: relative;
   // border: 1px solid green;
-  margin-top: 10rem;
+  margin-top: 12rem;
 }
 
-@mixin text-style($fontSize,$fontFamily,$color) {
-  font-size: $fontSize;
-  font-family: $fontFamily;
-  color: $color;
+
+@mixin heading {
+  font-size: var(--fs-md);
+  font-weight: 800;
+  font-family: var(--ff-primary);
+  letter-spacing: .1rem;
+  color: var(--primary-cl);
+}
+
+@mixin text-style{
+  font-size: var(--fs-sm);
+  font-family: var(--ff-secondary);
+  color: var(--text-cl);
 }

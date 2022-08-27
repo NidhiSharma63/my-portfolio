@@ -5,6 +5,7 @@ import Herobanner from './components/Herobanner';
 import About from './components/About';
 import Skills from './components/Skills';
 import Process from './components/Process';
+import Work from './components/Work';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <About/>
       <Skills/>
       <Process/>
+      <Work/>
     </div>
   )
 }

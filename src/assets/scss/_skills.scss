@@ -58,7 +58,7 @@
       box-shadow: 0px 0px 4px var(--shadow-color);
       text-align: center;
       z-index: 2;
-      @include text-style($fontSize:var(--fs-sm),$fontFamily:var(--ff-secondary),$color:var(--text-cl));
+      @include text-style;
 
     }
 
@@ -100,15 +100,11 @@
   gap: 2rem;
   width: 80%;
   .heading{
-    @include text-style($fontSize:var(--fs-md),$fontFamily:var(--ff-primary),$color:var(--primary-cl));
-    font-weight: 800;
-    letter-spacing: .1rem;
+    @include heading;
   }
   .skills-info{
-    letter-spacing: .1rem;
-
     line-height: var(--lh-lg);
-    @include text-style($fontSize:var(--fs-sm),$fontFamily:var(--ff-secondary),$color:var(--text-cl));
+    @include text-style;
   }
 }
 .skill-wrapper .left-shadow{

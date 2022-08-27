@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Work+Sans&display=swap');
 
-@import './utils.scss';
-@import './header.scss';
+@import './utils';
+@import './header';
 @import './herobanner';
 @import './about';
-@import './skills.scss';
+@import './skills';
 @import './process';
+@import './work';
 
 *{
   margin: 0;
@@ -26,6 +27,8 @@
   --fs-lg:5.5rem;
   --fs-md:5rem;
   --fs-sm:2rem;
+  --fs-xs:1.6rem;
+
 
   --lh-lg:3.5rem;
   --lh-md:3rem;

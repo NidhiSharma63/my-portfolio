@@ -1,6 +1,5 @@
 .container-4{
   @include wrapper;
-  // border: 1px solid;
   background-color: var(--primary-cl);
 }
 
@@ -16,15 +15,14 @@
     @include flex($alignItems:center,$justifyContent:center,$flexDirection:column);
     gap: 2rem;
     & p:first-child{
-      @include text-style($fontSize:var(--fs-md),$fontFamily:var(--ff-primary),$color:white);
-      font-weight: 800;
-      letter-spacing: .1rem;
+      @include heading;
+      color: white;
     }
     & p:last-child{
       width: 80%;
       text-align: center;
-      @include text-style($fontSize:var(--fs-sm),$fontFamily:var(--ff-secondary),$color:white);
-      letter-spacing: .1rem;
+      @include text-style;
+      color: white;
       line-height: var(--lh-md);
     }
   }
