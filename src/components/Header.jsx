@@ -14,9 +14,7 @@ const Navbar = () => {
         headerWrapper.style.boxShadow ='none'
       }
     })
-  },[windowScroll])
-
-  console.log(windowScroll)
+  },[windowScroll]);
   return (
     <div className='header-wrapper'>
       <div className="header">
