@@ -112,3 +112,45 @@
   height: 30rem;
   box-shadow: 0px 0px 107px 27px var(--shadow-cl);
 }
+
+@media screen and (max-width:880px){
+  .skill-wrapper{
+    width: 95%;
+  }
+}
+
+@media screen and (max-width:760px){
+  .skill-wrapper{
+   flex-direction: column-reverse;
+   gap: 9rem;
+   padding: 6rem 2rem;
+  }
+  .skill-wrapper {
+    .left-section{
+      width: 70%;
+      gap: 5rem;
+    }
+    .right-section{
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width:560px){
+  .skill-wrapper {
+    .left-section{
+      width: 100%;
+      gap: 5rem;
+
+      .skill-icon{
+        width: 70px;
+        height: 70px;
+      }
+    }
+    .right-section{
+      align-items: center;
+      text-align: center;
+    }
+  }
+}

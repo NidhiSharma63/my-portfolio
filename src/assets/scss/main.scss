@@ -54,5 +54,39 @@ body{
   max-width: 1440px;
   margin: auto;
   position: relative;
-  // border: 1px solid red;
+}
+
+@media screen and (max-width:1250px){
+  html{
+    font-size: 52.5%;
+  }
+}
+
+@media screen and (max-width:1050px){
+  :root{
+    --fs-xl:6.5rem;
+    --fs-lg:5rem;
+  }
+}
+
+@media screen and (max-width:880px){
+  html{
+    font-size: 47.5%;
+  }
+}
+
+@media screen and (max-width:880px){
+  :root{  
+    --fs-xl:5rem;
+    --fs-lg:4rem;
+    --fs-md:3.2rem;
+    --fs-sm:1.8rem;
+    --fs-xs:1.6rem;
+  
+  
+    --lh-lg:3.5rem;
+    --lh-md:3rem;
+    --lh-xs:.1rem;
+
+  }
 }

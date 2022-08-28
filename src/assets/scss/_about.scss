@@ -54,3 +54,26 @@
   }
 }
 
+
+@media screen and (max-width:880px){
+  .about-wrapper{
+    width: 95%;
+  }
+}
+@media screen and (max-width:760px){
+  .about-wrapper {
+    flex-direction: column;
+    gap: 6rem;
+    width: 80%;
+
+    .left-section{
+      margin-left: 0rem;
+      margin-top: 5rem;
+    }
+
+    .right-section{
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

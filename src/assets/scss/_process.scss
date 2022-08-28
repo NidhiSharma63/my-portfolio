@@ -64,3 +64,38 @@
     top: 52%;
   }
 }
+
+@media screen and (max-width:1050px) {
+  .process-wrapper .bottom-section {
+    width: 80%;
+  }
+}
+@media screen and (max-width:880px){
+  .process-wrapper{
+    width: 95%;
+  }
+}
+@media screen and (max-width:760px){
+  .process-wrapper{
+
+    .bottom-section .image{
+      img{
+        width: 25rem;
+      }
+    }
+  } 
+}
+
+@media screen and (max-width:560px) {
+  .process-wrapper .bottom-section{
+    .image{
+      &:nth-child(1):before {
+        right: -111px;
+        width: 18rem;
+      }
+      img{
+        width: 16rem;
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 .container-6{
   @include wrapper;
+  margin-bottom: 10rem;
 }
 .contact-wrapper{
   width: 80%;
@@ -96,5 +97,23 @@
   }
   i:hover{
     text-shadow: none;
+  }
+}
+
+@media screen and (max-width:560px) {
+  .contact-wrapper{
+    .middle-section{
+      form{
+        input,
+        textarea{
+          width: 100%;
+        }
+      }
+    }
+    .bottom-section{
+      .contact-icons{
+        gap: 1rem;
+      }
+    }
   }
 }

@@ -77,10 +77,16 @@
     width: 80%;
   }
 }
+@media screen and (max-width: 880px) {
+  .header {
+    width: 95%;
+  }
+}
 .wrapper-1 {
   width: 100%;
   margin: auto;
   position: relative;
+  margin-top: 12rem;
   margin-top: 12rem;
 }
 .wrapper-1 .left-shadow {
@@ -167,6 +173,27 @@
   color: var(--primary-cl);
 }
 
+@media screen and (max-width: 1050px) {
+  .right-section img {
+    width: 35rem;
+  }
+}
+@media screen and (max-width: 880px) {
+  .hero-banner-wrapper {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 760px) {
+  .hero-banner-wrapper {
+    flex-direction: column;
+    gap: 9rem;
+    margin-top: 15rem;
+  }
+  .hero-banner-wrapper .left-section {
+    align-items: center;
+    text-align: center;
+  }
+}
 .container-2 {
   width: 100%;
   margin: auto;
@@ -235,6 +262,26 @@
   bottom: 0;
 }
 
+@media screen and (max-width: 880px) {
+  .about-wrapper {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 760px) {
+  .about-wrapper {
+    flex-direction: column;
+    gap: 6rem;
+    width: 80%;
+  }
+  .about-wrapper .left-section {
+    margin-left: 0rem;
+    margin-top: 5rem;
+  }
+  .about-wrapper .right-section {
+    width: 100%;
+    text-align: center;
+  }
+}
 .container-3 {
   width: 100%;
   margin: auto;
@@ -390,6 +437,40 @@
   box-shadow: 0px 0px 107px 27px var(--shadow-cl);
 }
 
+@media screen and (max-width: 880px) {
+  .skill-wrapper {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 760px) {
+  .skill-wrapper {
+    flex-direction: column-reverse;
+    gap: 9rem;
+    padding: 6rem 2rem;
+  }
+  .skill-wrapper .left-section {
+    width: 70%;
+    gap: 5rem;
+  }
+  .skill-wrapper .right-section {
+    align-items: center;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 560px) {
+  .skill-wrapper .left-section {
+    width: 100%;
+    gap: 5rem;
+  }
+  .skill-wrapper .left-section .skill-icon {
+    width: 70px;
+    height: 70px;
+  }
+  .skill-wrapper .right-section {
+    align-items: center;
+    text-align: center;
+  }
+}
 .container-4 {
   width: 100%;
   margin: auto;
@@ -476,6 +557,30 @@
   top: 52%;
 }
 
+@media screen and (max-width: 1050px) {
+  .process-wrapper .bottom-section {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 880px) {
+  .process-wrapper {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 760px) {
+  .process-wrapper .bottom-section .image img {
+    width: 25rem;
+  }
+}
+@media screen and (max-width: 560px) {
+  .process-wrapper .bottom-section .image:nth-child(1):before {
+    right: -111px;
+    width: 18rem;
+  }
+  .process-wrapper .bottom-section .image img {
+    width: 16rem;
+  }
+}
 .container-5 {
   width: 100%;
   margin: auto;
@@ -637,11 +742,72 @@
   background-image: url("../images//gm2.png");
 }
 
+@media screen and (max-width: 1250px) {
+  .work-wrapper .bottom-section .project .project-info {
+    width: 90%;
+    padding-right: 1rem;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .work-wrapper .bottom-section .project .project-images img {
+    width: 200px;
+  }
+  .work-wrapper .bottom-section .project .project-images .project-img2 {
+    left: 18rem;
+  }
+  .work-wrapper .bottom-section .project .project-info {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 880px) {
+  .work-wrapper {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 760px) {
+  .work-wrapper .bottom-section .project {
+    flex-direction: column;
+    padding: 3rem 0rem;
+    gap: 3rem;
+  }
+  .work-wrapper .bottom-section .project .project-images img {
+    width: 236px;
+    margin: auto;
+    position: relative;
+    left: 25rem;
+    height: 32rem;
+  }
+  .work-wrapper .bottom-section .project .project-images .project-img2 {
+    left: 11rem;
+    top: 10rem;
+  }
+  .work-wrapper .bottom-section .project .project-info {
+    align-items: center;
+    text-align: center;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 560px) {
+  .work-wrapper .bottom-section .project .project-images img {
+    width: 200px;
+    left: 15rem;
+  }
+  .work-wrapper .bottom-section .project .project-images .project-img2 {
+    left: 6rem;
+    top: 10rem;
+  }
+  .work-wrapper .bottom-section .project .project-info {
+    align-items: center;
+    text-align: center;
+    width: 80%;
+  }
+}
 .container-6 {
   width: 100%;
   margin: auto;
   position: relative;
   margin-top: 12rem;
+  margin-bottom: 10rem;
 }
 
 .contact-wrapper {
@@ -754,6 +920,15 @@
   text-shadow: none;
 }
 
+@media screen and (max-width: 560px) {
+  .contact-wrapper .middle-section form input,
+.contact-wrapper .middle-section form textarea {
+    width: 100%;
+  }
+  .contact-wrapper .bottom-section .contact-icons {
+    gap: 1rem;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -793,4 +968,33 @@ body {
   max-width: 1440px;
   margin: auto;
   position: relative;
+}
+
+@media screen and (max-width: 1250px) {
+  html {
+    font-size: 52.5%;
+  }
+}
+@media screen and (max-width: 1050px) {
+  :root {
+    --fs-xl:6.5rem;
+    --fs-lg:5rem;
+  }
+}
+@media screen and (max-width: 880px) {
+  html {
+    font-size: 47.5%;
+  }
+}
+@media screen and (max-width: 880px) {
+  :root {
+    --fs-xl:5rem;
+    --fs-lg:4rem;
+    --fs-md:3.2rem;
+    --fs-sm:1.8rem;
+    --fs-xs:1.6rem;
+    --lh-lg:3.5rem;
+    --lh-md:3rem;
+    --lh-xs:.1rem;
+  }
 }
