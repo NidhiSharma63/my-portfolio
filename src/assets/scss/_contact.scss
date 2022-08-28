@@ -35,15 +35,15 @@
         box-shadow: 0px 0px 10px 0px rgba(58, 55, 55, 0.164);
         transition: .5s;
       }
+      input:hover,
+      textarea:hover{
+        box-shadow: 0px 0px 10px 0px rgba(129, 128, 128, 0.849);
+      }
       input:focus,
       textarea:focus{
         outline: none;
         box-shadow: none;
         border: 1px solid var(--primary-cl);
-      }
-      input:hover,
-      textarea:hover{
-        box-shadow: 0px 0px 10px 0px rgba(129, 128, 128, 0.849);
       }
       textarea{
         height: 20rem;
@@ -90,5 +90,11 @@
   i{
     font-size: 3rem;
     color: var(--primary-cl);
+    text-shadow:0px 0px 7px rgb(151, 151, 151);
+    transition: .5s ease-in;
+    cursor: pointer;
+  }
+  i:hover{
+    text-shadow: none;
   }
 }

@@ -1,18 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Work+Sans&display=swap");
 .header-wrapper {
   width: 100%;
-  position: relative;
-  padding-top: 1rem;
-  height: 7rem;
+  height: 9rem;
+  z-index: 10;
+  background-color: var(--main-bg);
+  position: fixed;
+  left: 0;
+  right: auto;
+  top: 0;
+  bottom: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
-  box-shadow: 0px 10px 6px 0px rgba(202, 202, 202, 0.219);
 }
 
 .header {
-  width: 80%;
+  width: 1180px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,7 +68,15 @@
   color: var(--btn-bg);
   font-weight: 800;
 }
+.header .nav-wrapper ul li:last-child a {
+  font-size: 1.6rem;
+}
 
+@media screen and (max-width: 1440px) {
+  .header {
+    width: 80%;
+  }
+}
 .wrapper-1 {
   width: 100%;
   margin: auto;
@@ -75,7 +87,7 @@
   position: absolute;
   left: 0;
   right: auto;
-  top: 3rem;
+  top: 10rem;
   bottom: auto;
   height: 30rem;
   box-shadow: 0px 0px 107px 25px var(--shadow-cl);
@@ -167,12 +179,11 @@
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
   border-radius: 1rem;
-  padding: 4rem 5rem;
   box-shadow: 0px 0px 10px 0px rgba(153, 151, 151, 0.205);
-  background-color: #F5F6F6;
+  background-color: rgba(245, 246, 246, 0.5607843137);
 }
 .about-wrapper .left-section {
   display: flex;
@@ -180,6 +191,7 @@
   justify-content: space-between;
   flex-direction: column;
   gap: 3rem;
+  margin-left: 10rem;
 }
 .about-wrapper .left-section p {
   font-size: var(--fs-md);
@@ -193,8 +205,9 @@
   width: 20rem;
 }
 .about-wrapper .right-section {
+  background-color: rgba(155, 155, 155, 0.288);
   box-shadow: 0px 0px 15px 0px rgba(131, 131, 145, 0.288);
-  background-color: var(--main);
+  height: 100%;
   font-size: var(--fs-sm);
   width: 50%;
   font-size: var(--fs-sm);
@@ -203,8 +216,10 @@
   letter-spacing: 0.1rem;
   line-height: var(--lh-lg);
   font-weight: 500;
-  padding: 3rem;
-  border-radius: 1rem;
+  padding: 8rem 5rem;
+  border-radius: 0.7rem;
+  border-bottom-left-radius: 0rem;
+  border-top-left-radius: 0rem;
   position: relative;
   overflow: hidden;
 }
@@ -212,7 +227,6 @@
 .about-wrapper .right-section .bottom-shadow {
   position: absolute;
   left: 0;
-  border: 1px solid;
   box-shadow: 0px 0px 107px 39px var(--shadow-cl);
 }
 .about-wrapper .right-section .bottom-shadow {
@@ -235,7 +249,7 @@
   bottom: 0;
   height: 4rem;
   width: 0rem;
-  box-shadow: 0px 0px 107px 39px var(--shadow-cl);
+  box-shadow: 0px 0px 144px 28px var(--shadow-cl);
 }
 
 .skill-wrapper {
@@ -372,8 +386,8 @@
   top: 3rem;
   bottom: auto;
   width: 0rem;
-  height: 20rem;
-  box-shadow: 0px 0px 107px 39px var(--shadow-cl);
+  height: 30rem;
+  box-shadow: 0px 0px 107px 27px var(--shadow-cl);
 }
 
 .container-4 {
@@ -606,7 +620,7 @@
   background-position: center;
   background-size: cover;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.1;
   transform: rotate(346deg);
 }
 .work-wrapper .bottom-section .project:first-child::before,
@@ -673,15 +687,15 @@
   box-shadow: 0px 0px 10px 0px rgba(58, 55, 55, 0.164);
   transition: 0.5s;
 }
+.contact-wrapper .middle-section form input:hover,
+.contact-wrapper .middle-section form textarea:hover {
+  box-shadow: 0px 0px 10px 0px rgba(129, 128, 128, 0.849);
+}
 .contact-wrapper .middle-section form input:focus,
 .contact-wrapper .middle-section form textarea:focus {
   outline: none;
   box-shadow: none;
   border: 1px solid var(--primary-cl);
-}
-.contact-wrapper .middle-section form input:hover,
-.contact-wrapper .middle-section form textarea:hover {
-  box-shadow: 0px 0px 10px 0px rgba(129, 128, 128, 0.849);
 }
 .contact-wrapper .middle-section form textarea {
   height: 20rem;
@@ -732,6 +746,12 @@
 .contact-wrapper .bottom-section i {
   font-size: 3rem;
   color: var(--primary-cl);
+  text-shadow: 0px 0px 7px rgb(151, 151, 151);
+  transition: 0.5s ease-in;
+  cursor: pointer;
+}
+.contact-wrapper .bottom-section i:hover {
+  text-shadow: none;
 }
 
 * {
@@ -772,4 +792,5 @@ body {
 .main-wrapper {
   max-width: 1440px;
   margin: auto;
+  position: relative;
 }

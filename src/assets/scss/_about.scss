@@ -4,14 +4,14 @@
 .about-wrapper{
   width: 90%;
   margin: auto;
-  @include flex($alignItems:center,$justifyContent:space-around,$flexDirection:row);
+  @include flex($alignItems:center,$justifyContent:space-between,$flexDirection:row);
   border-radius: 1rem;
-  padding: 4rem 5rem;
   box-shadow: 0px 0px 10px 0px rgba(153, 151, 151, 0.205);
-  background-color: #F5F6F6;
+  background-color: #f5f6f68f;
   .left-section{
     @include flex($alignItems:center,$justifyContent:space-between,$flexDirection:column);
     gap: 3rem;
+    margin-left: 10rem;
     
     p{
       @include heading;
@@ -23,17 +23,19 @@
   }
 
   .right-section{
+    background-color:rgba(155, 155, 155, 0.288);
     box-shadow: 0px 0px 15px 0px rgba(131, 131, 145, 0.288);
-    background-color: var(--main);
-
+    height: 100%;
     font-size: var(--fs-sm);
     width: 50%;
     @include text-style;
     letter-spacing: .1rem;
     line-height: var(--lh-lg);
     font-weight: 500;
-    padding: 3rem;
-    border-radius: 1rem;
+    padding: 8rem 5rem;
+    border-radius: .7rem;
+    border-bottom-left-radius: 0rem;
+    border-top-left-radius: 0rem;
     position: relative;
     overflow: hidden;
 
@@ -42,7 +44,6 @@
     .bottom-shadow{
       position: absolute;
       left: 0;
-      border: 1px solid;
       box-shadow: 0px 0px 107px 39px var(--shadow-cl);
     }
     .bottom-shadow{

@@ -3,7 +3,7 @@ import Form from './Form';
 
 const Contact = () => {
   return (
-    <div className='container-6'>
+    <div className='container-6' id='Contact'>
       <div className="contact-wrapper">
         <div className="top-section">
           <p>let's talk</p>
@@ -11,15 +11,15 @@ const Contact = () => {
         <Form/>
         <div className="bottom-section">
           <div className="gmail">
-           <i class="fa-solid fa-envelope"></i>
+           <i className="fa-solid fa-envelope"></i>
            <p>nidhisharma639593@gmail.com</p>
           </div>
           <div className='contact-icons'>
             <a href="">
-              <i class="fa-brands fa-square-github"></i>
+              <i className="fa-brands fa-square-github"></i>
             </a>
             <a href="">
-             <i class="fa-brands fa-linkedin"></i>
+             <i className="fa-brands fa-linkedin"></i>
             </a>
           </div>
         </div>

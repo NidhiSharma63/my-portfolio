@@ -3,7 +3,7 @@ import { projectData }  from '../data'
 
 const Work = () => {
   return (
-    <div className='container-5'>
+    <div className='container-5' id='Work'>
       <div className="work-wrapper">
         <div className="top-section">
           <p>My awesome projects</p>
