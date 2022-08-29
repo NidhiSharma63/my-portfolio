@@ -9,7 +9,8 @@ const Process = () => {
       <div className="process-wrapper">
         <div className="top-section">
           <p>Approach i generally used</p>
-          <p>i like to use wireframes to so that i have a clear way what i have to do.</p>
+          <p>I like to use wireframes to make responsive websites. It helps me to get a clear idea of what I have to do.
+          </p>
         </div>
         <div className="bottom-section">
           <div className="image">
