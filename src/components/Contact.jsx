@@ -1,14 +1,17 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Form from './Form';
 
 const Contact = () => {
+  const [emailConfirmation,setEmailConfirmation] = useState(false);
   return (
     <div className='container-6' id='Contact'>
       <div className="contact-wrapper">
         <div className="top-section">
           <p>let's talk</p>
         </div>
-        <Form/>
+        {/* {emailConfirmation && <Form setEmailConfirmation = {setEmailConfirmation}/>} */}
+        {!emailConfirmation && <p className='email-confirmation-message'> I will get you back as soon as possible</p>}
+
         <div className="bottom-section">
           <div className="gmail">
            <i className="fa-solid fa-envelope"></i>

@@ -889,6 +889,13 @@
   letter-spacing: 0.1rem;
   color: var(--primary-cl);
 }
+.contact-wrapper .email-confirmation-message {
+  font-size: 2.5rem;
+  font-family: var(--ff-secondary);
+  text-align: center;
+  line-height: var(--lh-lg);
+  color: var(--primary-cl);
+}
 
 .contact-wrapper .middle-section {
   width: 100%;
@@ -899,6 +906,13 @@
   justify-content: space-between;
   flex-direction: column;
   gap: 3rem;
+}
+.contact-wrapper .middle-section form p {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-sm);
+  color: red;
+  margin-bottom: 0rem;
+  margin-top: -2rem;
 }
 .contact-wrapper .middle-section form input,
 .contact-wrapper .middle-section form textarea {
