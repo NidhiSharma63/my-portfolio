@@ -15,8 +15,8 @@ export const projectData = [
   {
     image1:`${pf1}`,
     image2:`${pf2}`,
-    projectName:`Good Meeting`,
-    projectDesc:`i created this portfolio for my cousin
+    projectName:`Portfolio`,
+    projectDesc:`i created this portfolio for my client
     and it is entriley responsive. I have 
     created this portfolio by using
     react and material ui.`,
@@ -26,8 +26,8 @@ export const projectData = [
   {
     image1:`${gm1}`,
     image2:`${gm2}`,
-    projectName:`Good Meeting`,
-    projectDesc:`This is a clone of goodmeeting.today .i used html, css, javascript to clone it. it's completely responsive.`,
+    projectName:`Good Meeting-clone`,
+    projectDesc:`This is a clone of goodmeeting.today. i used html, css, javascript to clone it. it's completely responsive.`,
     live:'https://nidhisharma63.github.io/goodmeeting-clone/',
     github:'https://master--kaleidoscopic-sprinkles-74d6ee.netlify.app/'
   },
@@ -36,7 +36,7 @@ export const projectData = [
     image2:`${ex2}`,
     projectName:`Fitness App`,
     projectDesc:`This is a fitness-exercise app. I have
-    created this app by using React and material ui.This app
+    created this app by using React, material ui and rapid-api. This app
     shows more than a thousand exercises with their video to make you fit.`,
     live:'https://nidhisharma63.github.io/FITNESS-EXERCISE-REACT-APP/',
     github:'https://github.com/NidhiSharma63/FITNESS-EXERCISE-REACT-APP'

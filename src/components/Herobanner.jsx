@@ -23,10 +23,10 @@ const herobanner = () => {
         <div className="right-section">
           <img src={mainImg} alt="image" />
           <div className='hero-icons'>
-            <a href="https://github.com/NidhiSharma63">
+            <a target='blank' href="https://github.com/NidhiSharma63">
               <i className="fa-brands fa-square-github"></i>
             </a>
-           <a href="https://www.linkedin.com/in/nidhi-sharma-55329823b/">
+           <a target='blank' href="https://www.linkedin.com/in/nidhi-sharma-55329823b/">
             <i className="fa-brands fa-linkedin"></i>
            </a>
           </div>
