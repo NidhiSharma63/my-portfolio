@@ -37,4 +37,4 @@
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=nidhisharma63&" alt="nidhisharma63" /></p>
 
-### [checkout my portfolio](https://master--kaleidoscopic-sprinkles-74d6ee.netlify.app/).
+### [checkout my portfolio](https://nidhisharma63.github.io/my-portfolio/).
