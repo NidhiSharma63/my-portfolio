@@ -1,5 +1,7 @@
 import React from 'react';
-import wireFrame from '../assets/images/wireframe-1.jpg'
+import wireFrame from '../assets/images/wfPC.jpg';
+import wireFrame2 from '../assets/images/wfMB.jpg';
+
 
 const Process = () => {
   return (
@@ -14,7 +16,7 @@ const Process = () => {
             <img src={wireFrame} alt="wireFrame"/>
           </div>
           <div className="image">
-            <img src={wireFrame} alt="wireFrame" />
+            <img src={wireFrame2} alt="wireFrame" />
           </div>
         </div>
       </div>
