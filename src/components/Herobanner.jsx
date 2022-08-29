@@ -16,7 +16,7 @@ const herobanner = () => {
             <a href="#Work">Checkout my work</a>
           </button>
           <button>
-            <a target='blank' href="https://drive.google.com/file/d/1wvv_n7ZtwtRpjj4GYyCYJ7I1Xued5JaS/view?usp=sharing">Get resume</a>
+            <a target='blank' href="https://drive.google.com/file/d/1iCy2lPL_2r80uX0ej2DbIU6dS6AhB0P1/view?usp=sharing">Get resume</a>
           </button>
           </div>
         </div>
