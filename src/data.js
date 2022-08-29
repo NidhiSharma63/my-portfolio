@@ -29,7 +29,7 @@ export const projectData = [
     projectName:`Good Meeting`,
     projectDesc:`This is a clone of goodmeeting.today .i used html, css, javascript to clone it. it's completely responsive.`,
     live:'https://nidhisharma63.github.io/goodmeeting-clone/',
-    github:'https://github.com/NidhiSharma63/goodmeeting-clone'
+    github:'https://master--kaleidoscopic-sprinkles-74d6ee.netlify.app/'
   },
   {
     image1:`${ex1}`,
