@@ -11,9 +11,14 @@ const herobanner = () => {
           <p>Hy, I Am</p>
           <p>Nidhi Sharma</p>
           <p>A frontend developer who turns imagination into reality by using code and loves to listen to music </p>
+          <div className="hero-btn-wrapper">
           <button>
-            <a href="#Work">checkout my work</a>
+            <a href="#Work">Checkout my work</a>
           </button>
+          <button>
+            <a target='blank' href="https://drive.google.com/file/d/1wvv_n7ZtwtRpjj4GYyCYJ7I1Xued5JaS/view?usp=sharing">Get resume</a>
+          </button>
+          </div>
         </div>
         <div className="right-section">
           <img src={mainImg} alt="image" />
