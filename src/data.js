@@ -28,8 +28,8 @@ export const projectData = [
     image2:`${gm2}`,
     projectName:`Good Meeting`,
     projectDesc:`This is a clone of goodmeeting.today .i used html, css, javascript to clone it. it's completely responsive.`,
-    live:'https://nidhisharma63.github.io/goodmeeting2/',
-    github:'https://github.com/NidhiSharma63/goodmeeting2'
+    live:'https://nidhisharma63.github.io/goodmeeting-clone/',
+    github:'https://github.com/NidhiSharma63/goodmeeting-clone'
   },
   {
     image1:`${ex1}`,
