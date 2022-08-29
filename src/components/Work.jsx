@@ -38,7 +38,6 @@ const Work = () => {
               </div>
             ))
           }
-          {/* <div className="project"></div> */}
         </div>
       </div>
     </div>

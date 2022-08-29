@@ -771,7 +771,11 @@
 .work-wrapper .bottom-section .project:first-child::after,
 .work-wrapper .bottom-section .project:first-child::before,
 .work-wrapper .bottom-section .project:nth-child(2)::before,
-.work-wrapper .bottom-section .project:nth-child(2)::after {
+.work-wrapper .bottom-section .project:nth-child(2)::after,
+.work-wrapper .bottom-section .project:nth-child(3)::before,
+.work-wrapper .bottom-section .project:nth-child(3)::after,
+.work-wrapper .bottom-section .project:nth-child(4)::before,
+.work-wrapper .bottom-section .project:nth-child(4)::after {
   position: absolute;
   left: -4rem;
   right: auto;
@@ -788,7 +792,9 @@
   transform: rotate(346deg);
 }
 .work-wrapper .bottom-section .project:first-child::before,
-.work-wrapper .bottom-section .project:nth-child(2)::before {
+.work-wrapper .bottom-section .project:nth-child(2)::before,
+.work-wrapper .bottom-section .project:nth-child(3)::before,
+.work-wrapper .bottom-section .project:nth-child(4)::before {
   background-image: url("../images//pf2.png");
   right: -127px;
   left: auto;
@@ -799,6 +805,18 @@
 }
 .work-wrapper .bottom-section .project:nth-child(2)::after {
   background-image: url("../images//gm2.png");
+}
+.work-wrapper .bottom-section .project:nth-child(3)::before {
+  background-image: url("../images//ex1.png");
+}
+.work-wrapper .bottom-section .project:nth-child(3)::after {
+  background-image: url("../images//ex2.png");
+}
+.work-wrapper .bottom-section .project:nth-child(4)::before {
+  background-image: url("../images//car1.png");
+}
+.work-wrapper .bottom-section .project:nth-child(4)::after {
+  background-image: url("../images//car2.png");
 }
 
 @media screen and (max-width: 1250px) {
@@ -847,15 +865,17 @@
   }
 }
 @media screen and (max-width: 600px) {
-  .work-wrapper .bottom-section .project .project:first-child::before,
-.work-wrapper .bottom-section .project .project:nth-child(2)::before {
+  .work-wrapper .bottom-section .project:first-child::before,
+.work-wrapper .bottom-section .project:nth-child(2)::before,
+.work-wrapper .bottom-section .project:nth-child(3)::before,
+.work-wrapper .bottom-section .project:nth-child(4)::before {
     display: none;
   }
-  .work-wrapper .bottom-section .project .project-images img {
+  .work-wrapper .bottom-section .project-images img {
     width: 200px;
     left: 15rem;
   }
-  .work-wrapper .bottom-section .project .project-images .project-img2 {
+  .work-wrapper .bottom-section .project-images .project-img2 {
     left: 6rem;
     top: 10rem;
   }
