@@ -5,7 +5,7 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=nidhisharma63" alt="nidhisharma63" /></a> </p>
 
-- 🔭 I’m currently working on **Css,Js,React.js.**
+- 🔭 I’m currently working on **Css, Js, React.js.**
 
 - 🌱 I’m currently learning **web development**
 
@@ -15,9 +15,9 @@
 
 - 👨‍💻 All of my projects are available at [https://github.com/NidhiSharma63/my-portfolio](https://github.com/NidhiSharma63/my-portfolio)
 
-- 💬 Ask me about **Css,js,react**
+- 💬 Ask me about **Css, js, react**
 
-- 📫 How to reach me **nidhisharma@gmail.com**
+- 📫 How to reach me **nidhisharma639593@gmail.com**
 
 - 📄 Know about my experiences [https://nidhisharma63.github.io/my-portfolio/](https://nidhisharma63.github.io/my-portfolio/)
 
