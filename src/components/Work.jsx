@@ -22,13 +22,13 @@ const Work = () => {
                   <p>{item.projectDesc}</p>
                   <div className="project-buttons">
                     <div className="button">
-                      <a href="">
+                      <a target='blank' href={item.live}>
                         <i className="fa-solid fa-arrow-right-from-bracket"></i>
                         live
                       </a>
                     </div>
                     <div className="button">
-                      <a href="">
+                      <a target='blank' href={item.github}>
                         <i className="fa-brands fa-github"></i>
                         source
                       </a>

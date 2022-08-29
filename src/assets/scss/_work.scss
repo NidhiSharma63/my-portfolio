@@ -53,6 +53,7 @@
       }
     }
     .project-info{
+      width: 100%;
       @include flex($alignItems:flex-start, $justifyContent:space-between, $flexDirection:column);
       gap: 2rem;
       & p:first-child{
@@ -191,8 +192,6 @@
      .project-img2{
       left: 6rem;
       top: 10rem;
-
-      
      }
     }
   }

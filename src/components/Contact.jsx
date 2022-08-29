@@ -15,10 +15,10 @@ const Contact = () => {
            <p>nidhisharma639593@gmail.com</p>
           </div>
           <div className='contact-icons'>
-            <a href="">
+            <a href="https://github.com/NidhiSharma63">
               <i className="fa-brands fa-square-github"></i>
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/in/nidhi-sharma-55329823b/">
              <i className="fa-brands fa-linkedin"></i>
             </a>
           </div>
