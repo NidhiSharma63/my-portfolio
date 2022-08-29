@@ -27,10 +27,7 @@ export const projectData = [
     image1:`${gm1}`,
     image2:`${gm2}`,
     projectName:`Good Meeting`,
-    projectDesc:`i created this portfolio for my cousin
-    and it is entriley responsive. I have 
-    created this portfolio by using
-    react and material ui.`,
+    projectDesc:`This is a clone of goodmeeting.today .i used html, css, javascript to clone it. it's completely responsive.`,
     live:'https://nidhisharma63.github.io/goodmeeting2/',
     github:'https://github.com/NidhiSharma63/goodmeeting2'
   },
