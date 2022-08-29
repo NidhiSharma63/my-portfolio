@@ -176,8 +176,12 @@
 }
 
 
-@media screen and (max-width:560px) {
+@media screen and (max-width:600px) {
   .work-wrapper .bottom-section .project {
+    .project:first-child::before,
+    .project:nth-child(2)::before{
+      display: none;
+    }
     .project-images {
       img {
       width: 200px;
@@ -187,10 +191,14 @@
      .project-img2{
       left: 6rem;
       top: 10rem;
+
+      
      }
     }
   }
-  .work-wrapper .bottom-section .project .project-info {
+  .work-wrapper 
+  .bottom-section 
+  .project .project-info {
     align-items: center;
     text-align: center;
     width: 80%;
