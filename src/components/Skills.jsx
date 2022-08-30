@@ -1,24 +1,19 @@
-import React from 'react'
+import React,{ useEffect } from 'react';
+import { translateAnim } from '../assets/js/main';
+
 
 const Skills = () => {
 
-  function SkillIcons () {
-    let SkillIconsWrap = document.createElement('div');
-    SkillIconsWrap.className='left-section'
-
-    for(let i=0; i<6;i++){
-      SkillIconsWrap.innerHTML+=`
-        <div class='skill-icon'>
-        hdejhjkh
-        </div>
-      `
-    }
-    console.log(typeof SkillIconsWrap)
-    // return SkillIconsWrap;
+  let container3 = {
+    selector:'container-3',
+    classes:'translate-up'
   }
+  useEffect(()=>{
+    translateAnim(container3);
+  },[]);
 
   return (
-    <div className='container-3'>
+    <div className='container-3 translate-up'>
     <div className="right-shadow"></div>
       <div className="skill-wrapper">
         

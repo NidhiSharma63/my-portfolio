@@ -1,11 +1,20 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import wireFrame from '../assets/images/wfPC.jpg';
 import wireFrame2 from '../assets/images/wfMB.jpg';
-
+import { translateAnim } from '../assets/js/main';
 
 const Process = () => {
+
+  let container4 = {
+    selector:'container-4',
+    classes:'translate-up'
+  }
+  useEffect(()=>{
+    translateAnim(container4);
+  },[]);
+
   return (
-    <div className="container-4">
+    <div className="container-4 translate-up">
       <div className="process-wrapper">
         <div className="top-section">
           <p>Approach i generally used</p>

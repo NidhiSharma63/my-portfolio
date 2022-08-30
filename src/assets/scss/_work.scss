@@ -1,5 +1,6 @@
 .container-5{
   @include wrapper;
+  transition: all 1s ease-in-out;
 }
 
 .work-wrapper{
@@ -27,6 +28,7 @@
   width: 100%;
 
   .project{
+    transition: transform 1s ease-in-out;
     @include flex($alignItems:center, $justifyContent:space-between, $flexDirection:row);
     width: 100%;
     position: relative;

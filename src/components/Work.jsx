@@ -1,9 +1,25 @@
-import React from 'react';
-import { projectData }  from '../data'
+import React,{useEffect} from 'react';
+import { projectData }  from '../data';
+import { translateAnim,translateAnimAll } from '../assets/js/main'
 
 const Work = () => {
+
+  let container5 = {
+    selector:'container-5',
+    classes:'translate-up'
+  }
+  let projectObj = {
+    selector:'project',
+    classes:'translate-up'
+  }
+  useEffect(()=>{
+    translateAnim(container5);
+    translateAnimAll(projectObj);
+
+  },[]);
+
   return (
-    <div className='container-5' id='Work'>
+    <div className='container-5 translate-up' id='Work'>
       <div className="work-wrapper">
         <div className="top-section">
           <p>My awesome projects</p>
@@ -12,7 +28,7 @@ const Work = () => {
         <div className="bottom-section">
           {
             projectData.map((item,index)=>(
-              <div className='project' key={index}>
+              <div className='project translate-up' key={index}>
                 <div className="project-images">
                   <img src={item.image1} alt="project" />
                   <img src={item.image2} alt="project" className='project-img2'/>

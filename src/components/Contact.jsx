@@ -1,10 +1,19 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import Form from './Form';
+import { translateAnim } from '../assets/js/main';
 
 const Contact = () => {
+  let container6 = {
+    selector:'container-6',
+    classes:'translate-up'
+  }
+  useEffect(()=>{
+    translateAnim(container6);
+  },[]);
+
   const [emailConfirmation,setEmailConfirmation] = useState(false);
   return (
-    <div className='container-6' id='Contact'>
+    <div className='container-6 translate-up' id='Contact'>
       <div className="contact-wrapper">
         <div className="top-section">
           <p>let's talk</p>

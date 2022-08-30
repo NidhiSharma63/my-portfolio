@@ -1,9 +1,18 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import aboutImg from '../assets/images/about.svg'
+import { translateAnim } from '../assets/js/main';
 
 const About = () => {
+
+  let container2 = {
+    selector:'container-2',
+    classes:'translate-up'
+  }
+  useEffect(()=>{
+    translateAnim(container2);
+  },[]);
   return (
-    <div className='container-2' id='About'>
+    <div className='container-2 translate-up' id='About'>
       <div className="about-wrapper">
         <div className="left-section">
           <p>About me</p>

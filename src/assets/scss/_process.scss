@@ -1,6 +1,7 @@
 .container-4{
   @include wrapper;
   background-color: var(--primary-cl);
+  transition: all 1s ease-in-out;
 }
 
 .process-wrapper{

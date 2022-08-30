@@ -1,13 +1,29 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
-import mainImg from '../assets/images/main-img.svg'
+import mainImg from '../assets/images/main-img.svg';
+import { translateAnim } from '../assets/js/main';
 
 const herobanner = () => {
+
+  let Image = {
+    selector:'right-section',
+    classes:'translate-right'
+  }
+
+  let heroText = {
+    selector:'left-section',
+    classes:'translate-left'
+  }
+  useEffect(()=>{
+    translateAnim(Image);
+    translateAnim(heroText);
+  },[]);
+
   return (
     <div className='wrapper-1' id='Home'>
       <div className="left-shadow"></div>
       <div className="hero-banner-wrapper">
-        <div className="left-section">
+        <div className="left-section translate-left">
           <p>Hy, I Am</p>
           <p>Nidhi Sharma</p>
           <p>A frontend developer who turns imagination into reality by using code and loves to listen to music </p>
@@ -20,7 +36,7 @@ const herobanner = () => {
           </button>
           </div>
         </div>
-        <div className="right-section">
+        <div className="right-section translate-right">
           <img src={mainImg} alt="image" />
           <div className='hero-icons'>
             <a target='blank' href="https://github.com/NidhiSharma63">
