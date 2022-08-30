@@ -3,8 +3,7 @@ import React,{useEffect} from 'react';
 import mainImg from '../assets/images/main-img.svg';
 import { translateAnim } from '../assets/js/main';
 
-const herobanner = () => {
-
+const Herobanner = () => {
   let Image = {
     selector:'right-section',
     classes:'translate-right'
@@ -14,10 +13,11 @@ const herobanner = () => {
     selector:'left-section',
     classes:'translate-left'
   }
+  
   useEffect(()=>{
     translateAnim(Image);
     translateAnim(heroText);
-  },[]);
+  },[])
 
   return (
     <div className='wrapper-1' id='Home'>
@@ -52,4 +52,4 @@ const herobanner = () => {
   )
 }
 
-export default herobanner
+export default Herobanner

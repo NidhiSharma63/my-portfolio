@@ -1053,6 +1053,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .contact-wrapper {
+    width: 90%;
+  }
   .contact-wrapper .middle-section form input,
 .contact-wrapper .middle-section form textarea {
     width: 100%;
