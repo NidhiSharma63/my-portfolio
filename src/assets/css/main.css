@@ -1064,6 +1064,19 @@
     gap: 1rem;
   }
 }
+@media screen and (max-width: 400px) {
+  .contact-wrapper {
+    width: 90%;
+  }
+  .contact-wrapper .bottom-section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .contact-wrapper .bottom-section .contact-icons {
+    gap: 1rem;
+    gap: 4rem;
+  }
+}
 * {
   margin: 0;
   padding: 0;
