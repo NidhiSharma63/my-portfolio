@@ -30,9 +30,15 @@ const Contact = () => {
             <a href="https://github.com/NidhiSharma63">
               <i className="fa-brands fa-square-github"></i>
             </a>
+            <a target='blank' href="https://medium.com/@nidhisharma639593">
+              <i class="fa-brands fa-medium"></i>
+            </a>
             <a href="https://www.linkedin.com/in/nidhi-sharma-55329823b/">
              <i className="fa-brands fa-linkedin"></i>
             </a>
+            <a target='blank' href="https://twitter.com/NidhiSh57914602">
+             <i class="fa-brands fa-square-twitter"></i>
+           </a>
           </div>
         </div>
       </div>
