@@ -44,7 +44,7 @@ const Navbar = () => {
         </div>
         <i className="fa-solid fa-bars" onClick={showMobileNav}></i>
         <div className="mobile-nav">
-          <i class="fa-solid fa-xmark" onClick={hideMobileNav}></i>
+          <i className="fa-solid fa-xmark" onClick={hideMobileNav}></i>
           <div className="mobile-link">
           <ul>
             <li><a href="#Home" onClick={hideMobileNav}>Home</a></li>
