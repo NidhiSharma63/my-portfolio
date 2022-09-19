@@ -15,14 +15,18 @@ const Navbar = () => {
   }
   useEffect(()=>{
     const headerWrapper = document.querySelector('.header-wrapper');
-    window.addEventListener('scroll',()=>{
+    const AddBoxShadowToNav = () =>{
       if(window.scrollY>40){
         setWindowScroll(window.scrollY);
         headerWrapper.style.boxShadow = '0px 10px 6px 0px rgba(202, 202, 202, 0.055)'
       }else{
         headerWrapper.style.boxShadow ='none'
       }
-    })
+    }
+    window.addEventListener('scroll',AddBoxShadowToNav);
+    return()=>{
+      window.removeEventListener('scroll',AddBoxShadowToNav)
+    }
   },[windowScroll]);
   return (
     <div className='header-wrapper'>

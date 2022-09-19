@@ -40,7 +40,7 @@ const Herobanner = () => {
           <img src={mainImg} alt="image" />
           <div className='hero-icons'>
             <a target='blank' href="https://medium.com/@nidhisharma639593">
-              <i class="fa-brands fa-medium"></i>
+              <i className="fa-brands fa-medium"></i>
             </a>
             <a target='blank' href="https://github.com/NidhiSharma63">
               <i className="fa-brands fa-square-github"></i>
@@ -49,7 +49,7 @@ const Herobanner = () => {
             <i className="fa-brands fa-linkedin"></i>
            </a>
            <a target='blank' href="https://twitter.com/NidhiSh57914602">
-             <i class="fa-brands fa-square-twitter"></i>
+             <i className="fa-brands fa-square-twitter"></i>
            </a>
           </div>
         </div>
