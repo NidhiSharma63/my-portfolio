@@ -9,21 +9,16 @@ const Herobanner = () => {
     classes:'translate-right'
   }
 
-  let heroText = {
-    selector:'left-section',
-    classes:'translate-left'
-  }
   
   useEffect(()=>{
     translateAnim(Image);
-    translateAnim(heroText);
   },[])
 
   return (
     <div className='wrapper-1' id='Home'>
       <div className="left-shadow"></div>
       <div className="hero-banner-wrapper">
-        <div className="left-section translate-left">
+        <div className="left-section">
           <p>Hy, I Am</p>
           <p>Nidhi Sharma</p>
           <p>A frontend developer who turns imagination into reality by using code and loves to listen to music </p>
