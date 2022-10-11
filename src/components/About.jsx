@@ -21,7 +21,7 @@ const About = () => {
         <div className="right-section">
           <div className="top-shadow"></div>
           <div className="bottom-shadow"></div>
-          <p>I am a self-taught frontend web-developer from india with a great passion of creating beautiful responsive websites. currently,I am looking for internship and want to help business.</p>
+          <p>I am a self-taught front-end web developer from India with a great passion for creating beautiful, responsive websites. Currently, I am looking for an internship and want to help businesses.</p>
         </div>
       </div>
     </div>
