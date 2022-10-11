@@ -18,7 +18,6 @@
   @include flex($alignItems:flex-start,$justifyContent:space-between,$flexDirection:column);
   gap:2.6rem;
   letter-spacing: .1rem;
-  transition: all 1s ease-in-out;
 
   & p:first-child,
   & p:nth-child(2){
@@ -54,7 +53,7 @@
 }
 
 .right-section {
-  transition: all 1s ease-in-out;
+  transition: all .5s ease-in-out;
 
   img{
     width: 45rem;
