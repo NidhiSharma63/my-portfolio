@@ -206,6 +206,7 @@
   font-size: var(--fs-sm);
   font-family: var(--ff-secondary);
   color: var(--text-cl);
+  text-align: center;
 }
 .left-section .hero-btn-wrapper {
   display: flex;
@@ -327,6 +328,7 @@
   font-family: var(--ff-primary);
   letter-spacing: 0.1rem;
   color: var(--primary-cl);
+  text-align: center;
   margin-top: 1rem;
   letter-spacing: 0.1rem;
   margin-bottom: 0.5rem;
@@ -342,6 +344,7 @@
   font-size: var(--fs-sm);
   font-family: var(--ff-secondary);
   color: var(--text-cl);
+  text-align: center;
   letter-spacing: 0.025rem;
   line-height: var(--lh-lg);
   font-weight: 500;
@@ -480,6 +483,7 @@
   font-size: var(--fs-sm);
   font-family: var(--ff-secondary);
   color: var(--text-cl);
+  text-align: center;
 }
 .skill-wrapper .left-section .skill-icon:nth-child(2)::before {
   content: "Css";
@@ -537,12 +541,14 @@
   font-family: var(--ff-primary);
   letter-spacing: 0.1rem;
   color: var(--primary-cl);
+  text-align: center;
 }
 .skill-wrapper .right-section .skills-info {
   line-height: var(--lh-lg);
   font-size: var(--fs-sm);
   font-family: var(--ff-secondary);
   color: var(--text-cl);
+  text-align: center;
 }
 
 .skill-wrapper .left-shadow {
@@ -623,6 +629,7 @@
   font-family: var(--ff-primary);
   letter-spacing: 0.1rem;
   color: var(--primary-cl);
+  text-align: center;
   color: white;
 }
 .process-wrapper .top-section p:last-child {
@@ -631,6 +638,7 @@
   font-size: var(--fs-sm);
   font-family: var(--ff-secondary);
   color: var(--text-cl);
+  text-align: center;
   color: white;
   line-height: var(--lh-md);
 }
@@ -734,11 +742,13 @@
   font-family: var(--ff-primary);
   letter-spacing: 0.1rem;
   color: var(--primary-cl);
+  text-align: center;
 }
 .work-wrapper .top-section p:last-child {
   font-size: var(--fs-sm);
   font-family: var(--ff-secondary);
   color: var(--text-cl);
+  text-align: center;
 }
 
 .work-wrapper .bottom-section {
@@ -793,12 +803,14 @@
   font-family: var(--ff-primary);
   letter-spacing: 0.1rem;
   color: var(--primary-cl);
+  text-align: center;
   font-size: 4rem;
 }
 .work-wrapper .bottom-section .project .project-info p:nth-child(2) {
   font-size: var(--fs-sm);
   font-family: var(--ff-secondary);
   color: var(--text-cl);
+  text-align: center;
   line-height: var(--lh-md);
 }
 .work-wrapper .bottom-section .project .project-info .project-buttons {
@@ -976,6 +988,7 @@
   font-family: var(--ff-primary);
   letter-spacing: 0.1rem;
   color: var(--primary-cl);
+  text-align: center;
 }
 .contact-wrapper .email-confirmation-message {
   font-size: 2.5rem;

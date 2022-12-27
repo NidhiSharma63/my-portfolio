@@ -50,12 +50,15 @@
   font-family: var(--ff-primary);
   letter-spacing: .1rem;
   color: var(--primary-cl);
+  text-align: center;
+
 }
 
 @mixin text-style{
   font-size: var(--fs-sm);
   font-family: var(--ff-secondary);
   color: var(--text-cl);
+  text-align: center;
 }
 
 .translate-right{
