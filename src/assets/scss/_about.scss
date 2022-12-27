@@ -4,7 +4,10 @@
 }
 .about-wrapper{
   width: 90%;
+  height: 65rem;
   margin: auto;
+  overflow: hidden;
+  // border: 1px solid black;
   @include flex($alignItems:center,$justifyContent:space-between,$flexDirection:row);
   border-radius: 1rem;
   box-shadow: 0px 0px 10px 0px rgba(153, 151, 151, 0.205);
@@ -12,28 +15,41 @@
   .left-section{
     @include flex($alignItems:center,$justifyContent:space-between,$flexDirection:column);
     gap: 3rem;
-    margin-left: 10rem;
-    
-    p{
-      @include heading;
-      letter-spacing: .1rem;
-    }
+    margin-left: 6rem;
+   
     img{
-      width: 20rem;
+      width: 45rem;
     }
   }
 
   .right-section{
+    display: flex;
+    height: 100%;
+    padding: 1rem;
+    flex-direction: column;
+    // border: 1px solid red;
+    height: 100%;
+    @include flex($alignItems:center,$justifyContent:space-between,$flexDirection:column);
+     p:nth-child(1){
+      @include heading;
+      margin-top: 1rem;
+      letter-spacing: .1rem;
+      margin-bottom: .5rem;
+      position: relative;
+      left: 0;
+    }
+  }
+  .right-section-2{
     background-color:rgba(155, 155, 155, 0.288);
     box-shadow: 0px 0px 15px 0px rgba(131, 131, 145, 0.288);
     height: 100%;
-    font-size: var(--fs-sm);
-    width: 50%;
+    font-size: var(--fs-xs);
+    width: 80%;
     @include text-style;
-    letter-spacing: .1rem;
+    letter-spacing: .025rem;
     line-height: var(--lh-lg);
     font-weight: 500;
-    padding: 8rem 5rem;
+    padding: 2rem;
     border-radius: .7rem;
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
@@ -55,17 +71,41 @@
   }
 }
 
+@media screen and (max-width:1080px){
+  
+  .about-wrapper{
+    .left-section{
+      margin-left: 2rem;
+      img{
+        width: 35rem;
+      }
+    }
+    
+  }
+}
 
+@media screen and (max-width:918px){
+  
+  .about-wrapper{
+    .right-section-2{
+      width: 95%;
+    }
+    
+  }
+}
 @media screen and (max-width:880px){
   .about-wrapper{
+    height: 56rem;
     width: 95%;
   }
 }
 @media screen and (max-width:760px){
   .about-wrapper {
     flex-direction: column;
-    gap: 6rem;
     width: 80%;
+    height: auto;
+    flex-direction: column-reverse;
+    padding: 1rem;
 
     .left-section{
       margin-left: 0rem;

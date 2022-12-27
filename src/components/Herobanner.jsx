@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 
-// import mainImg from '../assets/images/main-img.svg';
 import mainImg from "../assets/images/Edited/my3.jpg";
 
 import { translateAnim } from "../assets/js/main";

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Work+Sans&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 @import './utils';
 @import './header';
 @import './herobanner';
@@ -37,6 +37,7 @@
 
   --ff-primary: 'Merriweather', serif;
   --ff-secondary: 'Work Sans', sans-serif;
+  // --ff-secondary:'Lora', serif;
 }
 
 html{
