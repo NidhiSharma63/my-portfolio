@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import aboutImg from "../assets/images/Edited/my2.jpg";
+import aboutImg from "../assets/images/Edited/my4.jpg";
 import { translateAnim } from "../assets/js/main";
 
 const About = () => {
