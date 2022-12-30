@@ -49,6 +49,7 @@
 
 .header .logo p {
   font-size: 3rem;
+  font-family: var(--ff-primary);
   color: var(--primary-cl);
 }
 
