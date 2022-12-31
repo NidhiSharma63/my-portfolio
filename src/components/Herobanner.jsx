@@ -3,13 +3,11 @@ import React, { useEffect } from "react";
 import mainImg from "../assets/images/Edited/my1.jpg";
 
 import { translateAnim } from "../assets/js/main";
-
+let Image = {
+  selector: "right-section",
+  classes: "translate-right",
+};
 const Herobanner = () => {
-  let Image = {
-    selector: "right-section",
-    classes: "translate-right",
-  };
-
   useEffect(() => {
     translateAnim(Image);
   }, []);

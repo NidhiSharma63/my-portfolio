@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { translateAnim } from "../assets/js/main";
 
+let container3 = {
+  selector: "container-3",
+  classes: "translate-up",
+};
 const Skills = () => {
-  let container3 = {
-    selector: "container-3",
-    classes: "translate-up",
-  };
   useEffect(() => {
     translateAnim(container3);
   }, []);
