@@ -21,23 +21,25 @@ const FormComponent = ({ setEmailConfirmation }) => {
       });
   };
   return (
-    <Formik
-      validationSchema={ClientValidation}
-      onSubmit={handleEmailSubmit}
-      initialValues={initialValues}
-      className="middle-section"
-    >
-      <Form ref={formRef}>
-        <FormikInput name="clientName" placeholder="john" />
-        <FormikInput name="email" placeholder="john@gmail.com" />
-        <FormikInput
-          name="message"
-          type="textarea"
-          placeholder="Hey! Nidhi...."
-        />
-        <button type="submit">send</button>
-      </Form>
-    </Formik>
+    <div className="middle-section">
+      <Formik
+        validationSchema={ClientValidation}
+        onSubmit={handleEmailSubmit}
+        initialValues={initialValues}
+        className="middle-section"
+      >
+        <Form ref={formRef}>
+          <FormikInput name="clientName" placeholder="john" />
+          <FormikInput name="email" placeholder="john@gmail.com" />
+          <FormikInput
+            name="message"
+            component="textarea"
+            placeholder="Hey! Nidhi...."
+          />
+          <button type="submit">send</button>
+        </Form>
+      </Formik>
+    </div>
   );
 };
 

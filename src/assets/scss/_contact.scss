@@ -20,7 +20,6 @@
     color: var(--primary-cl);
   }
 }
-
 .contact-wrapper{
   .middle-section{
     width: 100%;
@@ -29,13 +28,6 @@
       @include flex($alignItems:center,$justifyContent:space-between,$flexDirection:column);
       gap: 3rem;
 
-      p{
-        font-family: var(--ff-secondary);
-        font-size: var(--fs-sm);
-        color: red;
-        margin-bottom: 0rem;
-        margin-top: -2rem;
-      }
       input,
       textarea{
         border: 1px solid var(--primary-cl);

@@ -1009,13 +1009,6 @@
   flex-direction: column;
   gap: 3rem;
 }
-.contact-wrapper .middle-section form p {
-  font-family: var(--ff-secondary);
-  font-size: var(--fs-sm);
-  color: red;
-  margin-bottom: 0rem;
-  margin-top: -2rem;
-}
 .contact-wrapper .middle-section form input,
 .contact-wrapper .middle-section form textarea {
   border: 1px solid var(--primary-cl);

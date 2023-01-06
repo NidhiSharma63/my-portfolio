@@ -1,7 +1,7 @@
 export default function useInitialValues() {
   const initialValues = {
     clientName: "",
-    email: "nidhis hamr",
+    email: "",
     message: "",
   };
 
