@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./../../assets/css/main.css";
 import APP_ENDPOINTS from "src/constant/App_And_Point";
 
@@ -14,6 +14,13 @@ const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const { initialValuesForAdmin } = useInitialValues();
+
+  useEffect(() => {
+    localStorage.getItem("user") === "admin"
+      ? navigate(APP_ENDPOINTS.ADMIN)
+      : navigate(APP_ENDPOINTS.LOGIN);
+  }, [navigate]);
+
   const handleSubmit = (value) => {
     const { email, password } = value;
     //

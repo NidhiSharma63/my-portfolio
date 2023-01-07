@@ -1,0 +1,7 @@
+div{
+  @include flex($alignItems:center,$justifyContent:center,$flexDirection:column);
+  transform: translate(0%,50%);
+  p{
+    @include heading
+  }
+}

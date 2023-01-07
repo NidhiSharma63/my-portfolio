@@ -6,7 +6,9 @@ import "./assets/css/main.css";
 import Login from "./components/auth/Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import APP_ENDPOINTS from "./constant/App_And_Point";
-import { Admin } from "./components/Admin";
+import MarkDown from "./components/blog/Markdown";
+import Errorpage from "./components/Notfound/Errorpage";
+
 const router = createBrowserRouter([
   {
     path: APP_ENDPOINTS.ROOT,
@@ -14,11 +16,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element:
+      localStorage.getItem("user") === "admin" ? <MarkDown /> : <Login />,
   },
   {
     path: "/admin",
-    element: localStorage.getItem("user") === "admin" ? <Admin /> : <Login />,
+    element:
+      localStorage.getItem("user") === "admin" ? <MarkDown /> : <Login />,
+  },
+  {
+    path: "*",
+    element: <Errorpage />,
   },
 ]);
 

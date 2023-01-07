@@ -1135,6 +1135,22 @@
     gap: 4rem;
   }
 }
+div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translate(0%, 50%);
+}
+div p {
+  font-size: var(--fs-md);
+  font-weight: 800;
+  font-family: var(--ff-primary);
+  letter-spacing: 0.1rem;
+  color: var(--primary-cl);
+  text-align: center;
+}
+
 * {
   margin: 0;
   padding: 0;
