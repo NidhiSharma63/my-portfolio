@@ -5,5 +5,10 @@ export default function useInitialValues() {
     message: "",
   };
 
-  return { initialValues };
+  const initialValuesForAdmin = {
+    email: "",
+    password: "",
+  };
+
+  return { initialValues, initialValuesForAdmin };
 }

@@ -108,6 +108,14 @@
   }
 }
 
+.login{
+  transform: translate(0%,50%);
+  padding: 8rem 0rem;
+  box-shadow: 0px 0px 10px 0px rgba(58, 55, 55, 0.164);
+
+  
+}
+
 @media screen and (max-width:600px) {
   .contact-wrapper{
     width:90%;

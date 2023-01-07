@@ -26,7 +26,6 @@ const FormComponent = ({ setEmailConfirmation }) => {
         validationSchema={ClientValidation}
         onSubmit={handleEmailSubmit}
         initialValues={initialValues}
-        className="middle-section"
       >
         <Form ref={formRef}>
           <FormikInput name="clientName" placeholder="john" />
