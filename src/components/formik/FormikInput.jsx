@@ -1,11 +1,6 @@
 import { Field, ErrorMessage } from "formik";
 
-/**
- * for showing error
- */
-const TextError = ({ children }) => {
-  return <div style={{ color: "red", fontSize: "14px" }}>{children}</div>;
-};
+import TextError from "./TextError";
 
 /**
  * for formik Input

@@ -109,11 +109,17 @@
 }
 
 .login{
-  transform: translate(0%,50%);
-  padding: 8rem 0rem;
+  transform: translate(0%,40%);
+  padding-bottom: 4rem;
   box-shadow: 0px 0px 10px 0px rgba(58, 55, 55, 0.164);
 
-  
+  p{
+    @include heading;
+    background-color: var(--primary-cl);
+    width: 100%;
+    color: white;
+    padding: 1.5rem;
+  }
 }
 
 @media screen and (max-width:600px) {
