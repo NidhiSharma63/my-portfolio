@@ -16,8 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element:
-      localStorage.getItem("user") === "admin" ? <MarkDown /> : <Login />,
+    element: <Login />,
   },
   {
     path: "/admin",
