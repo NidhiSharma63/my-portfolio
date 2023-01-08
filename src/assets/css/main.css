@@ -1135,20 +1135,50 @@
     gap: 4rem;
   }
 }
-div {
+.error {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   transform: translate(0%, 50%);
 }
-div p {
+.error p {
   font-size: var(--fs-md);
   font-weight: 800;
   font-family: var(--ff-primary);
   letter-spacing: 0.1rem;
   color: var(--primary-cl);
   text-align: center;
+}
+
+.markdown {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  min-height: 100vh;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+.markdown .textarea-conatiner {
+  width: 500px;
+  min-height: 100vh;
+}
+.markdown .textarea-conatiner textarea {
+  width: 500px;
+  resize: none;
+  height: 100%;
+  font-size: 2rem;
+  padding-left: 1rem;
+  outline: none;
+  border-left: 0.6rem;
+  min-height: 100vh;
+}
+.markdown .show-markdown {
+  flex-grow: 1;
+  height: 100%;
+  font-size: 1.7rem;
 }
 
 * {

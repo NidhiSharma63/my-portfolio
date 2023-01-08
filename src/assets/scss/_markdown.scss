@@ -1,0 +1,33 @@
+.markdown {
+  @include flex(
+    $alignItems: flex-start,
+    $justifyContent: center,
+    $flexDirection: row
+  );
+  min-height: 100vh;
+  position: relative;
+  top: 0;
+  width: 100%;
+
+  .textarea-conatiner {
+    width: 500px;
+    min-height: 100vh;
+
+    textarea {
+      width: 500px;
+      resize: none;
+      height: 100%;
+      font-size: 2rem;
+      padding-left: 1rem;
+      outline: none;
+      border-left: 0.6rem;
+      min-height: 100vh;
+
+    }
+  }
+  .show-markdown {
+    flex-grow: 1;
+    height: 100%;
+    font-size: 1.7rem;
+  }
+}
