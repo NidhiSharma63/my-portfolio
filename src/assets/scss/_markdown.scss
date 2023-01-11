@@ -9,6 +9,17 @@
   top: 0;
   width: 100%;
 
+  button {
+    padding: 0.7rem 2rem;
+    font-size: 1.8rem;
+    background-color: rgb(8, 172, 217);
+    border: none;
+    color: white;
+    border-radius: 0.2rem;
+    margin-top: 1rem;
+    margin-right: 3rem;
+    cursor: pointer;
+  }
   .textarea-conatiner {
     width: 500px;
     min-height: 100vh;
@@ -22,7 +33,6 @@
       outline: none;
       border-left: 0.6rem;
       min-height: 100vh;
-
     }
   }
   .show-markdown {
