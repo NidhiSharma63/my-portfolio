@@ -3,8 +3,29 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import app from "auth/auth.js";
+
+console.log(app);
+
 const Markdown = () => {
   const [markdown, setMarkdown] = useState("");
+
+  const handleClick = async () => {
+    try {
+      await fetch(
+        "https://my-project-46f18-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json",
+        {
+          method: "Post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(markdown),
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="markdown">
@@ -71,7 +92,7 @@ const Markdown = () => {
           },
         }}
       />
-      <button>Save</button>
+      <button onClick={handleClick}>Save</button>
     </div>
   );
 };

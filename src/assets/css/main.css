@@ -1173,7 +1173,7 @@
   cursor: pointer;
 }
 .markdown .textarea-conatiner {
-  width: 500px;
+  min-width: 500px;
   min-height: 100vh;
 }
 .markdown .textarea-conatiner textarea {
