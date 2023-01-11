@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { projectData } from "../data";
-import { translateAnim, translateAnimAll } from "../assets/js/main";
+import { projectData } from "data";
+import { translateAnim, translateAnimAll } from "assets/js/main";
 
 let container5 = {
   selector: "container-5",

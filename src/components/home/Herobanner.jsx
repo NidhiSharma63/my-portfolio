@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
-import mainImg from "../assets/images/Edited/my1.jpg";
+import mainImg from "assets/images/Edited/my1.jpg";
 
-import { translateAnim } from "../assets/js/main";
+import { translateAnim } from "assets/js/main";
 let Image = {
   selector: "right-section",
   classes: "translate-right",
@@ -17,7 +17,7 @@ const Herobanner = () => {
       <div className="left-shadow"></div>
       <div className="hero-banner-wrapper">
         <div className="left-section">
-          <p>Hy, I Am</p>
+          <p>Hii, I Am</p>
           <p>Nidhi Sharma</p>
           <p>
             A frontend developer who turns imagination into reality by using

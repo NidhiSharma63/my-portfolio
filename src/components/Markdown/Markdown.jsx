@@ -3,9 +3,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import app from "auth/auth.js";
-
-console.log(app);
 
 const Markdown = () => {
   const [markdown, setMarkdown] = useState("");

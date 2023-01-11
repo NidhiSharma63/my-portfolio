@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { translateAnim } from "../assets/js/main";
+import { translateAnim } from "assets/js/main";
 
 let container3 = {
   selector: "container-3",
