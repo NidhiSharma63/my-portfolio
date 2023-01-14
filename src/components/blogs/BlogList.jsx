@@ -4,13 +4,14 @@ import { uuidv4 } from "@firebase/util";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { selectBlog } from "store/blogSlice";
-
+import addSlug from "utlis/addSlug";
 const BlogList = ({ blogs }) => {
   const navigation = useNavigate();
   const dispatch = useDispatch();
 
   const handleClick = (blog) => {
-    navigation("/blog/blog");
+    console.log(blog.data.markdown.title);
+    navigation(`/blog/${addSlug(blog.data.markdown.title)}`);
     dispatch(selectBlog(blog));
   };
 

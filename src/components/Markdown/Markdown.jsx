@@ -78,7 +78,7 @@ const Markdown = () => {
           )}
         </Formik>
       </div>
-      <MarkdownLib markdown={mardown} />
+      <MarkdownLib className={"show-markdown"} markdown={mardown} />
     </div>
   );
 };

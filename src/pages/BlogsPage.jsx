@@ -28,8 +28,7 @@ const BlogsPage = () => {
   useEffect(() => {
     getBlogs();
     dispatch(deSelectBlog());
-    console.log("runnun");
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="main-blog-wrapper">

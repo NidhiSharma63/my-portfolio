@@ -3,11 +3,11 @@ import remarkGfm from "remark-gfm";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
-const MarkdownLib = ({ markdown }) => {
+const MarkdownLib = ({ markdown, className }) => {
   return (
     <ReactMarkdown
       children={markdown}
-      className="show-markdown"
+      className={className}
       remarkPlugins={[remarkGfm]}
       components={{
         em: ({ node, ...props }) => <i style={{ color: "green" }} {...props} />,

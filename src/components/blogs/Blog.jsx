@@ -10,10 +10,9 @@ const Blog = () => {
   return (
     <>
       {selectedBlog?.map((item) => {
-        console.log(selectedBlog);
         return (
           <MarkdownLib
-            className="custom"
+            className={"blog-list"}
             markdown={item?.data.markdown.body}
             key={uuidv4()}
           />
