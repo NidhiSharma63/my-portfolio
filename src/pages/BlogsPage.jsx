@@ -2,9 +2,13 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import BlogList from "components/blogs/BlogList";
+import { useDispatch } from "react-redux";
+import { deSelectBlog } from "store/blogSlice";
 
 const BlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
+  const dispatch = useDispatch();
+
   /**
    * fetch data
    */
@@ -23,6 +27,8 @@ const BlogsPage = () => {
   }
   useEffect(() => {
     getBlogs();
+    dispatch(deSelectBlog());
+    console.log("runnun");
   }, []);
 
   return (

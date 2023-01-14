@@ -7,12 +7,12 @@ import { selectBlog } from "store/blogSlice";
 
 const BlogList = ({ blogs }) => {
   const navigation = useNavigate();
+  const dispatch = useDispatch();
+
   const handleClick = (blog) => {
     navigation("/blog/blog");
     dispatch(selectBlog(blog));
   };
-
-  const dispatch = useDispatch();
 
   return (
     <>
