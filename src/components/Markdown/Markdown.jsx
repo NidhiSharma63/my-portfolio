@@ -1,13 +1,20 @@
-import React, { useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import React, { useState, useRef } from "react";
+import MarkdownLib from "components/common/MarkDown";
+import { Formik, Form } from "formik";
+import useInitialValues from "hooks/useInitialValues";
+import { MarkdownValidation } from "constant/validation";
+import FormikInput from "components/formik/FormikInput";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Markdown = () => {
-  const [markdown, setMarkdown] = useState("");
+  const [mardown, setMarkdown] = useState("");
+  const { markDownInitailValues } = useInitialValues();
+  const formikRef = useRef(null);
+  const notify = () => toast.success("Blog Added Successfully");
+  const error = () => toast.error("Some error occurred");
 
-  const handleClick = async () => {
+  const handleSubmit = async (values) => {
     try {
       await fetch(
         "https://my-project-46f18-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json",
@@ -16,80 +23,58 @@ const Markdown = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(markdown),
+          body: JSON.stringify({
+            data: {
+              markdown: {
+                title: values.title,
+                summary: values.markdown,
+                body: values.body,
+              },
+            },
+          }),
         }
       );
+      notify();
     } catch (err) {
+      error();
       console.log(err);
     }
+  };
+
+  const handleChange = (e) => {
+    formikRef.current.setFieldValue("body", e.target.value);
+    setMarkdown(e.target.value);
   };
 
   return (
     <div className="markdown">
       <div className="textarea-conatiner">
-        <textarea
-          name="markdown"
-          onChange={(e) => setMarkdown(e.target.value)}
-        ></textarea>
-      </div>
-      <ReactMarkdown
-        children={markdown}
-        className="show-markdown"
-        remarkPlugins={[remarkGfm]}
-        components={{
-          em: ({ node, ...props }) => (
-            <i style={{ color: "green" }} {...props} />
-          ),
-          h1: ({ node, ...props }) => (
-            <h1
-              style={{ marginBottom: "2rem", marginTop: "2rem" }}
-              {...props}
-            />
-          ),
-          h2: ({ node, ...props }) => (
-            <h2
-              style={{ marginBottom: "1.5rem", marginTop: "1.5rem" }}
-              {...props}
-            />
-          ),
-          h3: ({ node, ...props }) => (
-            <h3
-              style={{ marginBottom: "1rem", marginTop: "1rem" }}
-              {...props}
-            />
-          ),
-          p: ({ node, ...props }) => (
-            <p
-              style={{
-                marginBottom: "1rem",
-                marginTop: "1rem",
-                letterSpacing: ".03rem",
-                fontSize: "2rem",
-              }}
-              {...props}
-            />
-          ),
-
-          code({ node, inline, className, children, ...props }) {
-            const match = /language-(\w+)/.exec(className || "");
-            return !inline && match ? (
-              <SyntaxHighlighter
-                children={String(children).replace(/\n$/, "")}
-                language={match[1]}
-                background="red"
-                PreTag="div"
-                style={dark}
-                {...props}
+        <Formik
+          innerRef={formikRef}
+          initialValues={markDownInitailValues}
+          onSubmit={handleSubmit}
+          validationSchema={MarkdownValidation}
+        >
+          {({ values }) => (
+            <Form>
+              <label htmlFor="title">Title</label>
+              <FormikInput id="title" name="title" />
+              <label htmlFor="summary">Summary</label>
+              <FormikInput component={"textarea"} id="summary" name="summary" />
+              <label htmlFor="markdown">body</label>
+              <FormikInput
+                component={"textarea"}
+                id="body"
+                name="body"
+                value={values.password}
+                onChange={(e) => handleChange(e)}
               />
-            ) : (
-              <code className={className} {...props}>
-                {children}
-              </code>
-            );
-          },
-        }}
-      />
-      <button onClick={handleClick}>Save</button>
+              <button type="submit">send</button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+      <MarkdownLib markdown={mardown} />
     </div>
   );
 };

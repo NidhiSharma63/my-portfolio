@@ -18,3 +18,9 @@ export const AdminValidation = Yup.object().shape({
     .required("Email is required"),
   password: Yup.string().required("Enter your password"),
 });
+
+export const MarkdownValidation = Yup.object().shape({
+  title: Yup.string().required("Title is required"),
+  summary: Yup.string().required("summary is required"),
+  body: Yup.string().required("body is required"),
+});

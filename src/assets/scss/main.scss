@@ -1,95 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Work+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-@import './utils';
-@import './header';
-@import './herobanner';
-@import './about';
-@import './skills';
-@import './process';
-@import './work';
-@import './contact';
-@import './ErrorPage';
-@import './markdown';
-
-*{
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+@import "./utils";
+@import "./header";
+@import "./herobanner";
+@import "./about";
+@import "./skills";
+@import "./process";
+@import "./work";
+@import "./contact";
+@import "./ErrorPage";
+@import "./markdown";
+@import "./blogs";
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root{
-  --main-bg:#ECF0F3;
-  --btn-bg:#444D54;
-  
-  --primary-cl:#444D54;
-  --text-cl:#2e2d2d;
+:root {
+  --main-bg: #ecf0f3;
+  --btn-bg: #444d54;
 
-  --shadow-cl:#7c859c;
+  --primary-cl: #444d54;
+  --text-cl: #2e2d2d;
 
-  --fs-xl:7.5rem;
-  --fs-lg:5.5rem;
-  --fs-md:5rem;
-  --fs-sm:2rem;
-  --fs-xs:1.6rem;
+  --shadow-cl: #7c859c;
 
+  --fs-xl: 7.5rem;
+  --fs-lg: 5.5rem;
+  --fs-md: 5rem;
+  --fs-sm: 2rem;
+  --fs-xs: 1.6rem;
 
-  --lh-lg:3.5rem;
-  --lh-md:3rem;
-  --lh-xs:.1rem;
+  --lh-lg: 3.5rem;
+  --lh-md: 3rem;
+  --lh-xs: 0.1rem;
 
-  --ff-primary: 'Merriweather', serif;
-  --ff-secondary: 'Work Sans', sans-serif;
+  --ff-primary: "Merriweather", serif;
+  --ff-secondary: "Work Sans", sans-serif;
   // --ff-secondary:'Lora', serif;
 }
 
-html{
+html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
-body{
+body {
   background-color: var(--main-bg);
   overflow-x: hidden;
   margin-bottom: 3rem;
 }
 
-.main-wrapper{
+.main-wrapper {
   max-width: 1440px;
   margin: auto;
   position: relative;
 }
 
-@media screen and (max-width:1250px){
-  html{
+@media screen and (max-width: 1250px) {
+  html {
     font-size: 52.5%;
   }
 }
 
-@media screen and (max-width:1050px){
-  :root{
-    --fs-xl:6.5rem;
-    --fs-lg:5rem;
+@media screen and (max-width: 1050px) {
+  :root {
+    --fs-xl: 6.5rem;
+    --fs-lg: 5rem;
   }
 }
 
-@media screen and (max-width:880px){
-  html{
+@media screen and (max-width: 880px) {
+  html {
     font-size: 47.5%;
   }
 }
 
-@media screen and (max-width:880px){
-  :root{  
-    --fs-xl:5rem;
-    --fs-lg:4rem;
-    --fs-md:3.2rem;
-    --fs-sm:1.8rem;
-    --fs-xs:1.6rem;
-  
-  
-    --lh-lg:3.5rem;
-    --lh-md:3rem;
-    --lh-xs:.1rem;
+@media screen and (max-width: 880px) {
+  :root {
+    --fs-xl: 5rem;
+    --fs-lg: 4rem;
+    --fs-md: 3.2rem;
+    --fs-sm: 1.8rem;
+    --fs-xs: 1.6rem;
 
+    --lh-lg: 3.5rem;
+    --lh-md: 3rem;
+    --lh-xs: 0.1rem;
   }
 }

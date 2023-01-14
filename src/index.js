@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import App from "./App";
+import BlogsPage from "pages/BlogsPage";
 import HomePage from "pages/HomePage";
 import "./assets/css/main.css";
 import Login from "./components/auth/Login";
@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import APP_ENDPOINTS from "./constant/App_And_Point";
 import MarkDown from "./components/Markdown/Markdown";
 import Errorpage from "./components/Notfound/Errorpage";
+import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
   {
@@ -15,13 +16,34 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/login",
-    element: <Login />,
+    path: APP_ENDPOINTS.LOGIN,
+    element: (
+      <>
+        {" "}
+        <ToastContainer />
+        <Login />
+      </>
+    ),
   },
   {
-    path: "/admin",
+    path: APP_ENDPOINTS.ADMIN,
     element:
-      localStorage.getItem("user") === "admin" ? <MarkDown /> : <Login />,
+      localStorage.getItem("user") === "admin" ? (
+        <>
+          <MarkDown />
+          <ToastContainer />
+        </>
+      ) : (
+        <>
+          {" "}
+          <ToastContainer />
+          <Login />
+        </>
+      ),
+  },
+  {
+    path: APP_ENDPOINTS.Blogs,
+    element: <BlogsPage />,
   },
   {
     path: "*",
