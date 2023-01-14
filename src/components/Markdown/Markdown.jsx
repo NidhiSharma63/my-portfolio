@@ -27,7 +27,7 @@ const Markdown = () => {
             data: {
               markdown: {
                 title: values.title,
-                summary: values.markdown,
+                summary: values.summary,
                 body: values.body,
               },
             },
@@ -35,6 +35,10 @@ const Markdown = () => {
         }
       );
       notify();
+      formikRef.current.setFieldValue("body", "");
+      formikRef.current.setFieldValue("title", "");
+      formikRef.current.setFieldValue("summary", "");
+      setMarkdown("");
     } catch (err) {
       error();
       console.log(err);
