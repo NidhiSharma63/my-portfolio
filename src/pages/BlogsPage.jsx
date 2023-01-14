@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import MarkdownLib from "components/common/MarkDown";
-import { v4 as uuidv4 } from "uuid";
 import BlogList from "components/blogs/BlogList";
 
 const BlogsPage = () => {

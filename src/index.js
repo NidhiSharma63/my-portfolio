@@ -9,6 +9,9 @@ import APP_ENDPOINTS from "./constant/App_And_Point";
 import MarkDown from "./components/Markdown/Markdown";
 import Errorpage from "./components/Notfound/Errorpage";
 import { ToastContainer } from "react-toastify";
+import Blog from "components/blogs/Blog";
+import { Provider } from "react-redux";
+import store from "store/store";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +46,19 @@ const router = createBrowserRouter([
   },
   {
     path: APP_ENDPOINTS.Blogs,
-    element: <BlogsPage />,
+    element: (
+      <Provider store={store}>
+        <BlogsPage />
+      </Provider>
+    ),
+  },
+  {
+    path: "blog/:blog",
+    element: (
+      <Provider store={store}>
+        <Blog />
+      </Provider>
+    ),
   },
   {
     path: "*",
