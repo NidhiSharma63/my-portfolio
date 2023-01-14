@@ -11,7 +11,7 @@ export default function useInitialValues() {
   };
 
   const markDownInitailValues = {
-    title: "write an title",
+    title: "",
     summary: "",
     body: "",
   };
