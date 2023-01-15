@@ -1,0 +1,57 @@
+.specific-blog-header {
+  @include flex(
+    $alignItems: center,
+    $justifyContent: space-between,
+    $flexDirection: row
+  );
+  background-color: var(--primary-cl);
+  color: white;
+  padding: 1rem 2rem;
+
+  p {
+    font-size: 3.2rem;
+  }
+
+  div ul {
+    @include flex(
+      $alignItems: center,
+      $justifyContent: space-between,
+      $flexDirection: row
+    );
+    gap: 3rem;
+    font-size: var(--fs-sm);
+
+    list-style: none;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.specific-blog {
+  @include flex(
+    $alignItems: inherit,
+    $justifyContent: center,
+    $flexDirection: column
+  );
+
+  width: 80%;
+  margin: auto;
+  h1 {
+    font-size: 3.5rem;
+  }
+  h2 {
+    font-size: 2.9rem;
+  }
+  h2 {
+    font-size: 2.6rem;
+  }
+  p {
+    font-size: 1.9rem;
+    display: flex;
+  }
+  img {
+    align-self: center;
+  }
+}

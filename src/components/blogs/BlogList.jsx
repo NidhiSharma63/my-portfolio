@@ -10,7 +10,6 @@ const BlogList = ({ blogs }) => {
   const dispatch = useDispatch();
 
   const handleClick = (blog) => {
-    console.log(blog.data.markdown.title);
     navigation(`/blog/${addSlug(blog.data.markdown.title)}`);
     dispatch(selectBlog(blog));
   };
