@@ -6,6 +6,7 @@
   );
   gap: 2rem;
   width: 100%;
+
   padding-top: 3rem;
   background-color: var(--primary-cl);
 }
@@ -44,6 +45,13 @@
   @include text-style;
   line-height: var(--lh-md);
   color: white;
+
+  @media screen and (max-width: 800px) {
+    h1 {
+      line-height: var(--lh-lg);
+      font-size: var(--fs-md);
+    }
+  }
 }
 
 .blog-list-container {
@@ -93,6 +101,40 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  .blog-list-container {
+    .blog-list {
+      padding: 2rem 1rem;
+      width: 95% !important;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .blog-list-container {
+    .blog-list {
+      @include flex(
+        $alignItems: center,
+        $justifyContent: center,
+        $flexDirection: column
+      );
+      div {
+        @include flex(
+          $alignItems: center,
+          $justifyContent: center,
+          $flexDirection: column
+        );
+        .title {
+          font-size: var(--fs-sm);
+          text-align: center;
+        }
+        .body {
+          font-size: var(--fs-xs);
+          text-align: center;
+        }
+      }
+    }
+  }
+}
 .custom {
   border: none !important;
   color: white !important;

@@ -31,7 +31,7 @@ const BlogsPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="main-blog-wrapper">
+    <div className="main-blog-wrapper main-container">
       <div className="blog-header">
         <p>Nidhi</p>
         <Link to="/">Home</Link>
