@@ -1160,9 +1160,10 @@
   position: relative;
   top: 0;
   width: 100%;
+  gap: 1rem;
 }
 .markdown .textarea-conatiner {
-  min-width: 500px;
+  width: 520px;
   border: 1px solid;
   background-color: var(--primary-cl);
   padding: 0rem 1rem;
@@ -1184,7 +1185,6 @@
   width: 500px;
   height: 5rem;
   font-size: 2rem;
-  padding-left: 1rem;
 }
 .markdown .textarea-conatiner #body,
 .markdown .textarea-conatiner #summary {
@@ -1192,7 +1192,6 @@
   resize: none;
   height: 100%;
   font-size: 2rem;
-  padding-left: 1rem;
   outline: none;
   border-left: 0.6rem;
 }
@@ -1382,20 +1381,23 @@
   flex-direction: column;
   width: 80%;
   margin: auto;
-  font-size: 1.9rem;
+  font-size: 2.3rem;
+}
+.specific-blog p {
+  font-size: 2.3rem !important;
+  line-height: var(--lh-lg);
 }
 .specific-blog h1 {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
 }
 .specific-blog h2 {
-  font-size: 2.9rem;
+  font-size: 3.9rem;
 }
 .specific-blog h3 {
   font-size: 2.6rem;
 }
 .specific-blog img {
   align-self: center;
-  width: 90%;
 }
 
 @media screen and (max-width: 780px) {

@@ -8,9 +8,9 @@
   position: relative;
   top: 0;
   width: 100%;
-
+  gap: 1rem;
   .textarea-conatiner {
-    min-width: 500px;
+    width: 520px;
     border: 1px solid;
     background-color: var(--primary-cl);
     padding: 0rem 1rem;
@@ -34,7 +34,6 @@
       width: 500px;
       height: 5rem;
       font-size: 2rem;
-      padding-left: 1rem;
     }
     #body,
     #summary {
@@ -42,7 +41,6 @@
       resize: none;
       height: 100%;
       font-size: 2rem;
-      padding-left: 1rem;
       outline: none;
       border-left: 0.6rem;
     }

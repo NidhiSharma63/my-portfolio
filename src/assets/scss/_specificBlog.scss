@@ -38,12 +38,17 @@
 
   width: 80%;
   margin: auto;
-  font-size: 1.9rem;
+  font-size: 2.3rem;
+
+  p {
+    font-size: 2.3rem !important;
+    line-height: var(--lh-lg);
+  }
   h1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
   }
   h2 {
-    font-size: 2.9rem;
+    font-size: 3.9rem;
   }
   h3 {
     font-size: 2.6rem;
@@ -51,7 +56,6 @@
 
   img {
     align-self: center;
-    width: 90%;
   }
 }
 @media screen and (max-width: 780px) {
