@@ -16,7 +16,7 @@ const Markdown = () => {
 
   const handleSubmit = async (values) => {
     try {
-      await fetch(
+      const res = await fetch(
         "https://my-project-46f18-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json",
         {
           method: "Post",
@@ -34,7 +34,9 @@ const Markdown = () => {
           }),
         }
       );
-      notify();
+      if (res.status === 200) {
+        notify();
+      }
       formikRef.current.setFieldValue("body", "");
       formikRef.current.setFieldValue("title", "");
       formikRef.current.setFieldValue("summary", "");
