@@ -34,7 +34,7 @@ const BlogsPage = () => {
     <div className="main-blog-wrapper">
       <div className="blog-header">
         <p>Nidhi</p>
-        <Link>Home</Link>
+        <Link to="/">Home</Link>
       </div>
       <div className="blog-intro">
         <h1>Welcome to the Front-end Development Blog! </h1>

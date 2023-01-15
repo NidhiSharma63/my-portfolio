@@ -14,10 +14,10 @@ const Blog = () => {
         <div>
           <ul>
             <li>
-              <Link>Portfolio</Link>
+              <Link to="/">Portfolio</Link>
             </li>
             <li>
-              <Link>Blog List</Link>
+              <Link to="/blogs">Blog List</Link>
             </li>
           </ul>
         </div>
