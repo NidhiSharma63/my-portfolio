@@ -1348,6 +1348,7 @@
   flex-direction: column;
   width: 80%;
   margin: auto;
+  font-size: 1.9rem;
 }
 .specific-blog h1 {
   font-size: 3.5rem;
@@ -1355,12 +1356,8 @@
 .specific-blog h2 {
   font-size: 2.9rem;
 }
-.specific-blog h2 {
+.specific-blog h3 {
   font-size: 2.6rem;
-}
-.specific-blog p {
-  font-size: 1.9rem;
-  display: flex;
 }
 .specific-blog img {
   align-self: center;

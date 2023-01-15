@@ -23,6 +23,6 @@ export const MarkdownValidation = Yup.object().shape({
   title: Yup.string().required("Title is required"),
   summary: Yup.string()
     .required("summary is required")
-    .max(38, "Should be 38 words"),
+    .min(38, "Should be 38 words"),
   body: Yup.string().required("body is required"),
 });

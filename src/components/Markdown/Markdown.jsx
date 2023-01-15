@@ -25,11 +25,9 @@ const Markdown = () => {
           },
           body: JSON.stringify({
             data: {
-              markdown: {
-                title: values.title,
-                summary: values.summary,
-                body: values.body,
-              },
+              title: values.title,
+              summary: values.summary,
+              body: values.body,
             },
           }),
         }

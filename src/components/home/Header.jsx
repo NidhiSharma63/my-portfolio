@@ -79,6 +79,9 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
+                <Link to="/blogs">Blogs</Link>
+              </li>
+              <li>
                 <a href="#Contact" onClick={hideMobileNav}>
                   contact me
                 </a>

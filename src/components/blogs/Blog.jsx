@@ -26,7 +26,7 @@ const Blog = () => {
         return (
           <MarkdownLib
             className={"specific-blog"}
-            markdown={item?.data.markdown.body}
+            markdown={item?.data?.body}
             key={uuidv4()}
           />
         );
