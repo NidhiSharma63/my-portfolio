@@ -1,10 +1,13 @@
-import APP_ENDPOINTS from "constant/App_And_Point";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Stack, Button } from "@mui/material";
+import { HeaderContainer, Header } from "MuiStyledComponent/Header/Header";
+import { BlackLogo } from "MuiStyledComponent/common/Logo";
+import { MuiLink } from "MuiStyledComponent/common/MuiLink";
+import theme from "assets/scss/export.module.scss";
 
 const Navbar = () => {
   const [windowScroll, setWindowScroll] = useState(0);
-  const navigate = useNavigate();
 
   const showMobileNav = () => {
     const mobileNav = document.querySelector(".mobile-nav");
@@ -34,64 +37,71 @@ const Navbar = () => {
   }, [windowScroll]);
 
   return (
-    <div className="header-wrapper">
-      <div className="header">
-        <div className="logo">
-          <p>Nidhi</p>
-        </div>
-        <div className="nav-wrapper">
+    <HeaderContainer className="header-wrapper">
+      <Header className="header">
+        <BlackLogo variant="h3">Nidhi</BlackLogo>
+
+        <Stack direction="row" spacing={5} alignItems="center">
+          <MuiLink href="#Home">Home</MuiLink>
+
+          <MuiLink href="#About">About</MuiLink>
+
+          <MuiLink href="#Work">Work</MuiLink>
+
+          <MuiLink to="/blogs">Blogs</MuiLink>
+
+          <Button
+            href="#Contact"
+            variant="contained"
+            color="secondary"
+            sx={{
+              "&:hover": {
+                backgroundColor: theme.primary,
+                borderColor: theme.secondary,
+                color: theme.textPrimary,
+              },
+            }}
+          >
+            contact me
+          </Button>
+        </Stack>
+      </Header>
+    </HeaderContainer>
+  );
+};
+
+export default Navbar;
+
+{
+  /* <i className="fa-solid fa-bars" onClick={showMobileNav}></i>
+      <div className="mobile-nav">
+        <i className="fa-solid fa-xmark" onClick={hideMobileNav}></i>
+        <div className="mobile-link">
           <ul>
             <li>
-              <a href="#Home">Home</a>
+              <a href="#Home" onClick={hideMobileNav}>
+                Home
+              </a>
             </li>
             <li>
-              <a href="#About">About</a>
+              <a href="#About" onClick={hideMobileNav}>
+                About
+              </a>
             </li>
             <li>
-              <a href="#Work">work</a>
+              <a href="#Work" onClick={hideMobileNav}>
+                work
+              </a>
             </li>
             <li>
               <Link to="/blogs">Blogs</Link>
             </li>
             <li>
-              <a href="#Contact">contact me</a>
+              <a href="#Contact" onClick={hideMobileNav}>
+                contact me
+              </a>
             </li>
           </ul>
         </div>
-        <i className="fa-solid fa-bars" onClick={showMobileNav}></i>
-        <div className="mobile-nav">
-          <i className="fa-solid fa-xmark" onClick={hideMobileNav}></i>
-          <div className="mobile-link">
-            <ul>
-              <li>
-                <a href="#Home" onClick={hideMobileNav}>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#About" onClick={hideMobileNav}>
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#Work" onClick={hideMobileNav}>
-                  work
-                </a>
-              </li>
-              <li>
-                <Link to="/blogs">Blogs</Link>
-              </li>
-              <li>
-                <a href="#Contact" onClick={hideMobileNav}>
-                  contact me
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Navbar;
+      </div> */
+}

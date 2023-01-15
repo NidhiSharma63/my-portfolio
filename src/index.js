@@ -12,43 +12,51 @@ import { ToastContainer } from "react-toastify";
 import Blog from "components/blogs/Blog";
 import { Provider } from "react-redux";
 import store from "store/store";
+import { mytheme } from "theme";
+import { ThemeProvider } from "@mui/material";
 
 const router = createBrowserRouter([
   {
     path: APP_ENDPOINTS.ROOT,
-    element: <HomePage />,
+    element: (
+      <ThemeProvider theme={mytheme}>
+        <HomePage />
+      </ThemeProvider>
+    ),
   },
   {
     path: APP_ENDPOINTS.LOGIN,
     element: (
-      <>
+      <ThemeProvider theme={mytheme}>
         {" "}
         <ToastContainer />
         <Login />
-      </>
+      </ThemeProvider>
     ),
   },
   {
     path: APP_ENDPOINTS.ADMIN,
     element:
       localStorage.getItem("user") === "admin" ? (
-        <>
+        <ThemeProvider theme={mytheme}>
           <MarkDown />
           <ToastContainer />
-        </>
+        </ThemeProvider>
       ) : (
-        <>
+        <ThemeProvider theme={mytheme}>
           {" "}
           <ToastContainer />
           <Login />
-        </>
+        </ThemeProvider>
       ),
   },
   {
     path: APP_ENDPOINTS.Blogs,
     element: (
       <Provider store={store}>
-        <BlogsPage />
+        <ThemeProvider theme={mytheme}>
+          <BlogsPage />
+        </ThemeProvider>
       </Provider>
     ),
   },
@@ -56,7 +64,9 @@ const router = createBrowserRouter([
     path: "blog/:blog",
     element: (
       <Provider store={store}>
-        <Blog />
+        <ThemeProvider theme={mytheme}>
+          <Blog />
+        </ThemeProvider>
       </Provider>
     ),
   },

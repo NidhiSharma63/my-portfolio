@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
+:export {
+  white: #ffffff;
+
+  primary: #ecf0f3;
+  secondary: #444d54;
+  /* MUI PALLET */
+  textPrimary: #444d54;
+  textSecondary: #2e2d2d;
+  textTertiary: #637471;
+  shadowCl: #7c859c;
+
+  /* Font Family*/
+  ffPrimary: "Merriweather", serif;
+  ffSecondary: "Work Sans", sans-serif;
+}

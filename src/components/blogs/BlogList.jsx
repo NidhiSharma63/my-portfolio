@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { selectBlog } from "store/blogSlice";
 import addSlug from "utlis/addSlug";
+
 const BlogList = ({ blogs }) => {
   const navigation = useNavigate();
   const dispatch = useDispatch();
@@ -18,7 +19,6 @@ const BlogList = ({ blogs }) => {
     <>
       {blogs?.blog !== null
         ? blogs?.map((blog) => {
-            console.log(blog);
             return Object.entries(blog)?.map((item) => {
               const $ = CheerioAPI.load(item[1]?.data?.summary);
               const src = $("img").attr("src");
@@ -27,6 +27,7 @@ const BlogList = ({ blogs }) => {
                 <div
                   className="blog-list"
                   key={uuidv4()}
+                  id={item[0]}
                   onClick={() => {
                     handleClick(item[1]);
                   }}

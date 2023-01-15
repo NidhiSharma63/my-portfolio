@@ -6,10 +6,10 @@ import Skills from "components/home/Skills";
 import Process from "components/home/Process";
 import Work from "components/home/Work";
 import Contact from "components/home/Contact";
-
+import Container from "@mui/material/Container";
 const HomePage = () => {
   return (
-    <div className="main-wrapper">
+    <Container className="main-wrapper">
       <Header />
       <Herobanner />
       <About />
@@ -17,7 +17,7 @@ const HomePage = () => {
       <Process />
       <Work />
       <Contact />
-    </div>
+    </Container>
   );
 };
 
