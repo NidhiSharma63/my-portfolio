@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-import { Stack, Button } from "@mui/material";
+import { Stack, IconButton } from "@mui/material";
 import { HeaderContainer, Header } from "MuiStyledComponent/Header/Header";
 import { BlackLogo } from "MuiStyledComponent/common/Logo";
-import { MuiLink } from "MuiStyledComponent/common/MuiLink";
 import theme from "assets/scss/export.module.scss";
+
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+
+import NavLinks from "components/home/components/Header/NavLinks";
 
 const Navbar = () => {
   const [windowScroll, setWindowScroll] = useState(0);
 
-  const showMobileNav = () => {
-    const mobileNav = document.querySelector(".mobile-nav");
-    mobileNav.style.display = "flex";
-  };
-
-  const hideMobileNav = () => {
-    const mobileNav = document.querySelector(".mobile-nav");
-    mobileNav.style.display = "none";
-  };
+  const [mobileNav, setMobileNav] = useState(false);
 
   useEffect(() => {
     const headerWrapper = document.querySelector(".header-wrapper");
@@ -37,71 +32,72 @@ const Navbar = () => {
   }, [windowScroll]);
 
   return (
-    <HeaderContainer className="header-wrapper">
-      <Header className="header">
+    <HeaderContainer className="header-wrapper" padding={0}>
+      <Header padding={0}>
         <BlackLogo variant="h3">Nidhi</BlackLogo>
 
-        <Stack direction="row" spacing={5} alignItems="center">
-          <MuiLink href="#Home">Home</MuiLink>
-
-          <MuiLink href="#About">About</MuiLink>
-
-          <MuiLink href="#Work">Work</MuiLink>
-
-          <MuiLink to="/blogs">Blogs</MuiLink>
-
-          <Button
-            href="#Contact"
-            variant="contained"
-            color="secondary"
+        <Stack
+          alignItems="center"
+          direction="row"
+          spacing={8}
+          top="0"
+          sx={{
+            display: { xs: "none", sm: "flex" },
+          }}
+        >
+          {<NavLinks mobileNav={mobileNav} />}
+        </Stack>
+        {mobileNav ? (
+          <Stack
+            alignItems="center"
+            direction="column"
+            spacing={8}
+            top="0"
+            left="0"
+            height="100vh"
+            position="fixed"
+            width="100%"
+            backgroundColor="rgba(32, 32, 32, 0.952)"
+            justifyContent="center"
             sx={{
-              "&:hover": {
-                backgroundColor: theme.primary,
-                borderColor: theme.secondary,
-                color: theme.textPrimary,
-              },
+              display: { xs: "flex", sm: "none" },
             }}
           >
-            contact me
-          </Button>
-        </Stack>
+            {<NavLinks mobileNav={mobileNav} />}
+            <IconButton
+              sx={{
+                display: {
+                  xs: `${mobileNav === true ? "flex" : "none"}`,
+                  sm: "none",
+                },
+                position: "absolute",
+                right: "5rem",
+                top: "-8rem",
+              }}
+              onClick={() => {
+                setMobileNav(false);
+              }}
+            >
+              <CloseIcon sx={{ fontSize: "5rem", color: theme.primary }} />
+            </IconButton>
+          </Stack>
+        ) : null}
+        <IconButton
+          sx={{
+            display: {
+              sm: "none",
+              xs: `${mobileNav === true ? "none" : "flex"}`,
+            },
+          }}
+          onClick={() => {
+            setMobileNav(true);
+          }}
+        >
+          <MenuIcon sx={{ fontSize: "4rem" }} />
+        </IconButton>
       </Header>
     </HeaderContainer>
   );
 };
 
 export default Navbar;
-
-{
-  /* <i className="fa-solid fa-bars" onClick={showMobileNav}></i>
-      <div className="mobile-nav">
-        <i className="fa-solid fa-xmark" onClick={hideMobileNav}></i>
-        <div className="mobile-link">
-          <ul>
-            <li>
-              <a href="#Home" onClick={hideMobileNav}>
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#About" onClick={hideMobileNav}>
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#Work" onClick={hideMobileNav}>
-                work
-              </a>
-            </li>
-            <li>
-              <Link to="/blogs">Blogs</Link>
-            </li>
-            <li>
-              <a href="#Contact" onClick={hideMobileNav}>
-                contact me
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div> */
-}

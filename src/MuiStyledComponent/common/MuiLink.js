@@ -9,4 +9,8 @@ export const MuiLink = styled(Link)(() => ({
   color: theme.secondary,
   fontFamily: theme.ffSecondary,
   fontSize: "var(--fs-sm)",
+  cursor: "pointer",
+  "@media screen and (max-width:900px)": {
+    fontSize: "2.6rem",
+  },
 }));

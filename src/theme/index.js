@@ -3,6 +3,15 @@ import { createTheme } from "@mui/material/styles";
 import theme from "assets/scss/export.module.scss";
 
 export const mytheme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 700,
+      md: 1000,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
   typography: {
     allVariants: {
       fontFamily: [
