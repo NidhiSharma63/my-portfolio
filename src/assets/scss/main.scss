@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 @import "./utils";
 // @import "./header";
-@import "./herobanner";
+// @import "./herobanner";
 @import "./about";
 @import "./skills";
 @import "./process";
@@ -28,9 +28,9 @@
 
   --shadow-cl: #7c859c;
 
-  --fs-xl: 7.5rem;
-  --fs-lg: 5.5rem;
-  --fs-md: 5rem;
+  --fs-xl: 6.5rem;
+  --fs-lg: 5rem;
+  --fs-md: 4.5rem;
   --fs-sm: 2rem;
   --fs-xs: 1.6rem;
 
@@ -66,24 +66,24 @@ body {
   }
 }
 
-@media screen and (max-width: 1050px) {
-  :root {
-    --fs-xl: 6.5rem;
-    --fs-lg: 5rem;
-  }
-}
+// @media screen and (max-width: 1050px) {
+//   :root {
+//     --fs-xl: 6.5rem;
+//     --fs-lg: 5rem;
+//   }
+// }
 
-@media screen and (max-width: 880px) {
-  html {
-    font-size: 47.5%;
-  }
-}
+// @media screen and (max-width: 880px) {
+//   html {
+//     font-size: 47.5%;
+//   }
+// }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 750px) {
   :root {
-    --fs-xl: 5rem;
+    --fs-xl: 6rem;
     --fs-lg: 4rem;
-    --fs-md: 3.2rem;
+    --fs-md: 4.2rem;
     --fs-sm: 1.8rem;
     --fs-xs: 1.6rem;
 
