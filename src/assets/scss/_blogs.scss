@@ -78,6 +78,23 @@
     );
     gap: 1rem;
 
+    .icons-container {
+      @include flex(
+        $alignItems: center,
+        $justifyContent: center,
+        $flexDirection: row
+      );
+      gap: 2rem;
+      font-size: var(--fs-sm);
+
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+    }
+
     .title {
       text-transform: capitalize;
       font-size: 3rem;

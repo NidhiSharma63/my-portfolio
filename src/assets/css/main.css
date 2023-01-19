@@ -1294,6 +1294,20 @@
   flex-direction: row;
   gap: 1rem;
 }
+.blog-list-container .blog-list .icons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 2rem;
+  font-size: var(--fs-sm);
+}
+.blog-list-container .blog-list .icons-container .red {
+  color: red;
+}
+.blog-list-container .blog-list .icons-container .green {
+  color: green;
+}
 .blog-list-container .blog-list .title {
   text-transform: capitalize;
   font-size: 3rem;

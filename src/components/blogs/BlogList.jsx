@@ -37,6 +37,11 @@ const BlogList = ({ blogs }) => {
                       {CheerioAPI.load(item[1]?.data?.summary).text($("body"))}
                       ...
                     </p>
+                    <div className="icons-container">
+                      {" "}
+                      <i class="fa-sharp fa-solid fa-trash red"></i>
+                      <i class="fa-solid fa-pen-to-square green"></i>
+                    </div>
                   </div>
                   <img src={src} border="0" alt={alt} />
                 </div>
