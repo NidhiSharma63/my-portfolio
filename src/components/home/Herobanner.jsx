@@ -8,7 +8,7 @@ import { IconButton } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
-
+import { ButtonContainer } from "MuiStyledComponent/common/button";
 let Image = {
   selector: "right-section",
   classes: "translate-right",
@@ -70,17 +70,17 @@ const Herobanner = () => {
             code and loves to listen to music 
           </Typography>
           <Box display="flex" gap="10px" mt="5rem">
-            <Button href="#Work" variant="contained" color="secondary">
+            <ButtonContainer href="#Work" variant="contained" color="secondary">
               Checkout my work
-            </Button>
-            <Button
+            </ButtonContainer>
+            <ButtonContainer
               variant="contained"
               color="secondary"
               href="https://drive.google.com/file/d/1iCy2lPL_2r80uX0ej2DbIU6dS6AhB0P1/view?usp=sharing"
               target="blank"
             >
               Get resume
-            </Button>
+            </ButtonContainer>
           </Box>
         </Box>
       </Grid>

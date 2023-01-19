@@ -1,7 +1,7 @@
 import { MuiLink } from "MuiStyledComponent/common/MuiLink";
 import theme from "assets/scss/export.module.scss";
-import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { ButtonContainer } from "MuiStyledComponent/common/button";
 /**
  * render Links
  */
@@ -44,20 +44,9 @@ function NavLinks({ mobileNav }) {
         Blogs
       </MuiLink>
 
-      <Button
-        href="#Contact"
-        variant="contained"
-        color="secondary"
-        sx={{
-          "&:hover": {
-            backgroundColor: theme.primary,
-            borderColor: theme.secondary,
-            color: theme.textPrimary,
-          },
-        }}
-      >
+      <ButtonContainer variant="contained" color="secondary" href="#Contact">
         contact me
-      </Button>
+      </ButtonContainer>
     </>
   );
 }
