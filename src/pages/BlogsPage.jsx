@@ -1,35 +1,58 @@
 import React, { useEffect } from "react";
+import CheerioAPI from "cheerio";
+import { uuidv4 } from "@firebase/util";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import BlogList from "components/blogs/BlogList";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deSelectBlog } from "store/blogSlice";
+import addSlug from "utlis/addSlug";
+import { selectBlog } from "store/blogSlice";
+import { auth, db } from "auth/auth";
+import { onValue, ref, remove } from "firebase/database";
 
 const BlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
   const dispatch = useDispatch();
+  const navigation = useNavigate();
 
   /**
-   * fetch data
+   * useEffect to fetch data when component mount
    */
-
-  async function getBlogs() {
-    try {
-      const res = await fetch(
-        "https://my-project-46f18-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json"
-      );
-
-      const data = await res.json();
-      setBlogs([data]);
-    } catch (err) {
-      console.log(err);
-    }
-  }
   useEffect(() => {
-    getBlogs();
+    // getBlogs();
     dispatch(deSelectBlog());
+
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        onValue(ref(db, `/${auth.currentUser.uid}`), (snapshot) => {
+          setBlogs([]);
+          const data = snapshot.val();
+          if (data !== null) {
+            Object.values(data).map((blog) => {
+              setBlogs((prev) => [blog, ...prev]);
+            });
+          }
+        });
+      }
+    });
   }, [dispatch]);
 
+  /* navigate */
+  const handleClick = (blog) => {
+    navigation(`/blog/${addSlug(blog?.data?.title)}`);
+    dispatch(selectBlog(blog));
+  };
+
+  /* Delete the blog */
+
+  const deleteBlog = (e, id) => {
+    e.stopPropagation();
+    console.log(auth.currentUser.uid);
+    remove(ref(db, `${auth.currentUser.uid}/${id}`));
+  };
+
+  console.log(blogs);
   return (
     <div className="main-blog-wrapper main-container">
       <div className="blog-header">
@@ -49,7 +72,42 @@ const BlogsPage = () => {
         </p>
       </div>
       <div className="blog-list-container">
-        <BlogList blogs={blogs} />
+        {blogs?.map((blog) => {
+          console.log(blog, "blog");
+          const $ = CheerioAPI.load(blog?.data?.summary);
+          const src = $("img").attr("src");
+          const alt = $("img").attr("alt");
+          return (
+            <div
+              className="blog-list"
+              key={uuidv4()}
+              onClick={() => {
+                handleClick(blog);
+              }}
+            >
+              <div>
+                <h1 className="title">{blog?.data?.title}</h1>
+                <p className="body">
+                  {CheerioAPI.load(blog?.data?.summary).text($("body"))}
+                </p>
+                {localStorage.getItem("user") === "admin" ? (
+                  <div className="icons-container">
+                    {" "}
+                    <i
+                      className="fa-sharp fa-solid fa-trash red"
+                      onClick={(e) => {
+                        deleteBlog(e, blog.data.id);
+                      }}
+                    ></i>
+                    <i className="fa-solid fa-pen-to-square green"></i>
+                  </div>
+                ) : null}
+              </div>
+              <img src={src} border="0" alt={alt} />
+            </div>
+          );
+        })}
+        {/* <BlogList blogs={blogs} />; */}
       </div>
     </div>
   );

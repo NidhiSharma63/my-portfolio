@@ -1299,6 +1299,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  margin-top: 1rem;
   gap: 2rem;
   font-size: var(--fs-sm);
 }

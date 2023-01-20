@@ -6,6 +6,10 @@ import { MarkdownValidation } from "constant/validation";
 import FormikInput from "components/formik/FormikInput";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { uuidv4 } from "@firebase/util";
+import { auth, db } from "auth/auth";
+
+import { set, ref } from "firebase/database";
 
 const Markdown = () => {
   const [mardown, setMarkdown] = useState("");
@@ -15,34 +19,15 @@ const Markdown = () => {
   const error = () => toast.error("Some error occurred");
 
   const handleSubmit = async (values) => {
-    try {
-      const res = await fetch(
-        "https://my-project-46f18-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json",
-        {
-          method: "Post",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            data: {
-              title: values.title,
-              summary: values.summary,
-              body: values.body,
-            },
-          }),
-        }
-      );
-      if (res.status === 200) {
-        notify();
-      }
-      formikRef.current.setFieldValue("body", "");
-      formikRef.current.setFieldValue("title", "");
-      formikRef.current.setFieldValue("summary", "");
-      setMarkdown("");
-    } catch (err) {
-      error();
-      console.log(err);
-    }
+    const uuid = uuidv4();
+    set(ref(db, `${auth.currentUser.uid}/${uuid}`), {
+      data: {
+        id: uuid,
+        title: values.title,
+        summary: values.summary,
+        body: values.body,
+      },
+    });
   };
 
   const handleChange = (e) => {
