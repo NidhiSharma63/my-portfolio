@@ -47,9 +47,12 @@ const router = createBrowserRouter([
   {
     path: APP_ENDPOINTS.Blogs,
     element: (
-      <Provider store={store}>
-        <BlogsPage />
-      </Provider>
+      <>
+        <Provider store={store}>
+          <BlogsPage />
+        </Provider>
+        <ToastContainer />
+      </>
     ),
   },
   {

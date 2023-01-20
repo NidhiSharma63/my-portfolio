@@ -16,7 +16,6 @@ const Markdown = () => {
   const { markDownInitailValues } = useInitialValues();
   const formikRef = useRef(null);
   const notify = () => toast.success("Blog Added Successfully");
-  const error = () => toast.error("Some error occurred");
 
   const handleSubmit = async (values) => {
     const uuid = uuidv4();
@@ -27,6 +26,8 @@ const Markdown = () => {
         summary: values.summary,
         body: values.body,
       },
+    }).then(() => {
+      notify();
     });
   };
 

@@ -10,11 +10,14 @@ import addSlug from "utlis/addSlug";
 import { selectBlog } from "store/blogSlice";
 import { auth, db } from "auth/auth";
 import { onValue, ref, remove } from "firebase/database";
+import { toast } from "react-toastify";
 
 const BlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
   const dispatch = useDispatch();
   const navigation = useNavigate();
+
+  const deleteNoitify = () => toast.success("Blog Deleted Successfully");
 
   /**
    * useEffect to fetch data when component mount
@@ -49,7 +52,10 @@ const BlogsPage = () => {
   const deleteBlog = (e, id) => {
     e.stopPropagation();
     console.log(auth.currentUser.uid);
-    remove(ref(db, `${auth.currentUser.uid}/${id}`));
+    remove(ref(db, `${auth.currentUser.uid}/${id}`)).then(() => {
+      deleteNoitify();
+      console.log("delte running");
+    });
   };
 
   console.log(blogs);
