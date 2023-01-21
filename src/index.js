@@ -33,7 +33,9 @@ const router = createBrowserRouter([
     element:
       localStorage.getItem("user") === "admin" ? (
         <>
-          <MarkDown />
+          <Provider store={store}>
+            <MarkDown />
+          </Provider>
           <ToastContainer />
         </>
       ) : (

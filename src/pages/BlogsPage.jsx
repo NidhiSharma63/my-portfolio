@@ -5,9 +5,13 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { deSelectBlog } from "store/blogSlice";
 import addSlug from "utlis/addSlug";
-import { selectBlog } from "store/blogSlice";
+import {
+  selectBlog,
+  setEditBlogUuid,
+  setEditblog,
+  setIsEdit,
+} from "store/blogSlice";
 import { auth, db } from "auth/auth";
 import { onValue, ref, remove } from "firebase/database";
 import { toast } from "react-toastify";
@@ -16,15 +20,13 @@ const BlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
   const dispatch = useDispatch();
   const navigation = useNavigate();
-
   const deleteNoitify = () => toast.success("Blog Deleted Successfully");
 
   /**
    * useEffect to fetch data when component mount
    */
   useEffect(() => {
-    // getBlogs();
-    dispatch(deSelectBlog());
+    // dispatch(deSelectBlog());
 
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -51,14 +53,22 @@ const BlogsPage = () => {
 
   const deleteBlog = (e, id) => {
     e.stopPropagation();
-    console.log(auth.currentUser.uid);
     remove(ref(db, `${auth.currentUser.uid}/${id}`)).then(() => {
       deleteNoitify();
-      console.log("delte running");
     });
   };
 
-  console.log(blogs);
+  /* handle click edit blog */
+  const handleEditClick = (e, blog) => {
+    e.stopPropagation();
+    console.log(blog);
+
+    dispatch(setEditBlogUuid(blog?.data?.id));
+    dispatch(setEditblog(blog));
+    dispatch(setIsEdit(true));
+    navigation("/admin");
+  };
+
   return (
     <div className="main-blog-wrapper main-container">
       <div className="blog-header">
@@ -79,7 +89,6 @@ const BlogsPage = () => {
       </div>
       <div className="blog-list-container">
         {blogs?.map((blog) => {
-          console.log(blog, "blog");
           const $ = CheerioAPI.load(blog?.data?.summary);
           const src = $("img").attr("src");
           const alt = $("img").attr("alt");
@@ -105,7 +114,12 @@ const BlogsPage = () => {
                         deleteBlog(e, blog.data.id);
                       }}
                     ></i>
-                    <i className="fa-solid fa-pen-to-square green"></i>
+                    <i
+                      className="fa-solid fa-pen-to-square green"
+                      onClick={(e) => {
+                        handleEditClick(e, blog);
+                      }}
+                    ></i>
                   </div>
                 ) : null}
               </div>
@@ -113,7 +127,6 @@ const BlogsPage = () => {
             </div>
           );
         })}
-        {/* <BlogList blogs={blogs} />; */}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
 import { Link } from "react-router-dom";
 const Blog = () => {
-  const selectedBlog = useSelector(blogDataInStore);
+  const { selectBlog } = useSelector(blogDataInStore);
 
   return (
     <div className="main-wrapper">
@@ -22,7 +22,8 @@ const Blog = () => {
           </ul>
         </div>
       </header>
-      {selectedBlog?.map((item) => {
+
+      {selectBlog?.map((item) => {
         return (
           <MarkdownLib
             className={"specific-blog"}

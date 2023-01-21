@@ -7,28 +7,47 @@ import FormikInput from "components/formik/FormikInput";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { uuidv4 } from "@firebase/util";
+import { useSelector } from "react-redux";
 import { auth, db } from "auth/auth";
 
-import { set, ref } from "firebase/database";
+import { blogDataInStore } from "store/blogSlice";
+import { set, ref, update } from "firebase/database";
 
 const Markdown = () => {
   const [mardown, setMarkdown] = useState("");
   const { markDownInitailValues } = useInitialValues();
+  const { isEdit, editBlogUuid } = useSelector(blogDataInStore);
+
   const formikRef = useRef(null);
   const notify = () => toast.success("Blog Added Successfully");
+  const notifyEdit = () => toast.success("Blog Edit Successfully");
 
   const handleSubmit = async (values) => {
-    const uuid = uuidv4();
-    set(ref(db, `${auth.currentUser.uid}/${uuid}`), {
-      data: {
-        id: uuid,
-        title: values.title,
-        summary: values.summary,
-        body: values.body,
-      },
-    }).then(() => {
-      notify();
-    });
+    if (!isEdit) {
+      const uuid = uuidv4();
+      set(ref(db, `${auth.currentUser.uid}/${uuid}`), {
+        data: {
+          id: uuid,
+          title: values.title,
+          summary: values.summary,
+          body: values.body,
+        },
+      }).then(() => {
+        notify();
+      });
+      return;
+    } else {
+      update(ref(db, `${auth.currentUser.uid}/${editBlogUuid}`), {
+        data: {
+          id: editBlogUuid,
+          title: values.title,
+          summary: values.summary,
+          body: values.body,
+        },
+      }).then(() => {
+        notifyEdit();
+      });
+    }
   };
 
   const handleChange = (e) => {
@@ -56,10 +75,14 @@ const Markdown = () => {
                 component={"textarea"}
                 id="body"
                 name="body"
-                value={values.password}
+                value={values.body}
                 onChange={(e) => handleChange(e)}
               />
-              <button type="submit">send</button>
+              {isEdit ? (
+                <button type="submit">Save Edit</button>
+              ) : (
+                <button type="submit">Save</button>
+              )}
             </Form>
           )}
         </Formik>
