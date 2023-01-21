@@ -1,5 +1,4 @@
 export default function addSlug(string) {
-  const value =
-    "What is the difference between the useCallback and useMemo hooks?";
+  const value = string;
   return value.split(" ").join("-");
 }

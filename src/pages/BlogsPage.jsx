@@ -61,7 +61,6 @@ const BlogsPage = () => {
   /* handle click edit blog */
   const handleEditClick = (e, blog) => {
     e.stopPropagation();
-    console.log(blog);
 
     dispatch(setEditBlogUuid(blog?.data?.id));
     dispatch(setEditblog(blog));
