@@ -53,9 +53,14 @@ const BlogsPage = () => {
 
   const deleteBlog = (e, id) => {
     e.stopPropagation();
-    remove(ref(db, `${auth.currentUser.uid}/${id}`)).then(() => {
-      deleteNoitify();
-    });
+    const action = window.confirm("Are you sure want to delete this blog");
+    if (action) {
+      remove(ref(db, `${auth.currentUser.uid}/${id}`)).then(() => {
+        deleteNoitify();
+      });
+      return;
+    }
+    return;
   };
 
   /* handle click edit blog */
