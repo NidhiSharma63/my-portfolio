@@ -11,10 +11,12 @@ import {
   setEditBlogUuid,
   setEditblog,
   setIsEdit,
+  deSelectBlog,
 } from "store/blogSlice";
 import { auth, db } from "auth/auth";
 import { onValue, ref, remove } from "firebase/database";
 import { toast } from "react-toastify";
+import { onAuthStateChanged } from "firebase/auth";
 
 const BlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -26,7 +28,7 @@ const BlogsPage = () => {
    * useEffect to fetch data when component mount
    */
   useEffect(() => {
-    // dispatch(deSelectBlog());
+    dispatch(deSelectBlog());
 
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -41,7 +43,7 @@ const BlogsPage = () => {
         });
       }
     });
-  }, [dispatch]);
+  }, []);
 
   /* navigate */
   const handleClick = (blog) => {
@@ -137,3 +139,21 @@ const BlogsPage = () => {
 };
 
 export default BlogsPage;
+
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // this is function to get data from firebase realtime.
+//     GetFirebaseData();
+//   } else {
+//     alert("you need to login");
+//   }
+// });
+
+// function GetFirebaseData() {
+//   const starCountRef = ref(db, "gv0XmbJt6WTU5UGUTCJHVezoxin2");
+//   onValue(starCountRef, (snapshot) => {
+//     const data = snapshot.val();
+
+//     console.log(data);
+//   });
+// }

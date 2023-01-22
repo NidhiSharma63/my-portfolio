@@ -14,9 +14,9 @@ const blogSlice = createSlice({
     selectBlog: (state, action) => {
       state.selectBlog.push(action.payload);
     },
-    // deSelectBlog: (state, action) => {
-    //   state.blog.splice(0, state.blog.length);
-    // },
+    deSelectBlog: (state, action) => {
+      state.selectBlog.splice(0, state.selectBlog.length);
+    },
     setEditBlogUuid: (state, action) => {
       state.editBlogUuid = action.payload;
     },

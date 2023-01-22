@@ -4,9 +4,12 @@ import { blogDataInStore } from "store/blogSlice";
 import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
 import { Link } from "react-router-dom";
+
+import { useState } from "react";
+
 const Blog = () => {
   const { selectBlog } = useSelector(blogDataInStore);
-
+  console.log(selectBlog, "slelect");
   return (
     <div className="main-wrapper">
       <header className="specific-blog-header">
@@ -32,6 +35,25 @@ const Blog = () => {
           />
         );
       })}
+      {/* <CommentSection
+        currentUser={{
+          currentUserId: "01a",
+          currentUserImg:
+            "https://ui-avatars.com/api/name=Riya&background=random",
+          currentUserProfile:
+            "https://www.linkedin.com/in/riya-negi-8879631a9/",
+          currentUserFullName: "Riya Negi",
+        }}
+        commentData={data}
+        logIn={{
+          loginLink: "http://localhost:3001/",
+          signupLink: "http://localhost:3001/",
+        }}
+        onSubmitAction={(data) => console.log("check submit, ", data)}
+        currentData={(data) => {
+          console.log("curent data", data);
+        }}
+      /> */}
     </div>
   );
 };

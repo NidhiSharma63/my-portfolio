@@ -23,8 +23,10 @@ const router = createBrowserRouter([
     element: (
       <>
         {" "}
+        <Provider store={store}>
+          <Login />
+        </Provider>
         <ToastContainer />
-        <Login />
       </>
     ),
   },
@@ -42,7 +44,9 @@ const router = createBrowserRouter([
         <>
           {" "}
           <ToastContainer />
-          <Login />
+          <Provider store={store}>
+            <Login />
+          </Provider>
         </>
       ),
   },
