@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "assets/css/main.css";
 import APP_ENDPOINTS from "constant/App_And_Point";
-
+import { setValueToLS } from "utlis/Localstorage";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../auth/auth";
 import FormikInput from "../formik/FormikInput";
@@ -23,12 +23,24 @@ const Login = () => {
 
   const handleSubmit = (value) => {
     const { email, password } = value;
+    console.log(email, password);
     //
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         // Signed in
-        localStorage.setItem("user", "admin");
-        navigate(APP_ENDPOINTS.ADMIN);
+        if (
+          email === process.env.REACT_APP_USEREMAIL &&
+          password === process.env.REACT_APP_PASSWORD
+        ) {
+          setValueToLS("role", "admin");
+
+          navigate(APP_ENDPOINTS.ADMIN);
+          return;
+        } else {
+          setValueToLS("role", "user");
+          navigate(APP_ENDPOINTS.Blogs);
+          return;
+        }
       })
       .catch(() => {
         setError(true);

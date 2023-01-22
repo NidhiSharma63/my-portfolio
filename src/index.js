@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import Blog from "components/blogs/Blog";
 import { Provider } from "react-redux";
 import store from "store/store";
+import { getValueFromLS } from "utlis/Localstorage";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
   {
     path: APP_ENDPOINTS.ADMIN,
     element:
-      localStorage.getItem("user") === "admin" ? (
+      getValueFromLS("role") === "admin" ? (
         <>
           <Provider store={store}>
             <MarkDown />
