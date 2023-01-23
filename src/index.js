@@ -17,7 +17,11 @@ import { getValueFromLS } from "utlis/Localstorage";
 const router = createBrowserRouter([
   {
     path: APP_ENDPOINTS.ROOT,
-    element: <HomePage />,
+    element: (
+      <Provider store={store}>
+        <HomePage />
+      </Provider>
+    ),
   },
   {
     path: APP_ENDPOINTS.LOGIN,
