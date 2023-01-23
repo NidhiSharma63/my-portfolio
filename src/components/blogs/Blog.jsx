@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { blogDataInStore } from "store/blogSlice";
 import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
 import { Link } from "react-router-dom";
-
-import { useState } from "react";
+import Comments from "components/comments/Comments";
+import { set, ref, update } from "firebase/database";
+import { auth, db } from "auth/auth";
 
 const Blog = () => {
   const { selectBlog } = useSelector(blogDataInStore);
-  console.log(selectBlog, "slelect");
+  const [commentvalue, setCommentValue] = useState(
+    selectBlog[0]?.data?.comments || []
+  );
+  const [addNewComment, setAddNewComment] = useState("");
+
+  const handleSubmit = (editBlogUuid) => {
+    setCommentValue([addNewComment, ...commentvalue]);
+    update(ref(db, `${auth.currentUser.uid}/${editBlogUuid}`), {
+      data: {
+        id: editBlogUuid,
+        title: selectBlog[0]?.data?.title,
+        summary: selectBlog[0]?.data?.summary,
+        body: selectBlog[0]?.data?.body,
+        coments: [addNewComment, ...commentvalue],
+      },
+    });
+  };
+  console.log(commentvalue, "commentvalue");
   return (
     <div className="main-wrapper">
       <header className="specific-blog-header">
@@ -27,14 +45,37 @@ const Blog = () => {
       </header>
 
       {selectBlog?.map((item) => {
+        console.log(item?.data?.coments);
         return (
-          <MarkdownLib
-            className={"specific-blog"}
-            markdown={item?.data?.body}
-            key={uuidv4()}
-          />
+          <React.Fragment key={item?.data?.id}>
+            <MarkdownLib
+              className={"specific-blog"}
+              markdown={item?.data?.body}
+              key={uuidv4()}
+            />
+            <div>
+              {commentvalue.map((coment) => {
+                return <h1>{coment}</h1>;
+              })}
+            </div>
+            <div className="comment-section">
+              <textarea
+                value={addNewComment}
+                onChange={(e) => setAddNewComment(e.target.value)}
+              ></textarea>
+              <button
+                onClick={() => {
+                  handleSubmit(item?.data?.id);
+                }}
+              >
+                Send
+              </button>
+            </div>
+          </React.Fragment>
         );
       })}
+      {/* <Comments /> */}
+
       {/* <CommentSection
         currentUser={{
           currentUserId: "01a",

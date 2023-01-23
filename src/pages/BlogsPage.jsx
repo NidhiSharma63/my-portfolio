@@ -14,9 +14,8 @@ import {
   deSelectBlog,
 } from "store/blogSlice";
 import { auth, db } from "auth/auth";
-import { onValue, ref, remove } from "firebase/database";
+import { ref, remove } from "firebase/database";
 import { toast } from "react-toastify";
-import { onAuthStateChanged } from "firebase/auth";
 
 const BlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -107,7 +106,7 @@ const BlogsPage = () => {
                   <p className="body">
                     {cheerio.load(blog?.data?.summary).text($("body"))}
                   </p>
-                  {localStorage.getItem("user") === "admin" ? (
+                  {localStorage.getItem("role") === "admin" ? (
                     <div className="icons-container">
                       {" "}
                       <i
