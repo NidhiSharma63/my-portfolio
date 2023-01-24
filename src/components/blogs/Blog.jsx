@@ -1,15 +1,16 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { blogDataInStore } from "store/blogSlice";
+import React, { useState } from "react";
 import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
 import { Link } from "react-router-dom";
-
-import { useState } from "react";
+import { getValueFromLS } from "utlis/Localstorage";
 
 const Blog = () => {
-  const { selectBlog } = useSelector(blogDataInStore);
-  console.log(selectBlog, "slelect");
+  const [showBlog, setShowBlog] = useState([
+    JSON.parse(getValueFromLS("blog")),
+  ]);
+
+  /** submit comment */
+
   return (
     <div className="main-wrapper">
       <header className="specific-blog-header">
@@ -26,15 +27,19 @@ const Blog = () => {
         </div>
       </header>
 
-      {selectBlog?.map((item) => {
+      {showBlog?.map((item) => {
         return (
-          <MarkdownLib
-            className={"specific-blog"}
-            markdown={item?.data?.body}
-            key={uuidv4()}
-          />
+          <React.Fragment key={item?.data?.id}>
+            <MarkdownLib
+              className={"specific-blog"}
+              markdown={item?.data?.body}
+              key={uuidv4()}
+            />
+          </React.Fragment>
         );
       })}
+      {/* <Comments /> */}
+
       {/* <CommentSection
         currentUser={{
           currentUserId: "01a",

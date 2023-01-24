@@ -12,7 +12,11 @@ const getValueFromLS = (key) => {
  * @param  {} value
  */
 const setValueToLS = (key, value) => {
-  localStorage.setItem(key, value);
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (err) {
+    console.error("Error storing data in localStorage: ", err);
+  }
 };
 
 export { getValueFromLS, setValueToLS };

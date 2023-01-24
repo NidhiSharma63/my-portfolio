@@ -159,3 +159,29 @@
   font-size: 1.7rem !important;
   width: 100% !important;
 }
+.giscus {
+  width: 90%;
+  margin: auto;
+}
+.comment-section {
+  width: 100%;
+  @include flex(
+    $alignItems: center,
+    $justifyContent: center,
+    $flexDirection: column
+  );
+  gap: 1rem;
+  textarea {
+    width: 60%;
+    margin: auto;
+    height: 10rem;
+  }
+  button {
+    padding: 1rem 3rem;
+    font-size: 1.9rem;
+    background-color: rgb(40, 140, 206);
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+}

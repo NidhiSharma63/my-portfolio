@@ -31,6 +31,7 @@ const Markdown = () => {
           title: values.title,
           summary: values.summary,
           body: values.body,
+          Comments: [],
         },
       }).then(() => {
         notify();
