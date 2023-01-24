@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { setValueToLS } from "utlis/Localstorage";
 
 const initialState = {
-  selectBlog: [],
+  // selectBlog: [],
   editBlogUuid: "",
   editblog: {},
   isEdit: false,
@@ -11,12 +12,12 @@ const blogSlice = createSlice({
   name: "blog",
   initialState,
   reducers: {
-    selectBlog: (state, action) => {
-      state.selectBlog.push(action.payload);
-    },
-    deSelectBlog: (state, action) => {
-      state.selectBlog.splice(0, state.selectBlog.length);
-    },
+    // selectBlog: (state, action) => {
+    //   state.selectBlog.push(action.payload);
+    // },
+    // deSelectBlog: (state, action) => {
+    //   state.selectBlog.splice(0, state.selectBlog.length);
+    // },
     setEditBlogUuid: (state, action) => {
       state.editBlogUuid = action.payload;
     },

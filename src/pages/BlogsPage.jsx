@@ -6,16 +6,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import addSlug from "utlis/addSlug";
-import {
-  selectBlog,
-  setEditBlogUuid,
-  setEditblog,
-  setIsEdit,
-  deSelectBlog,
-} from "store/blogSlice";
+import { setEditBlogUuid, setEditblog, setIsEdit } from "store/blogSlice";
 import { auth, db } from "auth/auth";
 import { ref, remove } from "firebase/database";
 import { toast } from "react-toastify";
+import { setValueToLS, getValueFromLS } from "utlis/Localstorage";
 
 const BlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -34,15 +29,13 @@ const BlogsPage = () => {
    * useEffect to fetch data when component mount
    */
   useEffect(() => {
-    dispatch(deSelectBlog());
-
     fetchData();
   }, []);
 
   /* navigate */
   const handleClick = (blog) => {
     navigation(`/blog/${addSlug(blog?.data?.title)}`);
-    dispatch(selectBlog(blog));
+    setValueToLS("blog", blog);
   };
 
   /* Delete the blog */
@@ -106,7 +99,7 @@ const BlogsPage = () => {
                   <p className="body">
                     {cheerio.load(blog?.data?.summary).text($("body"))}
                   </p>
-                  {localStorage.getItem("role") === "admin" ? (
+                  {JSON.parse(getValueFromLS("role")) === "admin" ? (
                     <div className="icons-container">
                       {" "}
                       <i

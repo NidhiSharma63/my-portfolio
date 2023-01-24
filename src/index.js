@@ -38,7 +38,7 @@ const router = createBrowserRouter([
   {
     path: APP_ENDPOINTS.ADMIN,
     element:
-      getValueFromLS("role") === "admin" ? (
+      JSON.parse(getValueFromLS("role")) === "admin" ? (
         <>
           <Provider store={store}>
             <MarkDown />
