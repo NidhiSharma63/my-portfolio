@@ -1397,10 +1397,15 @@
   flex-direction: row;
   background-color: var(--primary-cl);
   color: white;
-  padding: 1rem 2rem;
+  padding: 2rem 3rem;
 }
 .specific-blog-header p {
   font-size: 3.2rem;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 }
 .specific-blog-header div ul {
   display: flex;

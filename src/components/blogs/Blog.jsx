@@ -3,11 +3,16 @@ import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
 import { Link } from "react-router-dom";
 import { getValueFromLS } from "utlis/Localstorage";
+import * as cheerio from "cheerio";
 
 const Blog = () => {
   const [showBlog, setShowBlog] = useState([
     JSON.parse(getValueFromLS("blog")),
   ]);
+  const $ = cheerio.load(showBlog[0]?.data?.body);
+  console.log(showBlog[0]?.data?.body);
+  const h1tag = $("h1").text();
+  console.log(h1tag);
 
   /** submit comment */
 
@@ -29,13 +34,14 @@ const Blog = () => {
 
       {showBlog?.map((item) => {
         return (
-          <React.Fragment key={item?.data?.id}>
+          <div key={item?.data?.id}>
             <MarkdownLib
               className={"specific-blog"}
               markdown={item?.data?.body}
               key={uuidv4()}
             />
-          </React.Fragment>
+            <h1>{}</h1>
+          </div>
         );
       })}
       {/* <Comments /> */}

@@ -6,10 +6,16 @@
   );
   background-color: var(--primary-cl);
   color: white;
-  padding: 1rem 2rem;
+  padding: 2rem 3rem;
 
   p {
     font-size: 3.2rem;
+    display: flex;
+    @include flex(
+      $alignItems: center,
+      $justifyContent: space-between,
+      $flexDirection: row
+    );
   }
 
   div ul {

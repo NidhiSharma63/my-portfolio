@@ -12,24 +12,43 @@ const MarkdownLib = ({ markdown, className }) => {
       components={{
         em: ({ node, ...props }) => <i style={{ color: "green" }} {...props} />,
         h1: ({ node, ...props }) => (
-          <h1 style={{ marginBottom: "2rem", marginTop: "2rem" }} {...props} />
+          <h1
+            style={{
+              marginBottom: "2rem",
+              marginTop: "2rem",
+              textAlign: "center",
+            }}
+            {...props}
+          />
         ),
         h2: ({ node, ...props }) => (
           <h2
-            style={{ marginBottom: "1.5rem", marginTop: "1.5rem" }}
+            style={{
+              marginBottom: "1.5rem",
+              marginTop: "1.5rem",
+              textAlign: "center",
+            }}
             {...props}
           />
         ),
         h3: ({ node, ...props }) => (
-          <h3 style={{ marginBottom: "1rem", marginTop: "1rem" }} {...props} />
+          <h3
+            style={{
+              marginBottom: "1rem",
+              marginTop: "1rem",
+              textAlign: "center",
+            }}
+            {...props}
+          />
         ),
+
         p: ({ node, ...props }) => (
           <p
             style={{
               marginBottom: "1rem",
               marginTop: "1rem",
               letterSpacing: ".03rem",
-              fontSize: "2rem",
+              fontSize: "3rem",
             }}
             {...props}
           />
