@@ -1390,6 +1390,12 @@
   cursor: pointer;
 }
 
+.specific-blog-container {
+  max-width: 1440px;
+  margin: auto;
+}
+
+/* header */
 .specific-blog-header {
   display: flex;
   align-items: center;
@@ -1421,6 +1427,7 @@
   color: white;
 }
 
+/* specific blog */
 .specific-blog {
   display: flex;
   align-items: inherit;
@@ -1433,6 +1440,9 @@
 .specific-blog p {
   font-size: 2.3rem !important;
   line-height: var(--lh-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .specific-blog h1 {
   font-size: 4.5rem;
@@ -1445,6 +1455,54 @@
 }
 .specific-blog img {
   align-self: center;
+}
+
+/* About author */
+.about-author {
+  width: 70%;
+  margin: auto;
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 2rem;
+}
+.about-author .col-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 2rem;
+}
+.about-author .col-1 .autho-img {
+  width: 130px;
+  height: 130px;
+}
+.about-author .col-1 .autho-img img {
+  width: 100%;
+  border-radius: 50%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.about-author .col-1 .upper-text {
+  font-family: var(--ff-primary);
+  color: var(--primary-cl);
+}
+.about-author .col-1 .upper-text strong {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.about-author .col-1 .upper-text p {
+  font-size: 3rem;
+}
+.about-author .col-2 {
+  font-size: 1.9rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--primary-cl);
+  font-family: var(--ff-secondary);
 }
 
 @media screen and (max-width: 780px) {

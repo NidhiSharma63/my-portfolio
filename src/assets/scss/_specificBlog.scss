@@ -1,3 +1,8 @@
+.specific-blog-container {
+  max-width: 1440px;
+  margin: auto;
+}
+/* header */
 .specific-blog-header {
   @include flex(
     $alignItems: center,
@@ -35,6 +40,8 @@
   }
 }
 
+/* specific blog */
+
 .specific-blog {
   @include flex(
     $alignItems: inherit,
@@ -49,6 +56,9 @@
   p {
     font-size: 2.3rem !important;
     line-height: var(--lh-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   h1 {
     font-size: 4.5rem;
@@ -64,6 +74,59 @@
     align-self: center;
   }
 }
+/* About author */
+
+.about-author {
+  width: 70%;
+  margin: auto;
+  margin-top: 4rem;
+  @include flex(
+    $alignItems: center,
+    $justifyContent: space-between,
+    $flexDirection: column
+  );
+  gap: 2rem;
+  .col-1 {
+    @include flex(
+      $alignItems: center,
+      $justifyContent: space-between,
+      $flexDirection: row
+    );
+    gap: 2rem;
+    .autho-img {
+      width: 130px;
+      height: 130px;
+      // overflow: hidden;
+
+      img {
+        width: 100%;
+        border-radius: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .upper-text {
+      strong {
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+      p {
+        font-size: 3rem;
+      }
+      font-family: var(--ff-primary);
+      color: var(--primary-cl);
+    }
+  }
+
+  .col-2 {
+    font-size: 1.9rem;
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--primary-cl);
+    font-family: var(--ff-secondary);
+  }
+}
+
 @media screen and (max-width: 780px) {
   .specific-blog {
     img {

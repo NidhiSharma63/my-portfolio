@@ -17,6 +17,7 @@ const MarkdownLib = ({ markdown, className }) => {
               marginBottom: "2rem",
               marginTop: "2rem",
               textAlign: "center",
+              color: "var(--primary-cl)",
             }}
             {...props}
           />
@@ -27,6 +28,7 @@ const MarkdownLib = ({ markdown, className }) => {
               marginBottom: "1.5rem",
               marginTop: "1.5rem",
               textAlign: "center",
+              color: "var(--primary-cl)",
             }}
             {...props}
           />
@@ -37,6 +39,7 @@ const MarkdownLib = ({ markdown, className }) => {
               marginBottom: "1rem",
               marginTop: "1rem",
               textAlign: "center",
+              color: "var(--primary-cl)",
             }}
             {...props}
           />
@@ -49,6 +52,8 @@ const MarkdownLib = ({ markdown, className }) => {
               marginTop: "1rem",
               letterSpacing: ".03rem",
               fontSize: "3rem",
+              fontFamily: "var(--ff-secondary)",
+              color: "var(--text-cl)",
             }}
             {...props}
           />

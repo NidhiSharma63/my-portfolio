@@ -4,6 +4,7 @@ import { uuidv4 } from "@firebase/util";
 import { Link } from "react-router-dom";
 import { getValueFromLS } from "utlis/Localstorage";
 import * as cheerio from "cheerio";
+import mainImg from "assets/images/Edited/my1.jpg";
 
 const Blog = () => {
   const [showBlog, setShowBlog] = useState([
@@ -34,14 +35,39 @@ const Blog = () => {
 
       {showBlog?.map((item) => {
         return (
-          <div key={item?.data?.id}>
-            <MarkdownLib
-              className={"specific-blog"}
-              markdown={item?.data?.body}
-              key={uuidv4()}
-            />
-            <h1>{}</h1>
-          </div>
+          <>
+            <div key={item?.data?.id} className="specific-blog-container">
+              <MarkdownLib
+                className={"specific-blog"}
+                markdown={item?.data?.body}
+                key={uuidv4()}
+              />
+            </div>
+            <div className="about-author">
+              <div className="col-1">
+                <div className="autho-img">
+                  <img src={mainImg} alt="author" />
+                </div>
+                <div className="upper-text">
+                  <strong>WRITTEN BY</strong>
+                  <p>Nidhi Sharma</p>
+                </div>
+              </div>
+              <p className="col-2">
+                nidhi sharma Hi there! My name is Nidhi sharma and I am a
+                frontend developer currently working as an intern. I have a
+                strong passion for creating user-friendly and visually appealing
+                websites and applications, and I am always looking to learn and
+                improve my skills. As a frontend developer, I use a variety of
+                programming languages and tools, such as HTML, CSS, and
+                JavaScript, React, to bring my designs to life and make them
+                interactive and responsive. I am excited to have the opportunity
+                to learn from and contribute to a team of experienced
+                developers. I am eager to take on new challenges and to apply my
+                skills and knowledge to real-world projects.
+              </p>
+            </div>
+          </>
         );
       })}
       {/* <Comments /> */}
