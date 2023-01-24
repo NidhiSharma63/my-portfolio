@@ -1,47 +1,15 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { blogDataInStore } from "store/blogSlice";
 import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
-import { json, Link } from "react-router-dom";
-import Comments from "components/comments/Comments";
-import { set, ref, update } from "firebase/database";
-import { auth, db } from "auth/auth";
-import { getValueFromLS, setValueToLS } from "utlis/Localstorage";
+import { Link } from "react-router-dom";
+import { getValueFromLS } from "utlis/Localstorage";
 
 const Blog = () => {
   const [showBlog, setShowBlog] = useState([
     JSON.parse(getValueFromLS("blog")),
   ]);
-  const [commentvalue, setCommentValue] = useState(
-    showBlog[0]?.data?.coments ?? []
-  );
-  const [addNewComment, setAddNewComment] = useState("");
 
-  const handleSubmit = (editBlogUuid) => {
-    let blog = JSON.parse(getValueFromLS("blog"));
-    setCommentValue([addNewComment, ...commentvalue]);
-    update(ref(db, `${auth.currentUser.uid}/${editBlogUuid}`), {
-      data: {
-        id: editBlogUuid,
-        title: showBlog[0]?.data?.title,
-        summary: showBlog[0]?.data?.summary,
-        body: showBlog[0]?.data?.body,
-        coments: [addNewComment, ...commentvalue],
-      },
-    });
-    // update local storage
-
-    if (blog) {
-      [blog].map((item) => {
-        if (item?.data?.coments) {
-          let comme = [addNewComment, ...commentvalue];
-          item.data.coments = comme;
-        }
-      });
-    }
-    setValueToLS("blog", blog);
-  };
+  /** submit comment */
 
   return (
     <div className="main-wrapper">
@@ -60,7 +28,6 @@ const Blog = () => {
       </header>
 
       {showBlog?.map((item) => {
-        console.log(item?.data?.coments, "comin");
         return (
           <React.Fragment key={item?.data?.id}>
             <MarkdownLib
@@ -68,31 +35,6 @@ const Blog = () => {
               markdown={item?.data?.body}
               key={uuidv4()}
             />
-            <div>
-              {commentvalue.map((coment) => {
-                return <h1>{coment}</h1>;
-              })}
-            </div>
-            <div className="comment-section">
-              <textarea
-                value={addNewComment}
-                onChange={(e) => setAddNewComment(e.target.value)}
-              ></textarea>
-              <button
-                onClick={() => {
-                  handleSubmit(item?.data?.id);
-                }}
-              >
-                Send
-              </button>
-              {/* <button
-                onClick={() => {
-                  handeUpdateValueInLs(item?.data?.id);
-                }}
-              >
-                testing
-              </button> */}
-            </div>
           </React.Fragment>
         );
       })}
