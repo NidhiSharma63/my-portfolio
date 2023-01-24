@@ -2,18 +2,80 @@ import React, { useState } from "react";
 import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
 import { Link } from "react-router-dom";
-import { getValueFromLS } from "utlis/Localstorage";
-import * as cheerio from "cheerio";
+import { getValueFromLS, setValueToLS } from "utlis/Localstorage";
+
 import mainImg from "assets/images/Edited/my1.jpg";
+import { ref, update } from "firebase/database";
+import { auth, db } from "auth/auth";
 
 const Blog = () => {
   const [showBlog, setShowBlog] = useState([
     JSON.parse(getValueFromLS("blog")),
   ]);
-  const $ = cheerio.load(showBlog[0]?.data?.body);
-  console.log(showBlog[0]?.data?.body);
-  const h1tag = $("h1").text();
-  console.log(h1tag);
+  const [isLiked, setIsLiekd] = useState(
+    JSON.parse(getValueFromLS("isLikedBlog")) ?? false
+  );
+
+  const [likedCount, setLikedCount] = useState(
+    showBlog[0]?.data?.likedNum ?? ""
+  );
+
+  const handleUnLikedHeartClick = (editBlogUuid) => {
+    let blog = JSON.parse(getValueFromLS("blog"));
+    setIsLiekd(true);
+    setValueToLS("isLikedBlog", true);
+    setLikedCount((prev) => parseInt(prev) + 1);
+
+    // update firebase
+    update(ref(db, `${auth.currentUser.uid}/${editBlogUuid}`), {
+      data: {
+        id: editBlogUuid,
+        title: showBlog[0]?.data?.title,
+        summary: showBlog[0]?.data?.summary,
+        body: showBlog[0]?.data?.body,
+        likedNum: likedCount + 1,
+      },
+    });
+
+    // update localStorage
+    if (blog) {
+      [blog].map((item) => {
+        if (item?.data?.likedNum) {
+          let newLike = likedCount + 1;
+          item.data.likedNum = newLike;
+        }
+      });
+    }
+    setValueToLS("blog", blog);
+  };
+  const handleLikedHeartClick = (editBlogUuid) => {
+    let blog = JSON.parse(getValueFromLS("blog"));
+    setIsLiekd(false);
+    setLikedCount((prev) => parseInt(prev) - 1);
+    setValueToLS("isLikedBlog", false);
+
+    // update firebase
+    update(ref(db, `${auth.currentUser.uid}/${editBlogUuid}`), {
+      data: {
+        id: editBlogUuid,
+        title: showBlog[0]?.data?.title,
+        summary: showBlog[0]?.data?.summary,
+        body: showBlog[0]?.data?.body,
+        likedNum: likedCount - 1,
+      },
+    });
+
+    // update localStorage
+    if (blog) {
+      [blog].map((item) => {
+        if (item?.data?.likedNum) {
+          let newLike = likedCount - 1;
+          item.data.likedNum = newLike;
+        }
+      });
+      setValueToLS("blog", blog);
+    }
+  };
 
   /** submit comment */
 
@@ -35,13 +97,28 @@ const Blog = () => {
 
       {showBlog?.map((item) => {
         return (
-          <>
-            <div key={item?.data?.id} className="specific-blog-container">
+          <React.Fragment key={item?.data?.id}>
+            <div className="specific-blog-container">
               <MarkdownLib
                 className={"specific-blog"}
                 markdown={item?.data?.body}
                 key={uuidv4()}
               />
+            </div>
+            <div className="specific-blog-icons-container">
+              {isLiked ? (
+                <i
+                  className="fa-solid fa-heart heat-red"
+                  onClick={() => handleLikedHeartClick(item?.data?.id)}
+                ></i>
+              ) : (
+                <i
+                  className="fa-regular fa-heart"
+                  onClick={() => handleUnLikedHeartClick(item?.data?.id)}
+                ></i>
+              )}
+              <p>{likedCount}</p>
+              <i className="fa-solid fa-share-nodes"></i>
             </div>
             <div className="about-author">
               <div className="col-1">
@@ -54,20 +131,20 @@ const Blog = () => {
                 </div>
               </div>
               <p className="col-2">
-                nidhi sharma Hi there! My name is Nidhi sharma and I am a
-                frontend developer currently working as an intern. I have a
-                strong passion for creating user-friendly and visually appealing
-                websites and applications, and I am always looking to learn and
-                improve my skills. As a frontend developer, I use a variety of
-                programming languages and tools, such as HTML, CSS, and
-                JavaScript, React, to bring my designs to life and make them
-                interactive and responsive. I am excited to have the opportunity
-                to learn from and contribute to a team of experienced
-                developers. I am eager to take on new challenges and to apply my
-                skills and knowledge to real-world projects.
+                Hi there! My name is Nidhi sharma and I am a frontend developer
+                currently working as an intern. I have a strong passion for
+                creating user-friendly and visually appealing websites and
+                applications, and I am always looking to learn and improve my
+                skills. As a frontend developer, I use a variety of programming
+                languages and tools, such as HTML, CSS, and JavaScript, React,
+                to bring my designs to life and make them interactive and
+                responsive. I am excited to have the opportunity to learn from
+                and contribute to a team of experienced developers. I am eager
+                to take on new challenges and to apply my skills and knowledge
+                to real-world projects.
               </p>
             </div>
-          </>
+          </React.Fragment>
         );
       })}
       {/* <Comments /> */}
