@@ -9,13 +9,13 @@ import mainImg from "assets/images/Edited/my1.jpg";
 import { ref, update } from "firebase/database";
 import { auth, db } from "auth/auth";
 
+import BlogHeaderAndFooter from "components/blogs/BlogHeaderAndFooter";
 import LinkModal from "./Portal";
 
 const Blog = () => {
   const [showBlog, setShowBlog] = useState([
     JSON.parse(getValueFromLS("blog")),
   ]);
-  const navigate = useNavigate();
   const [sharelink, setShareLink] = useState(false);
   const [isLiked, setIsLiekd] = useState(
     JSON.parse(getValueFromLS("isLikedBlog")) ?? false
@@ -118,92 +118,80 @@ const Blog = () => {
 
   return (
     <div className="main-wrapper">
-      <header className="specific-blog-header">
-        <p>Nidhi</p>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Portfolio</Link>
-            </li>
-            <li>
-              <Link to="/blogs">Blog List</Link>
-            </li>
-          </ul>
-        </div>
-      </header>
-
-      {showBlog?.map((item) => {
-        return (
-          <React.Fragment key={item?.data?.id}>
-            <div className="specific-blog-container">
-              <MarkdownLib
-                className={"specific-blog"}
-                markdown={item?.data?.body}
-                key={uuidv4()}
-              />
-            </div>
-            <div className="specific-blog-icons-container">
-              {isLiked ? (
-                <i
-                  className="fa-solid fa-heart heat-red"
-                  onClick={() => handleLikedHeartClick(item?.data?.id)}
-                ></i>
-              ) : (
-                <i
-                  className="fa-regular fa-heart"
-                  onClick={() => handleUnLikedHeartClick(item?.data?.id)}
-                ></i>
-              )}
-              <p>{likedCount}</p>
-              <div>
-                <i
-                  className="fa-solid fa-share-nodes"
-                  onClick={handelNodeClick}
-                ></i>
+      <BlogHeaderAndFooter>
+        {showBlog?.map((item) => {
+          return (
+            <React.Fragment key={item?.data?.id}>
+              <div className="specific-blog-container">
+                <MarkdownLib
+                  className={"specific-blog"}
+                  markdown={item?.data?.body}
+                  key={uuidv4()}
+                />
               </div>
-            </div>
-            <div className="about-author">
-              <div className="col-1">
-                <div className="autho-img">
-                  <img src={mainImg} alt="author" />
-                </div>
-                <div className="upper-text">
-                  <strong>WRITTEN BY</strong>
-                  <p>Nidhi Sharma</p>
+              <div className="specific-blog-icons-container">
+                {isLiked ? (
+                  <i
+                    className="fa-solid fa-heart heat-red"
+                    onClick={() => handleLikedHeartClick(item?.data?.id)}
+                  ></i>
+                ) : (
+                  <i
+                    className="fa-regular fa-heart"
+                    onClick={() => handleUnLikedHeartClick(item?.data?.id)}
+                  ></i>
+                )}
+                <p>{likedCount}</p>
+                <div>
+                  <i
+                    className="fa-solid fa-share-nodes"
+                    onClick={handelNodeClick}
+                  ></i>
                 </div>
               </div>
-              <p className="col-2">
-                Hi there! My name is Nidhi sharma and I am a frontend developer
-                currently working as an intern. I have a strong passion for
-                creating user-friendly and visually appealing websites and
-                applications, and I am always looking to learn and improve my
-                skills. As a frontend developer, I use a variety of programming
-                languages and tools, such as HTML, CSS, and JavaScript, React,
-                to bring my designs to life and make them interactive and
-                responsive. I am excited to have the opportunity to learn from
-                and contribute to a team of experienced developers. I am eager
-                to take on new challenges and to apply my skills and knowledge
-                to real-world projects.
-              </p>
+              <div className="about-author">
+                <div className="col-1">
+                  <div className="autho-img">
+                    <img src={mainImg} alt="author" />
+                  </div>
+                  <div className="upper-text">
+                    <strong>WRITTEN BY</strong>
+                    <p>Nidhi Sharma</p>
+                  </div>
+                </div>
+                <p className="col-2">
+                  Hi there! My name is Nidhi sharma and I am a frontend
+                  developer currently working as an intern. I have a strong
+                  passion for creating user-friendly and visually appealing
+                  websites and applications, and I am always looking to learn
+                  and improve my skills. As a frontend developer, I use a
+                  variety of programming languages and tools, such as HTML, CSS,
+                  and JavaScript, React, to bring my designs to life and make
+                  them interactive and responsive. I am excited to have the
+                  opportunity to learn from and contribute to a team of
+                  experienced developers. I am eager to take on new challenges
+                  and to apply my skills and knowledge to real-world projects.
+                </p>
+              </div>
+            </React.Fragment>
+          );
+        })}
+        {sharelink ? (
+          <LinkModal>
+            <p>Share this article with</p>
+            <div>
+              <i
+                className="fa-brands fa-twitter"
+                onClick={handleTwitterClick}
+              ></i>
+              <i
+                className="fa-brands fa-linkedin"
+                onClick={handleLinkedInClick}
+              ></i>
             </div>
-          </React.Fragment>
-        );
-      })}
-      {sharelink ? (
-        <LinkModal>
-          <p>Share this article with</p>
-          <div>
-            <i
-              className="fa-brands fa-twitter"
-              onClick={handleTwitterClick}
-            ></i>
-            <i
-              className="fa-brands fa-linkedin"
-              onClick={handleLinkedInClick}
-            ></i>
-          </div>
-        </LinkModal>
-      ) : null}
+          </LinkModal>
+        ) : null}
+      </BlogHeaderAndFooter>
     </div>
   );
 };
