@@ -8,14 +8,30 @@ import mainImg from "assets/images/Edited/my1.jpg";
 import { ref, update } from "firebase/database";
 import { auth, db } from "auth/auth";
 
+import LinkModal from "./Portal";
+
 const Blog = () => {
   const [showBlog, setShowBlog] = useState([
     JSON.parse(getValueFromLS("blog")),
   ]);
+  const [sharelink, setShareLink] = useState(false);
   const [isLiked, setIsLiekd] = useState(
     JSON.parse(getValueFromLS("isLikedBlog")) ?? false
   );
 
+  document.body.addEventListener("click", (e) => {
+    console.log(e.target.className.includes("fa-twitter"));
+    if (
+      e.target.className.includes("fa-share-nodes") ||
+      e.target.className.includes("fa-twitter") ||
+      e.target.className.includes("fa-linkedin")
+    ) {
+      setShareLink(true);
+      return;
+    } else {
+      setShareLink(false);
+    }
+  });
   const [likedCount, setLikedCount] = useState(
     showBlog[0]?.data?.likedNum ?? ""
   );
@@ -77,6 +93,11 @@ const Blog = () => {
     }
   };
 
+  /** handle node click */
+  const handelNodeClick = () => {
+    setShareLink((prev) => (prev = !prev));
+  };
+
   /** submit comment */
 
   return (
@@ -118,7 +139,12 @@ const Blog = () => {
                 ></i>
               )}
               <p>{likedCount}</p>
-              <i className="fa-solid fa-share-nodes"></i>
+              <div>
+                <i
+                  className="fa-solid fa-share-nodes"
+                  onClick={handelNodeClick}
+                ></i>
+              </div>
             </div>
             <div className="about-author">
               <div className="col-1">
@@ -147,27 +173,15 @@ const Blog = () => {
           </React.Fragment>
         );
       })}
-      {/* <Comments /> */}
-
-      {/* <CommentSection
-        currentUser={{
-          currentUserId: "01a",
-          currentUserImg:
-            "https://ui-avatars.com/api/name=Riya&background=random",
-          currentUserProfile:
-            "https://www.linkedin.com/in/riya-negi-8879631a9/",
-          currentUserFullName: "Riya Negi",
-        }}
-        commentData={data}
-        logIn={{
-          loginLink: "http://localhost:3001/",
-          signupLink: "http://localhost:3001/",
-        }}
-        onSubmitAction={(data) => console.log("check submit, ", data)}
-        currentData={(data) => {
-          console.log("curent data", data);
-        }}
-      /> */}
+      {sharelink ? (
+        <LinkModal>
+          <p>Share this article with</p>
+          <div>
+            <i className="fa-brands fa-twitter"></i>
+            <i className="fa-brands fa-linkedin"></i>
+          </div>
+        </LinkModal>
+      ) : null}
     </div>
   );
 };

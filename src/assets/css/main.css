@@ -1532,6 +1532,30 @@
   line-height: var(--lh-md);
 }
 
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  position: fixed;
+  color: var(--primary-cl);
+  font-family: var(--ff-secondary);
+  transform: translate(100%, -31%);
+  top: 50%;
+  gap: 2rem;
+  border-radius: 0.4rem;
+  box-shadow: 0px 0px 10px 0px var(--shadow-cl);
+  padding: 5rem;
+  font-size: 3rem;
+  background-color: var(--main-bg);
+}
+.modal .fa-twitter,
+.modal .fa-linkedin {
+  color: blue;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 780px) {
   .specific-blog img {
     width: 90%;
