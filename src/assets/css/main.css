@@ -1539,8 +1539,7 @@
   flex-direction: column;
   position: fixed;
   color: var(--primary-cl);
-  font-family: var(--ff-secondary);
-  transform: translate(100%, -31%);
+  font-family: var(--ff-primary);
   top: 50%;
   gap: 2rem;
   border-radius: 0.4rem;
@@ -1548,6 +1547,14 @@
   padding: 5rem;
   font-size: 3rem;
   background-color: var(--main-bg);
+  left: 35%;
+  transform-origin: center;
+  -webkit-animation-name: transformScale;
+          animation-name: transformScale;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  transform-origin: center;
+  opacity: 1;
 }
 .modal .fa-twitter,
 .modal .fa-linkedin {
@@ -1556,6 +1563,27 @@
   cursor: pointer;
 }
 
+@-webkit-keyframes transformScale {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes transformScale {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 @media screen and (max-width: 780px) {
   .specific-blog img {
     width: 90%;

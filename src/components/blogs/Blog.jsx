@@ -3,6 +3,7 @@ import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
 import { Link } from "react-router-dom";
 import { getValueFromLS, setValueToLS } from "utlis/Localstorage";
+import { useNavigate } from "react-router-dom";
 
 import mainImg from "assets/images/Edited/my1.jpg";
 import { ref, update } from "firebase/database";
@@ -14,13 +15,13 @@ const Blog = () => {
   const [showBlog, setShowBlog] = useState([
     JSON.parse(getValueFromLS("blog")),
   ]);
+  const navigate = useNavigate();
   const [sharelink, setShareLink] = useState(false);
   const [isLiked, setIsLiekd] = useState(
     JSON.parse(getValueFromLS("isLikedBlog")) ?? false
   );
 
   document.body.addEventListener("click", (e) => {
-    console.log(e.target.className.includes("fa-twitter"));
     if (
       e.target.className.includes("fa-share-nodes") ||
       e.target.className.includes("fa-twitter") ||
@@ -36,6 +37,7 @@ const Blog = () => {
     showBlog[0]?.data?.likedNum ?? ""
   );
 
+  /** Increase the like */
   const handleUnLikedHeartClick = (editBlogUuid) => {
     let blog = JSON.parse(getValueFromLS("blog"));
     setIsLiekd(true);
@@ -64,6 +66,7 @@ const Blog = () => {
     }
     setValueToLS("blog", blog);
   };
+  /** Decrease the like */
   const handleLikedHeartClick = (editBlogUuid) => {
     let blog = JSON.parse(getValueFromLS("blog"));
     setIsLiekd(false);
@@ -93,9 +96,22 @@ const Blog = () => {
     }
   };
 
-  /** handle node click */
+  /** handle node click  show the links modal*/
   const handelNodeClick = () => {
     setShareLink((prev) => (prev = !prev));
+  };
+
+  /** handleTwitterClick generate the twitter link */
+  const handleTwitterClick = () => {
+    const url =
+      "https://twitter.com/intent/tweet?text=http%3A//localhost%3A3000/blog/Bageshwar";
+    window.open(url, "_blank");
+  };
+  /** handleLinkedInClick generate the linkedin link */
+  const handleLinkedInClick = () => {
+    const url =
+      "https://www.linkedin.com/shareArticle?mini=true&url=http%3A//localhost%3A3000/blog/Bageshwar";
+    window.open(url, "_blank");
   };
 
   /** submit comment */
@@ -177,8 +193,14 @@ const Blog = () => {
         <LinkModal>
           <p>Share this article with</p>
           <div>
-            <i className="fa-brands fa-twitter"></i>
-            <i className="fa-brands fa-linkedin"></i>
+            <i
+              className="fa-brands fa-twitter"
+              onClick={handleTwitterClick}
+            ></i>
+            <i
+              className="fa-brands fa-linkedin"
+              onClick={handleLinkedInClick}
+            ></i>
           </div>
         </LinkModal>
       ) : null}
