@@ -1558,9 +1558,14 @@
 }
 .modal .fa-twitter,
 .modal .fa-linkedin {
-  color: blue;
+  color: rgb(38, 38, 231);
   margin-right: 1rem;
   cursor: pointer;
+  transition: 0.3s ease-in;
+}
+.modal .fa-twitter:hover,
+.modal .fa-linkedin:hover {
+  transform: scale(1.2);
 }
 
 @-webkit-keyframes transformScale {
