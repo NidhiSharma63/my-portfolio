@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./../../assets/css/main.css";
-import APP_ENDPOINTS from "src/constant/App_And_Point";
+import APP_ENDPOINTS from "constant/App_And_Point";
 
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../auth/auth";
