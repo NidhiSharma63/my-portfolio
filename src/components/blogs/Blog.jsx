@@ -21,36 +21,40 @@ const Blog = () => {
   const [sharelink, setShareLink] = useState();
   const [isLiked, setIsLiked] = useState(false);
 
+  console.log(likedCount, "likedCount");
+  /** run hook to find the selected blog */
+  useEffect(() => {
+    Object.entries(blogs || {}).map((blog) => {
+      if (blog[0] === blogId) {
+        setSelectedBlog(blog[1]);
+        setLikedCount(blog[1]?.data?.likedNum);
+      }
+    });
+  }, [blogs, blogId]);
+
+  /** run hook to setting up the value of liked ==> true/false */
   useEffect(() => {
     setIsLiked(() => {
       if (
-        JSON.parse(getValueFromLS("isliked")).includes(selectedBlog?.data?.id)
+        JSON.parse(getValueFromLS("isliked"))?.includes(selectedBlog?.data?.id)
       ) {
-        let valueFromLS = JSON.parse(getValueFromLS("isliked")).includes(
+        let valueFromLS = JSON.parse(getValueFromLS("isliked"))?.includes(
           selectedBlog?.data?.id
         );
-        let match = valueFromLS.match(/(false|true)$/);
+        let match = valueFromLS?.match(/(false|true)$/);
         return match[0];
       } else {
         return false;
       }
     });
   }, []);
-  useEffect(() => {
-    Object.entries(blogs || {}).map((blog) => {
-      console.log(blog[0] === blogId);
-      console.log(blogId);
-      if (blog[0] === blogId) {
-        setSelectedBlog(blog[1]);
-        setLikedCount(selectedBlog?.data?.likedNum);
-      }
-    });
-  }, [blogs, blogId]);
 
   // /** Increase the like */
   const handleUnLikedHeartClick = () => {
     setIsLiked(true);
+    console.log(likedCount, "lk");
 
+    console.log(likedCount + 1);
     // update firebase
     update(ref(db, `${auth.currentUser.uid}/${blogId}`), {
       data: {
@@ -70,7 +74,9 @@ const Blog = () => {
 
   // /** Decrease the like */
   const handleLikedHeartClick = () => {
-    console.log(blogId);
+    console.log(likedCount, "lk");
+
+    console.log(likedCount - 1);
     setIsLiked(false);
     // update firebase
     update(ref(db, `${auth.currentUser.uid}/${blogId}`), {

@@ -19,6 +19,7 @@ export default function useInitialValues() {
     title: editblog?.data?.title || "",
     summary: editblog?.data?.summary || "",
     body: editblog?.data?.body || "",
+    likeNum: 0,
   };
   return { initialValues, initialValuesForAdmin, markDownInitailValues };
 }
