@@ -11,31 +11,18 @@ import { auth, db } from "auth/auth";
 import { ref, remove } from "firebase/database";
 import { toast } from "react-toastify";
 import { setValueToLS, getValueFromLS } from "utlis/Localstorage";
+import useFetchData from "hooks/useFecthData";
 
 const BlogsPage = () => {
-  const [blogs, setBlogs] = useState([]);
+  const { blogs } = useFetchData();
   const dispatch = useDispatch();
   const navigation = useNavigate();
-  const deleteNoitify = () => toast.success("Blog Deleted Successfully");
-
-  const fetchData = async () => {
-    const res = await fetch(
-      "https://myproject-92249-default-rtdb.firebaseio.com/gv0XmbJt6WTU5UGUTCJHVezoxin2.json"
-    );
-    const data = await res.json();
-    setBlogs(data);
-  };
-  /**
-   * useEffect to fetch data when component mount
-   */
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const deleteNoitify = () => toast.success("Blogs Deleted Successfully");
 
   /* navigate */
   const handleClick = (blog) => {
     navigation(`/blog/${addSlug(blog?.data?.title)}`);
-    setValueToLS("blog", blog);
+    setValueToLS("blogId", blog.data.id);
   };
 
   /* Delete the blog */
@@ -82,45 +69,43 @@ const BlogsPage = () => {
       </div>
       <div className="blog-list-container">
         {Object.entries(blogs || {}).map((blog) => {
-          return [blog[1]]?.map((blog) => {
-            const $ = cheerio.load(blog?.data?.summary);
-            const src = $("img").attr("src");
-            const alt = $("img").attr("alt");
-            return (
-              <div
-                className="blog-list"
-                key={uuidv4()}
-                onClick={() => {
-                  handleClick(blog);
-                }}
-              >
-                <div>
-                  <h1 className="title">{blog?.data?.title}</h1>
-                  <p className="body">
-                    {cheerio.load(blog?.data?.summary).text($("body"))}
-                  </p>
-                  {JSON.parse(getValueFromLS("role")) === "admin" ? (
-                    <div className="icons-container">
-                      {" "}
-                      <i
-                        className="fa-sharp fa-solid fa-trash red"
-                        onClick={(e) => {
-                          deleteBlog(e, blog.data.id);
-                        }}
-                      ></i>
-                      <i
-                        className="fa-solid fa-pen-to-square green"
-                        onClick={(e) => {
-                          handleEditClick(e, blog);
-                        }}
-                      ></i>
-                    </div>
-                  ) : null}
-                </div>
-                <img src={src} alt={alt} />
+          const $ = cheerio.load(blog[1]?.data?.summary);
+          const src = $("img").attr("src");
+          const alt = $("img").attr("alt");
+          return (
+            <div
+              className="blog-list"
+              key={uuidv4()}
+              onClick={() => {
+                handleClick(blog[1]);
+              }}
+            >
+              <div>
+                <h1 className="title">{blog[1]?.data?.title}</h1>
+                <p className="body">
+                  {cheerio.load(blog[1]?.data?.summary).text($("body"))}
+                </p>
+                {JSON.parse(getValueFromLS("role")) === "admin" ? (
+                  <div className="icons-container">
+                    {" "}
+                    <i
+                      className="fa-sharp fa-solid fa-trash red"
+                      onClick={(e) => {
+                        deleteBlog(e, blog[1].data.id);
+                      }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-pen-to-square green"
+                      onClick={(e) => {
+                        handleEditClick(e, blog[1]);
+                      }}
+                    ></i>
+                  </div>
+                ) : null}
               </div>
-            );
-          });
+              <img src={src} alt={alt} />
+            </div>
+          );
         })}
       </div>
     </div>

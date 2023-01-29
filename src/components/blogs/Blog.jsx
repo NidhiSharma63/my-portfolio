@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
 import { Link } from "react-router-dom";
@@ -11,92 +11,86 @@ import { auth, db } from "auth/auth";
 
 import BlogHeaderAndFooter from "components/blogs/BlogHeaderAndFooter";
 import LinkModal from "./Portal";
+import useFetchData from "hooks/useFecthData";
 
 const Blog = () => {
-  const [showBlog, setShowBlog] = useState([
-    JSON.parse(getValueFromLS("blog")),
-  ]);
-  const [sharelink, setShareLink] = useState(false);
-  const [isLiked, setIsLiekd] = useState(
-    JSON.parse(getValueFromLS("isLikedBlog")) ?? false
-  );
+  const { blogs } = useFetchData();
+  const [selectedBlog, setSelectedBlog] = useState([]);
+  const [blogId, setBlogId] = useState(JSON.parse(getValueFromLS("blogId")));
+  const [likedCount, setLikedCount] = useState(selectedBlog?.data?.likedNum);
+  const [sharelink, setShareLink] = useState();
+  const [isLiked, setIsLiked] = useState(false);
 
-  document.body.addEventListener("click", (e) => {
-    if (
-      e.target.className.includes("fa-share-nodes") ||
-      e.target.className.includes("fa-twitter") ||
-      e.target.className.includes("fa-linkedin")
-    ) {
-      setShareLink(true);
-      return;
-    } else {
-      setShareLink(false);
-    }
-  });
-  const [likedCount, setLikedCount] = useState(
-    showBlog[0]?.data?.likedNum ?? ""
-  );
+  useEffect(() => {
+    setIsLiked(() => {
+      if (
+        JSON.parse(getValueFromLS("isliked")).includes(selectedBlog?.data?.id)
+      ) {
+        let valueFromLS = JSON.parse(getValueFromLS("isliked")).includes(
+          selectedBlog?.data?.id
+        );
+        let match = valueFromLS.match(/(false|true)$/);
+        return match[0];
+      } else {
+        return false;
+      }
+    });
+  }, []);
+  useEffect(() => {
+    Object.entries(blogs || {}).map((blog) => {
+      console.log(blog[0] === blogId);
+      console.log(blogId);
+      if (blog[0] === blogId) {
+        setSelectedBlog(blog[1]);
+        setLikedCount(selectedBlog?.data?.likedNum);
+      }
+    });
+  }, [blogs, blogId]);
 
-  /** Increase the like */
-  const handleUnLikedHeartClick = (editBlogUuid) => {
-    let blog = JSON.parse(getValueFromLS("blog"));
-    setIsLiekd(true);
-    setValueToLS("isLikedBlog", true);
-    setLikedCount((prev) => parseInt(prev) + 1);
+  // /** Increase the like */
+  const handleUnLikedHeartClick = () => {
+    setIsLiked(true);
 
     // update firebase
-    update(ref(db, `${auth.currentUser.uid}/${editBlogUuid}`), {
+    update(ref(db, `${auth.currentUser.uid}/${blogId}`), {
       data: {
-        id: editBlogUuid,
-        title: showBlog[0]?.data?.title,
-        summary: showBlog[0]?.data?.summary,
-        body: showBlog[0]?.data?.body,
+        id: blogId,
+        title: selectedBlog?.data?.title,
+        summary: selectedBlog?.data?.summary,
+        body: selectedBlog?.data?.body,
         likedNum: likedCount + 1,
       },
     });
+    // updateing like
+    setLikedCount((prev) => prev + 1);
 
-    // update localStorage
-    if (blog) {
-      [blog].map((item) => {
-        if (item?.data?.likedNum) {
-          let newLike = likedCount + 1;
-          item.data.likedNum = newLike;
-        }
-      });
-    }
-    setValueToLS("blog", blog);
+    // updating localstorage for is like
+    setValueToLS("isliked", JSON.stringify(`${selectedBlog?.data?.id}-true`));
   };
-  /** Decrease the like */
-  const handleLikedHeartClick = (editBlogUuid) => {
-    let blog = JSON.parse(getValueFromLS("blog"));
-    setIsLiekd(false);
-    setLikedCount((prev) => parseInt(prev) - 1);
-    setValueToLS("isLikedBlog", false);
 
+  // /** Decrease the like */
+  const handleLikedHeartClick = () => {
+    console.log(blogId);
+    setIsLiked(false);
     // update firebase
-    update(ref(db, `${auth.currentUser.uid}/${editBlogUuid}`), {
+    update(ref(db, `${auth.currentUser.uid}/${blogId}`), {
       data: {
-        id: editBlogUuid,
-        title: showBlog[0]?.data?.title,
-        summary: showBlog[0]?.data?.summary,
-        body: showBlog[0]?.data?.body,
+        id: blogId,
+        title: selectedBlog?.data?.title,
+        summary: selectedBlog?.data?.summary,
+        body: selectedBlog?.data?.body,
         likedNum: likedCount - 1,
       },
     });
 
-    // update localStorage
-    if (blog) {
-      [blog].map((item) => {
-        if (item?.data?.likedNum) {
-          let newLike = likedCount - 1;
-          item.data.likedNum = newLike;
-        }
-      });
-      setValueToLS("blog", blog);
-    }
+    // updateing like
+    setLikedCount((prev) => prev - 1);
+
+    // updating localstorage for is like
+    setValueToLS("isliked", JSON.stringify(`${selectedBlog?.data?.id}-false`));
   };
 
-  /** handle node click  show the links modal*/
+  // /** handle node click  show the links modal*/
   const handelNodeClick = () => {
     setShareLink((prev) => (prev = !prev));
   };
@@ -119,63 +113,56 @@ const Blog = () => {
   return (
     <div className="main-wrapper">
       <BlogHeaderAndFooter>
-        {showBlog?.map((item) => {
-          return (
-            <React.Fragment key={item?.data?.id}>
-              <div className="specific-blog-container">
-                <MarkdownLib
-                  className={"specific-blog"}
-                  markdown={item?.data?.body}
-                  key={uuidv4()}
-                />
-              </div>
-              <div className="specific-blog-icons-container">
-                {isLiked ? (
-                  <i
-                    className="fa-solid fa-heart heat-red"
-                    onClick={() => handleLikedHeartClick(item?.data?.id)}
-                  ></i>
-                ) : (
-                  <i
-                    className="fa-regular fa-heart"
-                    onClick={() => handleUnLikedHeartClick(item?.data?.id)}
-                  ></i>
-                )}
-                <p>{likedCount}</p>
-                <div>
-                  <i
-                    className="fa-solid fa-share-nodes"
-                    onClick={handelNodeClick}
-                  ></i>
-                </div>
-              </div>
-              <div className="about-author">
-                <div className="col-1">
-                  <div className="autho-img">
-                    <img src={mainImg} alt="author" />
-                  </div>
-                  <div className="upper-text">
-                    <strong>WRITTEN BY</strong>
-                    <p>Nidhi Sharma</p>
-                  </div>
-                </div>
-                <p className="col-2">
-                  Hi there! My name is Nidhi sharma and I am a frontend
-                  developer currently working as an intern. I have a strong
-                  passion for creating user-friendly and visually appealing
-                  websites and applications, and I am always looking to learn
-                  and improve my skills. As a frontend developer, I use a
-                  variety of programming languages and tools, such as HTML, CSS,
-                  and JavaScript, React, to bring my designs to life and make
-                  them interactive and responsive. I am excited to have the
-                  opportunity to learn from and contribute to a team of
-                  experienced developers. I am eager to take on new challenges
-                  and to apply my skills and knowledge to real-world projects.
-                </p>
-              </div>
-            </React.Fragment>
-          );
-        })}
+        <div className="specific-blog-container">
+          <MarkdownLib
+            className={"specific-blog"}
+            markdown={selectedBlog?.data?.body}
+            key={uuidv4()}
+          />
+        </div>
+        <div className="specific-blog-icons-container">
+          {isLiked ? (
+            <i
+              className="fa-solid fa-heart heat-red"
+              onClick={() => handleLikedHeartClick(selectedBlog?.data?.id)}
+            ></i>
+          ) : (
+            <i
+              className="fa-regular fa-heart"
+              onClick={() => handleUnLikedHeartClick(selectedBlog?.data?.id)}
+            ></i>
+          )}
+          <p>{likedCount}</p>
+          <div>
+            <i
+              className="fa-solid fa-share-nodes"
+              onClick={handelNodeClick}
+            ></i>
+          </div>
+        </div>
+        <div className="about-author">
+          <div className="col-1">
+            <div className="autho-img">
+              <img src={mainImg} alt="author" />
+            </div>
+            <div className="upper-text">
+              <strong>WRITTEN BY</strong>
+              <p>Nidhi Sharma</p>
+            </div>
+          </div>
+          <p className="col-2">
+            Hi there! My name is Nidhi sharma and I am a frontend developer
+            currently working as an intern. I have a strong passion for creating
+            user-friendly and visually appealing websites and applications, and
+            I am always looking to learn and improve my skills. As a frontend
+            developer, I use a variety of programming languages and tools, such
+            as HTML, CSS, and JavaScript, React, to bring my designs to life and
+            make them interactive and responsive. I am excited to have the
+            opportunity to learn from and contribute to a team of experienced
+            developers. I am eager to take on new challenges and to apply my
+            skills and knowledge to real-world projects.
+          </p>
+        </div>
         {sharelink ? (
           <LinkModal>
             <p>Share this article with</p>
@@ -197,3 +184,29 @@ const Blog = () => {
 };
 
 export default Blog;
+
+// const [showBlog, setShowBlog] = useState([
+//   JSON.parse(getValueFromLS("blog")),
+// ]);
+// const [sharelink, setShareLink] = useState(false);
+// const [isLiked, setIsLiekd] = useState(
+//   // JSON.parse(getValueFromLS("isLikedBlog")) ?? false
+//   showBlog[0]?.data?.likedNum > 0
+// );
+// console.log(showBlog[0]?.data?.likedNum > 0, "json value");
+
+// document.body.addEventListener("click", (e) => {
+//   if (
+//     e.target.className.includes("fa-share-nodes") ||
+//     e.target.className.includes("fa-twitter") ||
+//     e.target.className.includes("fa-linkedin")
+//   ) {
+//     setShareLink(true);
+//     return;
+//   } else {
+//     setShareLink(false);
+//   }
+// });
+// const [likedCount, setLikedCount] = useState(
+//   showBlog[0]?.data?.likedNum ?? 0
+// );
