@@ -154,10 +154,12 @@
   }
 }
 .custom {
-  border: none !important;
+  border: 2px solid black !important;
   color: white !important;
   font-size: 1.7rem !important;
   width: 100% !important;
+  box-shadow: none !important;
+  background-color: rgba(0, 0, 0, 0.87) !important;
 }
 .giscus {
   width: 90%;

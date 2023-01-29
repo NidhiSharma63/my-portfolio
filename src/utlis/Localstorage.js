@@ -13,6 +13,7 @@ const getValueFromLS = (key) => {
  */
 const setValueToLS = (key, value) => {
   try {
+    console.log("Setting value to ls", key, value);
     localStorage.setItem(key, JSON.stringify(value));
   } catch (err) {
     console.error("Error storing data in localStorage: ", err);

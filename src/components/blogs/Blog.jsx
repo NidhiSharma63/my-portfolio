@@ -41,7 +41,7 @@ const Blog = () => {
         let valueFromLS = JSON.parse(getValueFromLS("isliked"))?.includes(
           selectedBlog?.data?.id
         );
-        let match = valueFromLS?.match(/(false|true)$/);
+        let match = String(valueFromLS)?.match(/(false|true)$/);
         return match[0];
       } else {
         return false;
@@ -49,12 +49,10 @@ const Blog = () => {
     });
   }, []);
 
+  console.log(isLiked, "is liked");
   // /** Increase the like */
   const handleUnLikedHeartClick = () => {
     setIsLiked(true);
-    console.log(likedCount, "lk");
-
-    console.log(likedCount + 1);
     // update firebase
     update(ref(db, `${auth.currentUser.uid}/${blogId}`), {
       data: {
@@ -69,14 +67,11 @@ const Blog = () => {
     setLikedCount((prev) => prev + 1);
 
     // updating localstorage for is like
-    setValueToLS("isliked", JSON.stringify(`${selectedBlog?.data?.id}-true`));
+    setValueToLS("isliked", `${selectedBlog?.data?.id}-true`);
   };
 
   // /** Decrease the like */
   const handleLikedHeartClick = () => {
-    console.log(likedCount, "lk");
-
-    console.log(likedCount - 1);
     setIsLiked(false);
     // update firebase
     update(ref(db, `${auth.currentUser.uid}/${blogId}`), {
@@ -93,7 +88,7 @@ const Blog = () => {
     setLikedCount((prev) => prev - 1);
 
     // updating localstorage for is like
-    setValueToLS("isliked", JSON.stringify(`${selectedBlog?.data?.id}-false`));
+    setValueToLS("isliked", `${selectedBlog?.data?.id}-false`);
   };
 
   // /** handle node click  show the links modal*/
