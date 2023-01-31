@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
-import { Link } from "react-router-dom";
 import { getValueFromLS, setValueToLS } from "utlis/Localstorage";
-import { useNavigate } from "react-router-dom";
-
+import { Helmet } from "react-helmet";
 import mainImg from "assets/images/Edited/my1.jpg";
 import { ref, update } from "firebase/database";
 import { auth, db } from "auth/auth";
@@ -21,7 +19,6 @@ const Blog = () => {
   const [sharelink, setShareLink] = useState();
   const [isLiked, setIsLiked] = useState(false);
 
-  console.log(likedCount, "likedCount");
   /** run hook to find the selected blog */
   useEffect(() => {
     Object.entries(blogs || {}).map((blog) => {
@@ -48,8 +45,6 @@ const Blog = () => {
       }
     });
   }, []);
-
-  console.log(isLiked, "is liked");
   // /** Increase the like */
   const handleUnLikedHeartClick = () => {
     setIsLiked(true);
@@ -113,6 +108,13 @@ const Blog = () => {
 
   return (
     <div className="main-wrapper">
+      <Helmet>
+        <title>{selectedBlog?.data?.title}</title>
+        <meta
+          name="description"
+          content={selectedBlog?.data?.summary.replace(/<img.*?>/g, "")}
+        />
+      </Helmet>
       <BlogHeaderAndFooter>
         <div className="specific-blog-container">
           <MarkdownLib
