@@ -14,6 +14,10 @@ import { Provider } from "react-redux";
 import store from "store/store";
 import { getValueFromLS } from "utlis/Localstorage";
 
+const rootElement = document.getElementById("root");
+
+const root = ReactDOM.createRoot(rootElement);
+
 const router = createBrowserRouter([
   {
     path: APP_ENDPOINTS.My_PORTFOLIO || APP_ENDPOINTS.ROOT,
@@ -97,8 +101,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrate(<RouterProvider router={router} />, rootElement);
+} else {
+  root.render(<RouterProvider router={router} />);
+}
