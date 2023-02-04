@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./../../assets/css/main.css";
+import "assets/css/main.css";
 import APP_ENDPOINTS from "constant/App_And_Point";
-
+import { setValueToLS, getValueFromLS } from "utlis/Localstorage";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../auth/auth";
 import FormikInput from "../formik/FormikInput";
@@ -16,19 +16,30 @@ const Login = () => {
   const { initialValuesForAdmin } = useInitialValues();
 
   useEffect(() => {
-    localStorage.getItem("user") === "admin"
+    getValueFromLS("role") === "admin"
       ? navigate(APP_ENDPOINTS.ADMIN)
       : navigate(APP_ENDPOINTS.LOGIN);
   }, [navigate]);
 
+  console.log();
   const handleSubmit = (value) => {
     const { email, password } = value;
     //
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         // Signed in
-        localStorage.setItem("user", "admin");
-        navigate(APP_ENDPOINTS.ADMIN);
+        if (
+          email === process.env.REACT_APP_USEREMAIL &&
+          password === process.env.REACT_APP_PASSWORD
+        ) {
+          setValueToLS("role", "admin");
+          navigate(APP_ENDPOINTS.ADMIN);
+          return;
+        } else {
+          setValueToLS("role", "user");
+          navigate(APP_ENDPOINTS.Blogs);
+          return;
+        }
       })
       .catch(() => {
         setError(true);

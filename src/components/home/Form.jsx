@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import FormikInput from "./formik/FormikInput";
+import FormikInput from "components/formik/FormikInput";
 import { Formik, Form } from "formik";
-import { ClientValidation } from "../constant/validation";
-import useInitialValues from "../hooks/useInitialValues";
+import { ClientValidation } from "constant/validation";
+import useInitialValues from "hooks/useInitialValues";
 
 const FormComponent = ({ setEmailConfirmation }) => {
   const formRef = useRef(null);

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import aboutImg from "../assets/images/Edited/my4.jpg";
-import { translateAnim } from "../assets/js/main";
+import aboutImg from "assets/images/Edited/my4.jpg";
+import { translateAnim } from "assets/js/main";
 let container2 = {
   selector: "container-2",
   classes: "translate-up",

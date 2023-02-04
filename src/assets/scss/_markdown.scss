@@ -8,22 +8,60 @@
   position: relative;
   top: 0;
   width: 100%;
-
+  gap: 1rem;
   .textarea-conatiner {
-    width: 500px;
-    min-height: 100vh;
+    width: 520px;
+    border: 1px solid;
+    background-color: var(--primary-cl);
+    padding: 0rem 1rem;
+    height: 100%;
 
-    textarea {
+    form {
+      @include flex(
+        $alignItems: flex-start,
+        $justifyContent: center,
+        $flexDirection: column
+      );
+      gap: 10px;
+    }
+
+    label {
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+    #title {
+      width: 500px;
+      height: 5rem;
+      font-size: 2rem;
+    }
+    #body,
+    #summary {
       width: 500px;
       resize: none;
       height: 100%;
       font-size: 2rem;
-      padding-left: 1rem;
       outline: none;
       border-left: 0.6rem;
-      min-height: 100vh;
-
     }
+
+    button {
+      padding: 1rem 3rem;
+      font-size: 1.8rem;
+      background-color: rgb(8, 172, 217);
+      border: none;
+      color: white;
+      border-radius: 0.4rem;
+      margin-top: 1rem;
+      margin-right: 3rem;
+      cursor: pointer;
+    }
+  }
+  #body {
+    min-height: 100vh;
+  }
+  #summary {
+    min-height: 10rem;
   }
   .show-markdown {
     flex-grow: 1;

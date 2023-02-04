@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import wireFrame from "../assets/images/wfPC.jpg";
-import wireFrame2 from "../assets/images/wfMB.jpg";
-import { translateAnim } from "../assets/js/main";
+import wireFrame from "assets/images/wfPC.jpg";
+import wireFrame2 from "assets/images/wfMB.jpg";
+import { translateAnim } from "assets/js/main";
 
 let container4 = {
   selector: "container-4",
