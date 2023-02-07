@@ -1,7 +1,6 @@
 const APP_ENDPOINTS = {
   LOGIN: "/login",
-  My_PORTFOLIO: "my-portfolio",
-  ROOT: "/",
+  My_PORTFOLIO: "/",
   ADMIN: "/admin",
   Blogs: "/blogs",
 };

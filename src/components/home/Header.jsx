@@ -51,7 +51,7 @@ const Navbar = () => {
               <a href="#Work">work</a>
             </li>
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <Link to={APP_ENDPOINTS.Blogs}>Blogs</Link>
             </li>
             <li>
               <a href="#Contact">contact me</a>
@@ -79,7 +79,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <Link to="/blogs">Blogs</Link>
+                <Link to={APP_ENDPOINTS.Blogs}>Blogs</Link>
               </li>
               <li>
                 <a href="#Contact" onClick={hideMobileNav}>
