@@ -101,8 +101,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-if (rootElement.hasChildNodes()) {
-  ReactDOM.hydrate(<RouterProvider router={router} />, rootElement);
-} else {
-  root.render(<RouterProvider router={router} />);
-}
+// if (rootElement.hasChildNodes()) {
+//   ReactDOM.hydrate(<RouterProvider router={router} />, rootElement);
+// } else {
+root.render(<RouterProvider router={router} />);
+// }
