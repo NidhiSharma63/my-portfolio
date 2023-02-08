@@ -250,7 +250,7 @@
   margin-top: 2rem;
   display: flex;
   align-items: flex-start;
-  justify-content: end;
+  justify-content: flex-end;
   flex-direction: row;
   gap: 2rem;
 }
