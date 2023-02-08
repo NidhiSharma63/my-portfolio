@@ -1,91 +1,116 @@
-.container-5{
+.container-5 {
   @include wrapper;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
-.work-wrapper{
+.work-wrapper {
   width: 90%;
   margin: auto;
-  @include flex($alignItems:center, $justifyContent:center, $flexDirection:column);
+  @include flex(
+    $alignItems: center,
+    $justifyContent: center,
+    $flexDirection: column
+  );
   gap: 8rem;
 
-  .top-section{
-    @include flex($alignItems:center, $justifyContent:center, $flexDirection:column);
+  .top-section {
+    @include flex(
+      $alignItems: center,
+      $justifyContent: center,
+      $flexDirection: column
+    );
     gap: 2rem;
-    & p:first-child{
+    & p:first-child {
       @include heading;
     }
 
-    & p:last-child{
+    & p:last-child {
       @include text-style;
     }
   }
 }
 
-.work-wrapper .bottom-section{
-  @include flex($alignItems:center, $justifyContent:center, $flexDirection:column);
+.work-wrapper .bottom-section {
+  @include flex(
+    $alignItems: center,
+    $justifyContent: center,
+    $flexDirection: column
+  );
   gap: 8rem;
   width: 100%;
 
-  .project{
+  .project {
     transition: transform 1s ease-in-out;
-    @include flex($alignItems:center, $justifyContent:space-between, $flexDirection:row);
+    @include flex(
+      $alignItems: center,
+      $justifyContent: space-between,
+      $flexDirection: row
+    );
     width: 100%;
     position: relative;
     overflow: hidden;
     box-shadow: 0px 0px 10px 0px rgba(170, 169, 169, 0.753);
     border-radius: 1rem;
 
-    .project-images{
+    .project-images {
       width: inherit;
       position: relative;
       padding-bottom: 10rem;
       margin: 1rem;
       z-index: 2;
 
-      img{
+      img {
         width: 100%;
         object-fit: cover;
         width: 300px;
       }
-      .project-img2{
+      .project-img2 {
         position: absolute;
         left: 22rem;
         top: 9rem;
       }
     }
-    .project-info{
+    .project-info {
       width: 100%;
-      @include flex($alignItems:flex-start, $justifyContent:space-between, $flexDirection:column);
+      @include flex(
+        $alignItems: flex-start,
+        $justifyContent: space-between,
+        $flexDirection: column
+      );
       gap: 2rem;
-      & p:first-child{
+      & p:first-child {
         @include heading;
         font-size: 4rem;
       }
-      & p:nth-child(2){
+      & p:nth-child(2) {
         @include text-style;
+        text-align: inherit;
         line-height: var(--lh-md);
       }
 
-      .project-buttons{
-        @include flex($alignItems:flex-start, $justifyContent:space-between, $flexDirection:row);
+      .project-buttons {
+        @include flex(
+          $alignItems: flex-start,
+          $justifyContent: space-between,
+          $flexDirection: row
+        );
         gap: 3rem;
         margin-top: 2rem;
       }
-      .button{
+      .button {
         @include button;
         font-size: var(--fs-xs);
         font-family: var(--ff-secondary);
 
-        i{
-          margin:0rem 1rem;
+        i {
+          margin: 0rem 1rem;
         }
       }
     }
   }
-};
+}
 
-.work-wrapper .bottom-section{
+.work-wrapper .bottom-section {
   .project:first-child::after,
   .project:first-child::before,
   .project:nth-child(2)::before,
@@ -93,80 +118,85 @@
   .project:nth-child(3)::before,
   .project:nth-child(3)::after,
   .project:nth-child(4)::before,
-  .project:nth-child(4)::after{
-    @include position($position:absolute,$top:-53px,$bottom:auto,$left:-4rem,$right:auto);
-    content: '';
+  .project:nth-child(4)::after {
+    @include position(
+      $position: absolute,
+      $top: -53px,
+      $bottom: auto,
+      $left: -4rem,
+      $right: auto
+    );
+    content: "";
     width: 56rem;
     height: 131%;
-    background-image: url('../images//pf1.png');
+    background-image: url("../images//pf1.png");
     background-position: center;
     background-size: cover;
     z-index: -1;
-    opacity: .1;
+    opacity: 0.1;
     transform: rotate(346deg);
   }
   .project:first-child::before,
   .project:nth-child(2)::before,
   .project:nth-child(3)::before,
-  .project:nth-child(4)::before{
-    background-image: url('../images//pf2.png');
+  .project:nth-child(4)::before {
+    background-image: url("../images//pf2.png");
     right: -127px;
     left: auto;
     transform: rotate(9deg);
   }
-  .project:nth-child(2)::before{
-    background-image: url('../images//gm1.png');
+  .project:nth-child(2)::before {
+    background-image: url("../images//gm1.png");
   }
-  .project:nth-child(2)::after{
-    background-image: url('../images//gm2.png');
+  .project:nth-child(2)::after {
+    background-image: url("../images//gm2.png");
   }
-  .project:nth-child(3)::before{
-    background-image: url('../images//ex1.png');
+  .project:nth-child(3)::before {
+    background-image: url("../images//ex1.png");
   }
-  .project:nth-child(3)::after{
-    background-image: url('../images//ex2.png');
+  .project:nth-child(3)::after {
+    background-image: url("../images//ex2.png");
   }
-  .project:nth-child(4)::before{
-    background-image: url('../images//car1.png');
+  .project:nth-child(4)::before {
+    background-image: url("../images//car1.png");
   }
-  .project:nth-child(4)::after{
-    background-image: url('../images//car2.png');
+  .project:nth-child(4)::after {
+    background-image: url("../images//car2.png");
   }
 }
 
-@media screen and (max-width:1250px) {
-  .work-wrapper .bottom-section .project{
-    .project-info{
+@media screen and (max-width: 1250px) {
+  .work-wrapper .bottom-section .project {
+    .project-info {
       width: 90%;
       padding-right: 1rem;
     }
   }
 }
 
-
-@media screen and (max-width:1050px){
-  .work-wrapper .bottom-section .project{
-    .project-images{
-      img{
+@media screen and (max-width: 1050px) {
+  .work-wrapper .bottom-section .project {
+    .project-images {
+      img {
         width: 200px;
       }
-      .project-img2{
+      .project-img2 {
         left: 18rem;
       }
     }
-    .project-info{
+    .project-info {
       width: 100%;
     }
   }
 }
 
-@media screen and (max-width:880px){
-  .work-wrapper{
+@media screen and (max-width: 880px) {
+  .work-wrapper {
     width: 95%;
   }
 }
 
-@media screen and (max-width:760px){
+@media screen and (max-width: 760px) {
   .work-wrapper .bottom-section .project {
     flex-direction: column;
     padding: 3rem 0rem;
@@ -175,17 +205,17 @@
   .work-wrapper .bottom-section .project {
     .project-images {
       img {
-      width: 236px;
-      margin: auto;
-      position: relative;
-      left: 12rem;
-      height: 32rem;
-     }
+        width: 236px;
+        margin: auto;
+        position: relative;
+        left: 12rem;
+        height: 32rem;
+      }
 
-     .project-img2{
-      left: 4rem;
-      top: 10rem;
-     }
+      .project-img2 {
+        left: 4rem;
+        top: 10rem;
+      }
     }
   }
   .work-wrapper .bottom-section .project .project-info {
@@ -193,33 +223,29 @@
     text-align: center;
     width: 80%;
   }
-
 }
 
-
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .work-wrapper .bottom-section {
     .project:first-child::before,
     .project:nth-child(2)::before,
     .project:nth-child(3)::before,
-    .project:nth-child(4)::before{
+    .project:nth-child(4)::before {
       display: none;
     }
     .project-images {
       img {
-      width: 200px;
-      left: 15rem;
-     }
+        width: 200px;
+        left: 15rem;
+      }
 
-     .project-img2{
-      left: 6rem;
-      top: 10rem;
-     }
+      .project-img2 {
+        left: 6rem;
+        top: 10rem;
+      }
     }
   }
-  .work-wrapper 
-  .bottom-section 
-  .project .project-info {
+  .work-wrapper .bottom-section .project .project-info {
     align-items: center;
     text-align: center;
     width: 80%;
