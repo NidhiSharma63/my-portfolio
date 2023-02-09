@@ -52,7 +52,7 @@ const Blog = () => {
 
   const checkIfUserlikedTheBlog = async () => {
     try {
-      const response = await fetch("https://api.ipify.org?format=json");
+      const response = await fetch("https://api.ipify.org/?format=json");
       const data = await response.json();
       newIpAddress = data.ip;
     } catch (error) {
@@ -73,8 +73,10 @@ const Blog = () => {
   const handleUnLikedHeartClick = async () => {
     setIsLiked(true);
 
+    console.log(auth);
+
     try {
-      const response = await fetch("https://api.ipify.org?format=json");
+      const response = await fetch("https://api.ipify.org/?format=json");
       const data = await response.json();
       userIpAddress = data.ip;
     } catch (error) {
@@ -82,7 +84,7 @@ const Blog = () => {
     }
 
     // update firebase
-    update(ref(db, `${auth.currentUser.uid}/${blogId}`), {
+    update(ref(db, `${process.env.REACT_APP_AUTHKEY}/${blogId}`), {
       data: {
         id: blogId,
         title: selectedBlog?.data?.title,
@@ -100,7 +102,7 @@ const Blog = () => {
   const handleLikedHeartClick = () => {
     setIsLiked(false);
     // update firebase
-    update(ref(db, `${auth.currentUser.uid}/${blogId}`), {
+    update(ref(db, `${process.env.REACT_APP_AUTHKEY}/${blogId}`), {
       data: {
         id: blogId,
         title: selectedBlog?.data?.title,
