@@ -11,11 +11,32 @@ import BlogHeaderAndFooter from "components/blogs/BlogHeaderAndFooter";
 import LinkModal from "./Portal";
 import useFetchData from "hooks/useFecthData";
 
+/**get ip address */
+
+const getIpAddress = async () => {
+  let ipAddress;
+  try {
+    const response = await fetch("https://api.ipify.org?format=json");
+    const data = await response.json();
+    ipAddress = data.ip;
+  } catch (error) {
+    console.error(error);
+  }
+
+  return ipAddress;
+};
+
 const Blog = () => {
   const { blogs } = useFetchData();
+  let newIpAddress;
+  // const [userIpAddress, setUserIpAddress] = useState("");
+  let userIpAddress;
   const [selectedBlog, setSelectedBlog] = useState([]);
   const [blogId, setBlogId] = useState(JSON.parse(getValueFromLS("blogId")));
-  const [likedCount, setLikedCount] = useState(selectedBlog?.data?.likedNum);
+  const [likedCount, setLikedCount] = useState(
+    selectedBlog && selectedBlog.data ? selectedBlog.data.likedNum : 0
+  );
+
   const [sharelink, setShareLink] = useState();
   const [isLiked, setIsLiked] = useState(false);
 
@@ -29,25 +50,37 @@ const Blog = () => {
     });
   }, [blogs, blogId]);
 
-  /** run hook to setting up the value of liked ==> true/false */
+  const checkIfUserlikedTheBlog = async () => {
+    try {
+      const response = await fetch("https://api.ipify.org?format=json");
+      const data = await response.json();
+      newIpAddress = data.ip;
+    } catch (error) {
+      console.error(error);
+    }
+
+    if (selectedBlog?.data?.UserIpAddress === newIpAddress) {
+      console.log("same");
+      setIsLiked(true);
+    }
+  };
+
   useEffect(() => {
-    setIsLiked(() => {
-      if (
-        JSON.parse(getValueFromLS("isliked"))?.includes(selectedBlog?.data?.id)
-      ) {
-        let valueFromLS = JSON.parse(getValueFromLS("isliked"))?.includes(
-          selectedBlog?.data?.id
-        );
-        let match = String(valueFromLS)?.match(/(false|true)$/);
-        return match[0];
-      } else {
-        return false;
-      }
-    });
-  }, []);
+    checkIfUserlikedTheBlog();
+  }, [selectedBlog]);
+
   // /** Increase the like */
-  const handleUnLikedHeartClick = () => {
+  const handleUnLikedHeartClick = async () => {
     setIsLiked(true);
+
+    try {
+      const response = await fetch("https://api.ipify.org?format=json");
+      const data = await response.json();
+      userIpAddress = data.ip;
+    } catch (error) {
+      console.error(error);
+    }
+
     // update firebase
     update(ref(db, `${auth.currentUser.uid}/${blogId}`), {
       data: {
@@ -56,13 +89,11 @@ const Blog = () => {
         summary: selectedBlog?.data?.summary,
         body: selectedBlog?.data?.body,
         likedNum: likedCount + 1,
+        UserIpAddress: userIpAddress,
       },
     });
     // updateing like
     setLikedCount((prev) => prev + 1);
-
-    // updating localstorage for is like
-    setValueToLS("isliked", `${selectedBlog?.data?.id}-true`);
   };
 
   // /** Decrease the like */
@@ -76,14 +107,12 @@ const Blog = () => {
         summary: selectedBlog?.data?.summary,
         body: selectedBlog?.data?.body,
         likedNum: likedCount - 1,
+        UserIpAddress: "",
       },
     });
 
     // updateing like
     setLikedCount((prev) => prev - 1);
-
-    // updating localstorage for is like
-    setValueToLS("isliked", `${selectedBlog?.data?.id}-false`);
   };
 
   // /** handle node click  show the links modal*/
