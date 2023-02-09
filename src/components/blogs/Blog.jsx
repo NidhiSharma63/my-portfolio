@@ -59,8 +59,14 @@ const Blog = () => {
       console.error(error);
     }
 
+    console.log(
+      selectedBlog?.data?.UserIpAddress,
+      "selectedBlog?.data?.UserIpAddress"
+    );
+
+    console.log(newIpAddress, "newIpAddress");
+
     if (selectedBlog?.data?.UserIpAddress === newIpAddress) {
-      console.log("same");
       setIsLiked(true);
     }
   };
@@ -72,8 +78,6 @@ const Blog = () => {
   // /** Increase the like */
   const handleUnLikedHeartClick = async () => {
     setIsLiked(true);
-
-    console.log(auth);
 
     try {
       const response = await fetch("https://api.ipify.org/?format=json");
