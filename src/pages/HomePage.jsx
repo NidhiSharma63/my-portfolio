@@ -6,7 +6,7 @@ import Skills from "components/home/Skills";
 import Process from "components/home/Process";
 import Work from "components/home/Work";
 import Contact from "components/home/Contact";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const HomePage = () => {
   return (
@@ -16,9 +16,10 @@ const HomePage = () => {
         <meta
           name="description"
           content={
-            " As a programmer, I am driven by a desire to create and innovate. I am a self-taught developer who has spent the past year learning programming through online resources and projects. I am currently interning at a software company, where I am gaining practical experience and developing my skills further"
+            " As a programmer, I am driven by a desire to create and innovate. I am a self-taught developer who has spent the past year learning programming through online resources and projects"
           }
         />
+        <link rel="canonical " href="/" />
       </Helmet>
       <Header />
       <Herobanner />

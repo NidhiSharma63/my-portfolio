@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import MarkdownLib from "components/common/MarkDown";
 import { uuidv4 } from "@firebase/util";
 import { getValueFromLS, setValueToLS } from "utlis/Localstorage";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import mainImg from "assets/images/Edited/my1.jpg";
-import { ref, update } from "firebase/database";
-import { auth, db } from "auth/auth";
 
 import BlogHeaderAndFooter from "components/blogs/BlogHeaderAndFooter";
-import LinkModal from "./Portal";
 import useFetchData from "hooks/useFecthData";
 
 const Blog = () => {

@@ -13,6 +13,7 @@ import Blog from "components/blogs/Blog";
 import { Provider } from "react-redux";
 import store from "store/store";
 import { getValueFromLS } from "utlis/Localstorage";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const rootElement = document.getElementById("root");
 
@@ -102,7 +103,16 @@ const router = createBrowserRouter([
 ]);
 
 if (rootElement.hasChildNodes()) {
-  ReactDOM.hydrate(<RouterProvider router={router} />, rootElement);
+  ReactDOM.hydrate(
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>,
+    rootElement
+  );
 } else {
-  root.render(<RouterProvider router={router} />);
+  root.render(
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
+  );
 }
