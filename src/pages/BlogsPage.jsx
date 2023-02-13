@@ -58,7 +58,7 @@ const BlogsPage = () => {
           content=" Here you'll find all the latest insights, tutorials and best practices
           from one passionate front-end developer"
         />
-        <link rel="canonical " href="/" />
+        <link rel="canonical " href="/blogs" />
       </Helmet>
       <div className="blog-header">
         <p>Nidhi</p>

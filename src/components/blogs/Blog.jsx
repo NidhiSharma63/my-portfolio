@@ -32,6 +32,10 @@ const Blog = () => {
           name="description"
           content={selectedBlog?.data?.summary.match(/.{1,170}/)[0]}
         />
+        <link
+          rel="canonical "
+          href={`/blog/${addSlug(selectedBlog?.data?.title)}`}
+        />
       </Helmet>
       <div className="main-wrapper">
         <BlogHeaderAndFooter>
