@@ -12,7 +12,7 @@ import { ref, remove } from "firebase/database";
 import { toast } from "react-toastify";
 import { setValueToLS, getValueFromLS } from "utlis/Localstorage";
 import useFetchData from "hooks/useFecthData";
-
+import { Helmet } from "react-helmet-async";
 const BlogsPage = () => {
   const { blogs } = useFetchData();
   const dispatch = useDispatch();
@@ -51,6 +51,15 @@ const BlogsPage = () => {
 
   return (
     <div className="main-blog-wrapper main-container">
+      <Helmet>
+        <title>Nidhi's Blog</title>
+        <meta
+          name="description"
+          content=" Here you'll find all the latest insights, tutorials and best practices
+          from one passionate front-end developer"
+        />
+        <link rel="canonical " href="/" />
+      </Helmet>
       <div className="blog-header">
         <p>Nidhi</p>
         <Link to="/">Home</Link>

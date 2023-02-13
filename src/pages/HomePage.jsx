@@ -15,9 +15,7 @@ const HomePage = () => {
         <title>Nidhi's portfolio</title>
         <meta
           name="description"
-          content={
-            " As a programmer, I am driven by a desire to create and innovate. I am a self-taught developer who has spent the past year learning programming through online resources and projects"
-          }
+          content=" As a programmer, I am driven by a desire to create and innovate. I am a self-taught developer who has spent the past year learning programming through online resources and projects"
         />
         <link rel="canonical " href="/" />
       </Helmet>

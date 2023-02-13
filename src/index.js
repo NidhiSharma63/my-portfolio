@@ -102,17 +102,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-// if (rootElement.hasChildNodes()) {
-//   ReactDOM.hydrate(
-//     <HelmetProvider>
-//       <RouterProvider router={router} />
-//     </HelmetProvider>,
-//     rootElement
-//   );
-// } else {
-
-// }
-
 root.render(
   <HelmetProvider>
     <RouterProvider router={router} />
