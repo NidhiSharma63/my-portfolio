@@ -30,7 +30,7 @@ const Blog = () => {
         <title>{selectedBlog?.data?.title}</title>
         <meta
           name="description"
-          content={selectedBlog?.data?.summary.replace(/<img.*?>/g, "")}
+          content={selectedBlog?.data?.summary.match(/.{1,170}/)[0]}
         />
       </Helmet>
       <div className="main-wrapper">
