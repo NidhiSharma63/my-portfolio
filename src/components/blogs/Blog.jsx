@@ -4,7 +4,7 @@ import { uuidv4 } from "@firebase/util";
 import { getValueFromLS, setValueToLS } from "utlis/Localstorage";
 import { Helmet } from "react-helmet-async";
 import mainImg from "assets/images/Edited/my1.jpg";
-
+import { Link } from "react-router-dom";
 import BlogHeaderAndFooter from "components/blogs/BlogHeaderAndFooter";
 import useFetchData from "hooks/useFecthData";
 
@@ -35,6 +35,7 @@ const Blog = () => {
         />
       </Helmet>
       <div className="main-wrapper">
+        <Link to="/">Home</Link>
         <BlogHeaderAndFooter>
           <div className="specific-blog-container">
             <MarkdownLib

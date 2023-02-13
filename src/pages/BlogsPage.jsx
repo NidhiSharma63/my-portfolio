@@ -113,21 +113,3 @@ const BlogsPage = () => {
 };
 
 export default BlogsPage;
-
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     // this is function to get data from firebase realtime.
-//     GetFirebaseData();
-//   } else {
-//     alert("you need to login");
-//   }
-// });
-
-// function GetFirebaseData() {
-//   const starCountRef = ref(db, "gv0XmbJt6WTU5UGUTCJHVezoxin2");
-//   onValue(starCountRef, (snapshot) => {
-//     const data = snapshot.val();
-
-//     console.log(data);
-//   });
-// }
