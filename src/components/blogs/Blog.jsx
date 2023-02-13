@@ -23,6 +23,7 @@ const Blog = () => {
     });
   }, [blogs, blogId]);
 
+  console.log(addSlug(selectedBlog?.data?.title));
   /** submit comment */
 
   return (
@@ -35,7 +36,7 @@ const Blog = () => {
           content={selectedBlog?.data?.summary.match(/.{1,170}/)[0]}
         />
         <link
-          rel="canonical "
+          rel="canonical"
           href={`/blog/${addSlug(selectedBlog?.data?.title)}`}
         />
       </Helmet>

@@ -1,4 +1,5 @@
 export default function addSlug(string) {
   const value = string;
-  return value.split(" ").join("-");
+  if (!value) return;
+  return value?.split(" ").join("-");
 }
