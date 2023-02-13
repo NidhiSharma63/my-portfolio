@@ -7,6 +7,8 @@ import mainImg from "assets/images/Edited/my1.jpg";
 import BlogHeaderAndFooter from "components/blogs/BlogHeaderAndFooter";
 import useFetchData from "hooks/useFecthData";
 
+import addSlug from "utlis/addSlug";
+
 const Blog = () => {
   const { blogs } = useFetchData();
   const [selectedBlog, setSelectedBlog] = useState([]);
