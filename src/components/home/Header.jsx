@@ -50,7 +50,7 @@ const Navbar = () => {
               <a href="#Work">work</a>
             </li>
             <li>
-              <a target="blank" to={APP_ENDPOINTS.Blogs}>
+              <a target="blank" href={"https://medium.com/@nidhisharma639593"}>
                 Blogs
               </a>
             </li>
