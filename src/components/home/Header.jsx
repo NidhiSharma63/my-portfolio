@@ -21,8 +21,7 @@ const Navbar = () => {
     const AddBoxShadowToNav = () => {
       if (window.scrollY > 40) {
         setWindowScroll(window.scrollY);
-        headerWrapper.style.boxShadow =
-          "0px 10px 6px 0px rgba(202, 202, 202, 0.055)";
+        headerWrapper.style.boxShadow = "0px 10px 6px 0px rgba(202, 202, 202, 0.055)";
       } else {
         headerWrapper.style.boxShadow = "none";
       }
@@ -51,7 +50,9 @@ const Navbar = () => {
               <a href="#Work">work</a>
             </li>
             <li>
-              <Link to={APP_ENDPOINTS.Blogs}>Blogs</Link>
+              <a target="blank" to={APP_ENDPOINTS.Blogs}>
+                Blogs
+              </a>
             </li>
             <li>
               <a href="#Contact">contact me</a>

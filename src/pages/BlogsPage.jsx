@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { uuidv4 } from "@firebase/util";
 import * as cheerio from "cheerio";
 import { Link } from "react-router-dom";
@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import addSlug from "utlis/addSlug";
 import { setEditBlogUuid, setEditblog, setIsEdit } from "store/blogSlice";
-import { auth, db } from "auth/auth";
 import { ref, remove } from "firebase/database";
 import { toast } from "react-toastify";
 import { setValueToLS, getValueFromLS } from "utlis/Localstorage";
@@ -67,13 +66,10 @@ const BlogsPage = () => {
       <div className="blog-intro">
         <h1>Welcome to the Front-end Development Blog! </h1>
         <p>
-          Here you'll find all the latest insights, tutorials and best practices
-          from one passionate front-end developer. From modern JavaScript
-          frameworks to design trends, this blog is your go-to destination for
-          staying up to date with the constantly evolving front-end development
-          landscape. Dive into our latest posts. We hope you find our content
-          informative and enjoyable and look forward to sharing our knowledge
-          with you.
+          Here you'll find all the latest insights, tutorials and best practices from one passionate front-end
+          developer. From modern JavaScript frameworks to design trends, this blog is your go-to destination for staying
+          up to date with the constantly evolving front-end development landscape. Dive into our latest posts. We hope
+          you find our content informative and enjoyable and look forward to sharing our knowledge with you.
         </p>
       </div>
       <div className="blog-list-container">
@@ -87,13 +83,10 @@ const BlogsPage = () => {
               key={uuidv4()}
               onClick={() => {
                 handleClick(blog[1]);
-              }}
-            >
+              }}>
               <div>
                 <h1 className="title">{blog[1]?.data?.title}</h1>
-                <p className="body">
-                  {cheerio.load(blog[1]?.data?.summary).text($("body"))}
-                </p>
+                <p className="body">{cheerio.load(blog[1]?.data?.summary).text($("body"))}</p>
                 {JSON.parse(getValueFromLS("role")) === "admin" ? (
                   <div className="icons-container">
                     {" "}
@@ -101,14 +94,12 @@ const BlogsPage = () => {
                       className="fa-sharp fa-solid fa-trash red"
                       onClick={(e) => {
                         deleteBlog(e, blog[1].data.id);
-                      }}
-                    ></i>
+                      }}></i>
                     <i
                       className="fa-solid fa-pen-to-square green"
                       onClick={(e) => {
                         handleEditClick(e, blog[1]);
-                      }}
-                    ></i>
+                      }}></i>
                   </div>
                 ) : null}
               </div>

@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { uuidv4 } from "@firebase/util";
 import { useSelector } from "react-redux";
-import { auth, db } from "auth/auth";
 
 import { blogDataInStore } from "store/blogSlice";
 import { set, ref, update } from "firebase/database";
@@ -63,8 +62,7 @@ const Markdown = () => {
           innerRef={formikRef}
           initialValues={markDownInitailValues}
           onSubmit={handleSubmit}
-          validationSchema={MarkdownValidation}
-        >
+          validationSchema={MarkdownValidation}>
           {({ values }) => (
             <Form>
               <label htmlFor="title">Title</label>
@@ -79,11 +77,7 @@ const Markdown = () => {
                 value={values.body}
                 onChange={(e) => handleChange(e)}
               />
-              {isEdit ? (
-                <button type="submit">Save Edit</button>
-              ) : (
-                <button type="submit">Save</button>
-              )}
+              {isEdit ? <button type="submit">Save Edit</button> : <button type="submit">Save</button>}
             </Form>
           )}
         </Formik>
