@@ -29,7 +29,6 @@ const Work = () => {
             <div className="project translate-up" key={index}>
               <div className="project-images">
                 <img src={item.image1} alt="project" />
-                <img src={item.image2} alt="project" className="project-img2" />
               </div>
               <div className="project-info">
                 <p>{item.projectName}</p>

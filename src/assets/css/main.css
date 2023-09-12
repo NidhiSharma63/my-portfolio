@@ -761,7 +761,6 @@
 .work-wrapper .bottom-section .project .project-images {
   width: inherit;
   position: relative;
-  padding-bottom: 10rem;
   margin: 1rem;
   z-index: 2;
 }
@@ -769,7 +768,8 @@
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  width: 300px;
+  height: 100%;
+  border-radius: 0.3rem;
 }
 .work-wrapper .bottom-section .project .project-images .project-img2 {
   position: absolute;
@@ -893,12 +893,6 @@
   }
 }
 @media screen and (max-width: 1050px) {
-  .work-wrapper .bottom-section .project .project-images img {
-    width: 200px;
-  }
-  .work-wrapper .bottom-section .project .project-images .project-img2 {
-    left: 18rem;
-  }
   .work-wrapper .bottom-section .project .project-info {
     width: 100%;
   }
@@ -914,17 +908,6 @@
     padding: 3rem 0rem;
     gap: 3rem;
   }
-  .work-wrapper .bottom-section .project .project-images img {
-    width: 236px;
-    margin: auto;
-    position: relative;
-    left: 12rem;
-    height: 32rem;
-  }
-  .work-wrapper .bottom-section .project .project-images .project-img2 {
-    left: 4rem;
-    top: 10rem;
-  }
   .work-wrapper .bottom-section .project .project-info {
     align-items: center;
     text-align: center;
@@ -937,14 +920,6 @@
   .work-wrapper .bottom-section .project:nth-child(3)::before,
   .work-wrapper .bottom-section .project:nth-child(4)::before {
     display: none;
-  }
-  .work-wrapper .bottom-section .project-images img {
-    width: 200px;
-    left: 15rem;
-  }
-  .work-wrapper .bottom-section .project-images .project-img2 {
-    left: 6rem;
-    top: 10rem;
   }
   .work-wrapper .bottom-section .project .project-info {
     align-items: center;
