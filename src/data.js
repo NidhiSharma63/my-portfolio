@@ -1,7 +1,7 @@
-import tmgif from "./assets/images/tm.gif";
-import cggif from "./assets/images/cg.gif";
-import youtube from "./assets/images/youtube .gif";
 import exgif from "./assets/images/ex.gif";
+import sggif from "./assets/images/sg.gif";
+import tmgif from "./assets/images/tm.gif";
+import youtube from "./assets/images/youtube .gif";
 
 export const projectData = [
   {
@@ -12,11 +12,11 @@ export const projectData = [
     github: "https://github.com/NidhiSharma63/task-master",
   },
   {
-    image1: `${cggif}`,
-    projectName: `Car game`,
-    projectDesc: `This is a car game that I built with HTML, CSS, and JavaScript. By using the arrow keys, you can control the car. It's not responsive.`,
-    live: "https://nidhisharma63.github.io/Car_game/",
-    github: "https://github.com/NidhiSharma63/Car_game",
+    image1: `${sggif}`,
+    projectName: `Snapgram`,
+    projectDesc: `This is a intagram clone that is have made using MERN stack with typescript. It provides all the instagram functionality and it is fully responsive.`,
+    live: "https://snapgram-green.vercel.app/",
+    github: "https://github.com/NidhiSharma63/Snap-share",
   },
   {
     image1: `${youtube}`,
