@@ -7,7 +7,7 @@ export const projectData = [
   {
     image1: `${tmgif}`,
     projectName: `Task Master`,
-    projectDesc: `The app is task Manager app built using MUI, React, Mongodb,Node, Express. Here you can create task and their subtask also `,
+    projectDesc: `The app is task Manager app built using MUI, React, Mongodb,Node, Express. Here you can create task with uploading images and managed your daily routine. `,
     live: "https://task-master-eosin.vercel.app/",
     github: "https://github.com/NidhiSharma63/task-master",
   },
@@ -16,7 +16,7 @@ export const projectData = [
     projectName: `Snapgram`,
     projectDesc: `This is a intagram clone that is have made using MERN stack with typescript. It provides all the instagram functionality and it is fully responsive.`,
     live: "https://snapgram-green.vercel.app/",
-    github: "https://github.com/NidhiSharma63/Snap-share",
+    github: "https://github.com/NidhiSharma63/snapgram",
   },
   {
     image1: `${youtube}`,
