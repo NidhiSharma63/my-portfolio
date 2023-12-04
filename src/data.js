@@ -1,11 +1,11 @@
 import exgif from "./assets/images/ex.gif";
 import sggif from "./assets/images/sg.gif";
-import tmgif from "./assets/images/tm.gif";
+import tm1gif from "./assets/images/tm1.gif";
 import youtube from "./assets/images/youtube .gif";
 
 export const projectData = [
   {
-    image1: `${tmgif}`,
+    image1: `${tm1gif}`,
     projectName: `Task Master`,
     projectDesc: `The app is task Manager app built using MUI, React, Mongodb,Node, Express. Here you can create task with uploading images and managed your daily routine. `,
     live: "https://task-master-eosin.vercel.app/",
