@@ -851,39 +851,30 @@
   content: "";
   width: 56rem;
   height: 131%;
-  background-image: url("../images//pf1.png");
+  background-image: url("../images//tmSS.png");
   background-position: center;
   background-size: cover;
   z-index: -1;
-  opacity: 0.1;
+  opacity: 0.3;
   transform: rotate(346deg);
 }
 .work-wrapper .bottom-section .project:first-child::before,
 .work-wrapper .bottom-section .project:nth-child(2)::before,
 .work-wrapper .bottom-section .project:nth-child(3)::before,
 .work-wrapper .bottom-section .project:nth-child(4)::before {
-  background-image: url("../images//pf2.png");
+  background-image: url("../images//tmSS.png");
   right: -127px;
   left: auto;
   transform: rotate(9deg);
 }
 .work-wrapper .bottom-section .project:nth-child(2)::before {
-  background-image: url("../images//gm1.png");
-}
-.work-wrapper .bottom-section .project:nth-child(2)::after {
-  background-image: url("../images//gm2.png");
+  background-image: url("../images//sgSS.png");
 }
 .work-wrapper .bottom-section .project:nth-child(3)::before {
-  background-image: url("../images//ex1.png");
-}
-.work-wrapper .bottom-section .project:nth-child(3)::after {
-  background-image: url("../images//ex2.png");
+  background-image: url("../images//ytSS.png");
 }
 .work-wrapper .bottom-section .project:nth-child(4)::before {
-  background-image: url("../images//car1.png");
-}
-.work-wrapper .bottom-section .project:nth-child(4)::after {
-  background-image: url("../images//car2.png");
+  background-image: url("../images//ex1.png");
 }
 
 @media screen and (max-width: 1250px) {
