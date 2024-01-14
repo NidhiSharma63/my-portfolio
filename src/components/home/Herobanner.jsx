@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 
 import mainImg from "assets/images/Edited/my1.jpg";
 
-import { translateAnim } from "assets/js/main";
+import {translateAnim} from "assets/js/main";
 let Image = {
   selector: "right-section",
   classes: "translate-right",
@@ -19,21 +19,18 @@ const Herobanner = () => {
         <div className="left-section">
           <p>Hii, I Am</p>
           <p>Nidhi Sharma</p>
-          <p>
-            A frontend developer who turns imagination into reality by using
-            code and loves to listen to music 
-          </p>
+          <p>A frontend developer who turns imagination into reality by using code and loves to listen to music </p>
           <div className="hero-btn-wrapper">
             <button>
               <a href="#Work">Checkout my work</a>
             </button>
-            <button>
+            <button onClick={handleDownload}>
               <a
                 target="blank"
-                href="https://drive.google.com/file/d/1iCy2lPL_2r80uX0ej2DbIU6dS6AhB0P1/view?usp=sharing"
-              >
+                href="https://drive.google.com/file/d/1M5Khz25gB_7ujybGXqpoGbQXOqYDFJBu/view?usp=sharing">
                 Get resume
               </a>
+              Get resume
             </button>
           </div>
         </div>
@@ -46,10 +43,7 @@ const Herobanner = () => {
             <a target="blank" href="https://github.com/NidhiSharma63">
               <i className="fa-brands fa-square-github"></i>
             </a>
-            <a
-              target="blank"
-              href="https://www.linkedin.com/in/nidhi-sharma-55329823b/"
-            >
+            <a target="blank" href="https://www.linkedin.com/in/nidhi-sharma-55329823b/">
               <i className="fa-brands fa-linkedin"></i>
             </a>
             <a target="blank" href="https://twitter.com/NidhiSh57914602">
