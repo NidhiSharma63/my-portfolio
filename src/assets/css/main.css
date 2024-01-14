@@ -473,7 +473,7 @@
   flex-direction: row;
   position: absolute;
   border-radius: 50%;
-  content: "Html";
+  content: "JS";
   height: 90%;
   width: 90%;
   background-color: var(--main-bg);
@@ -486,15 +486,15 @@
   text-align: center;
 }
 .skill-wrapper .left-section .skill-icon:nth-child(2)::before {
-  content: "Css";
+  content: "React";
   animation-delay: 0.4s;
 }
 .skill-wrapper .left-section .skill-icon:nth-child(3)::before {
-  content: "Js";
+  content: "Tailwind";
   animation-delay: 0.7s;
 }
 .skill-wrapper .left-section .skill-icon:nth-child(4)::before {
-  content: "React.js";
+  content: "TS";
   font-size: 1.6rem;
   animation-delay: 0.8s;
 }

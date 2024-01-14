@@ -51,7 +51,7 @@
       @include flex($alignItems:center, $justifyContent:center, $flexDirection:row);
       position: absolute;
       border-radius: 50%;
-      content: 'Html';
+      content: 'JS';
       height: 90%;
       width: 90%;
       background-color: var(--main-bg);
@@ -63,15 +63,15 @@
     }
 
     .skill-icon:nth-child(2)::before{
-      content: 'Css';
+      content: 'React';
       animation-delay: .4s;
     }
     .skill-icon:nth-child(3)::before{
-      content: 'Js';
+      content: 'Tailwind';
       animation-delay: .7s;
     }
     .skill-icon:nth-child(4)::before{
-      content: 'React.js';
+      content: 'TS';
       font-size: 1.6rem;
       animation-delay: .8s;
     }

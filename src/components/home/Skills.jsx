@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { translateAnim } from "assets/js/main";
+import {translateAnim} from "assets/js/main";
+import React, {useEffect} from "react";
 
 let container3 = {
   selector: "container-3",
@@ -26,8 +26,9 @@ const Skills = () => {
         <div className="right-section">
           <div className="heading">Here are my skills</div>
           <div className="skills-info">
-            My skills are JavaScript, HTML, and CSS. I have learned frameworks
-            like Bootstrap,Material UI, Tailwind, and also Git and Figma.
+            I have following skills in my skill set <strong>JavaScript</strong>, HTML, <strong>React</strong>,
+            Bootstrap, Material UI, <strong>Tailwind</strong>, <strong>Redux</strong>, React-tankstack query, Graphql,
+            <strong> Apollo client</strong> and git.
           </div>
         </div>
       </div>

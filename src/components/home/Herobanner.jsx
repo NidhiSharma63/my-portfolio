@@ -24,13 +24,12 @@ const Herobanner = () => {
             <button>
               <a href="#Work">Checkout my work</a>
             </button>
-            <button onClick={handleDownload}>
+            <button>
               <a
                 target="blank"
                 href="https://drive.google.com/file/d/1M5Khz25gB_7ujybGXqpoGbQXOqYDFJBu/view?usp=sharing">
                 Get resume
               </a>
-              Get resume
             </button>
           </div>
         </div>
