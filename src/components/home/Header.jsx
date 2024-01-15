@@ -1,6 +1,6 @@
 import APP_ENDPOINTS from "constant/App_And_Point";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
 
 const Navbar = () => {
   const [windowScroll, setWindowScroll] = useState(0);

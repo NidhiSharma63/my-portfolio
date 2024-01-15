@@ -2,9 +2,7 @@ import HomePage from "pages/HomePage";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {HelmetProvider} from "react-helmet-async";
-import {Provider} from "react-redux";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import store from "store/store";
 import "./assets/css/main.css";
 import Errorpage from "./components/Notfound/Errorpage";
 import APP_ENDPOINTS from "./constant/App_And_Point";
@@ -19,19 +17,11 @@ if (window !== window.top) {
   const router = createBrowserRouter([
     {
       path: APP_ENDPOINTS.My_PORTFOLIO || APP_ENDPOINTS.ROOT,
-      element: (
-        <Provider store={store}>
-          <HomePage />
-        </Provider>
-      ),
+      element: <HomePage />,
     },
     {
       path: APP_ENDPOINTS.ROOT,
-      element: (
-        <Provider store={store}>
-          <HomePage />
-        </Provider>
-      ),
+      element: <HomePage />,
     },
     {
       path: "*",

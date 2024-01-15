@@ -10,6 +10,14 @@
       content="Web site created using create-react-app"
       data-rh=true
     />
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self'; 
+    img-src 'self' https://deploy-preview-12--sensational-bienenstitch-4b09b2.netlify.app; 
+    frame-src https://app.netlify.com/;
+    font-src fonts.gstatic.com https://cdnjs.cloudflare.com;
+    style-src 'self' fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline';
+    script-src 'self' https://netlify-cdp-loader.netlify.app https://api.emailjs.com;
+    connect-src 'self' https://cdnjs.cloudflare.com https://api.emailjs.com; ">
     
       <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     
